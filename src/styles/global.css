@@ -38,7 +38,8 @@ body {
 }
 
 html.dark body {
-  @apply bg-neutral-950 text-neutral-400;
+  @apply bg-neutral-950;
+  color: #a3a3a3;
 }
 
 /* British Racing Green theme */
@@ -140,21 +141,21 @@ html.green button:hover {
   color: #d4d4d4;
 }
 
-/* Dark theme overrides */
+/* Dark theme overrides - improved contrast */
 html.dark .dark\:text-white {
   color: #fff;
 }
 
 html.dark .dark\:text-neutral-400 {
-  color: #a3a3a3;
+  color: #d4d4d4;
 }
 
 html.dark .dark\:text-neutral-500 {
-  color: #737373;
+  color: #a3a3a3;
 }
 
 html.dark .dark\:text-neutral-700 {
-  color: #404040;
+  color: #525252;
 }
 
 /* Green theme overrides */
