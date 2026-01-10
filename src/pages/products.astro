@@ -1,0 +1,98 @@
+---
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+---
+
+<PageLayout title="Products" description="Tools and projects in development from Gauges Green">
+  <Container>
+    <div class="space-y-12">
+      <section class="animate">
+        <h1 class="text-xl font-medium text-black dark:text-white" data-i18n="products_title">Products</h1>
+      </section>
+
+      <section class="animate">
+        <p class="text-sm" data-i18n="products_subtitle">Building in private.</p>
+      </section>
+
+      <section class="animate">
+        <form
+          name="testflight"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/products?success=true"
+          class="space-y-4 max-w-xs"
+          id="testflight-form"
+        >
+          <input type="hidden" name="form-name" value="testflight" />
+          <p class="hidden" aria-hidden="true"><input name="bot-field" tabindex="-1" /></p>
+
+          <div>
+            <!-- Label above input, not placeholder as label -->
+            <label for="email" class="block text-sm text-black dark:text-white mb-1.5" data-i18n="products_email_label">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@company.com"
+              aria-describedby="email-hint"
+              class="w-full px-3 py-2 text-sm bg-transparent border border-neutral-300 dark:border-neutral-700 rounded focus:border-black dark:focus:border-white"
+            />
+            <p id="email-hint" class="sr-only">We'll use this to send TestFlight invites</p>
+          </div>
+
+          <button
+            type="submit"
+            class="text-sm text-black dark:text-white hover:opacity-60 transition-opacity"
+          >
+            <span data-i18n="products_cta">Request TestFlight access</span>
+            <span class="ml-1" aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <!-- Success state (shown after submission) -->
+        <div id="success-message" class="hidden space-y-1">
+          <p class="text-sm text-black dark:text-white">Thanks.</p>
+          <p class="text-sm">We'll be in touch.</p>
+        </div>
+      </section>
+    </div>
+  </Container>
+</PageLayout>
+
+<script>
+  const form = document.getElementById('testflight-form') as HTMLFormElement | null;
+  const successMessage = document.getElementById('success-message');
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Show success state if redirected back after submission
+  if (urlParams.get('success') === 'true') {
+    if (form) form.classList.add('hidden');
+    if (successMessage) {
+      successMessage.classList.remove('hidden');
+      // Announce to screen readers
+      successMessage.setAttribute('role', 'status');
+      successMessage.setAttribute('aria-live', 'polite');
+    }
+  }
+
+  // Form validation feedback
+  form?.addEventListener('submit', (e) => {
+    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
+    if (!emailInput.validity.valid) {
+      e.preventDefault();
+      emailInput.focus();
+    }
+  });
+
+  // Enter to submit when focused on form
+  form?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target instanceof HTMLInputElement) {
+      form.requestSubmit();
+    }
+  });
+</script>

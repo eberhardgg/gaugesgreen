@@ -1,81 +1,61 @@
 ---
 import Container from "@components/Container.astro";
-import Link from "@components/Link.astro";
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header>
+<header class="pt-16 pb-8">
   <Container>
-    <div class="flex flex-wrap gap-y-2 justify-between items-center">
-      <Link href="/" underline={false}>
-        <div class="flex items-center gap-3">
-          <img src="/logo.png" alt="Gauges Green" class="w-8 h-8" />
-          <span class="font-semibold text-black dark:text-white">
-            Gauges Green
-          </span>
-        </div>
-      </Link>
-      <div class="flex items-center gap-2">
-        <button
-          id="lang-en"
-          class="px-1.5 py-1 text-sm rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-          aria-label="English"
-          title="English"
-        >
-          🇬🇧
-        </button>
-        <button
-          id="lang-es"
-          class="px-1.5 py-1 text-sm rounded hover:bg-black/5 dark:hover:bg-white/10 transition-colors opacity-40"
-          aria-label="Español"
-          title="Español"
-        >
-          🇲🇽
-        </button>
-        <span class="text-black/20 dark:text-white/20 mx-1">|</span>
-        <Link href="mailto:eberhard@gaugesgreen.com">
-          contact
-        </Link>
-      </div>
-    </div>
+    <nav class="text-sm" aria-label="Main navigation">
+      <a
+        href="/"
+        class:list={[
+          "hover:text-black dark:hover:text-white transition-colors",
+          currentPath === "/" && "text-black dark:text-white"
+        ]}
+      >
+        gauges green
+      </a>
+      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
+      <a
+        href="/services"
+        class:list={[
+          "hover:text-black dark:hover:text-white transition-colors",
+          currentPath === "/services" && "text-black dark:text-white"
+        ]}
+      >
+        services
+      </a>
+      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
+      <a
+        href="/products"
+        class:list={[
+          "hover:text-black dark:hover:text-white transition-colors",
+          currentPath === "/products" && "text-black dark:text-white"
+        ]}
+      >
+        products
+      </a>
+      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
+      <a
+        href="/about"
+        class:list={[
+          "hover:text-black dark:hover:text-white transition-colors",
+          currentPath === "/about" && "text-black dark:text-white"
+        ]}
+      >
+        about
+      </a>
+      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
+      <a
+        href="/contact"
+        class:list={[
+          "hover:text-black dark:hover:text-white transition-colors",
+          currentPath === "/contact" && "text-black dark:text-white"
+        ]}
+      >
+        contact
+      </a>
+    </nav>
   </Container>
 </header>
-
-<script>
-  const langEn = document.getElementById('lang-en');
-  const langEs = document.getElementById('lang-es');
-
-  function setLang(lang: string) {
-    document.documentElement.setAttribute('lang', lang);
-    localStorage.setItem('lang', lang);
-
-    if (lang === 'en') {
-      langEn?.classList.remove('opacity-40');
-      langEs?.classList.add('opacity-40');
-    } else {
-      langEs?.classList.remove('opacity-40');
-      langEn?.classList.add('opacity-40');
-    }
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (key && (window as any).translations?.[lang]?.[key]) {
-        el.textContent = (window as any).translations[lang][key];
-      }
-    });
-
-    document.querySelectorAll('[data-i18n-html]').forEach(el => {
-      const key = el.getAttribute('data-i18n-html');
-      if (key && (window as any).translations?.[lang]?.[key]) {
-        el.innerHTML = (window as any).translations[lang][key];
-      }
-    });
-  }
-
-  langEn?.addEventListener('click', () => setLang('en'));
-  langEs?.addEventListener('click', () => setLang('es'));
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('lang') || 'en';
-    setLang(savedLang);
-  });
-</script>

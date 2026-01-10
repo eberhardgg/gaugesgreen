@@ -1,0 +1,69 @@
+---
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+---
+
+<PageLayout title="Services" description="Fractional Product & Growth Leadership for Scaling Startups">
+  <Container>
+    <div class="space-y-12">
+      <section class="animate">
+        <h1 class="text-xl font-medium text-black dark:text-white" data-i18n="services_title">Services</h1>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="text-sm font-medium text-black dark:text-white" data-i18n="who_title">Who I work with</h2>
+        <p class="text-sm" data-i18n="who_text">
+          Series A/B companies a few quarters post-fundraise where growth or product KPIs are falling short of plan. Founders who want a fast diagnosis and hands-on execution, especially on the product and engineering side—and where those functions need tighter integration with GTM.
+        </p>
+        <p class="text-sm font-medium text-black dark:text-white" data-i18n="who_fit">Especially strong fit for:</p>
+        <ul class="text-sm list-disc list-inside space-y-1 opacity-80" data-i18n-html="who_list">
+          <li>Companies that have built their first product and engineering team and are disappointed in the results</li>
+          <li>LatAm companies preparing to enter the US market</li>
+          <li>Sub-scale teams where there's a talent cliff below the founder</li>
+          <li>Marketplaces and B2B SaaS with complex activation or retention dynamics</li>
+        </ul>
+        <p class="text-sm" data-i18n="who_later">
+          I also work with later-stage companies facing similar challenges—my experience scaling ZipRecruiter through IPO means I'm comfortable operating at that level of complexity.
+        </p>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="text-sm font-medium text-black dark:text-white" data-i18n="what_title">What I do</h2>
+        <p class="text-sm" data-i18n="what_text">
+          Most companies I work with have a similar problem: product is shipping but growth isn't responding. I find the disconnect—usually between what's being built and what customers or GTM actually need—and fix it. I've helped companies double product velocity, cut burn by 50%, and unlock millions in expansion revenue by connecting product execution to the metrics that matter.
+        </p>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="text-sm font-medium text-black dark:text-white" data-i18n="how_title">How engagements work</h2>
+        <div class="text-sm space-y-3">
+          <div>
+            <p class="font-medium text-black dark:text-white" data-i18n="how_q1_title">Quarter 1</p>
+            <p data-i18n="how_q1_text">Diagnosis: growth model audit, GTM teardown, org and talent assessment, metric alignment</p>
+          </div>
+          <div>
+            <p class="font-medium text-black dark:text-white" data-i18n="how_q24_title">Quarters 2–4</p>
+            <p data-i18n="how_q24_text">Execution: prioritized fixes, process standup, hiring upgrades, AI/automation where it creates leverage</p>
+          </div>
+        </div>
+        <p class="text-sm" data-i18n="how_scope">
+          Engagements have a defined scope and I deliver hands-on, not through decks that sit in a drawer.
+        </p>
+      </section>
+
+      <section class="animate space-y-4">
+        <h2 class="text-sm font-medium text-black dark:text-white" data-i18n="dont_title">What I don't do</h2>
+        <p class="text-sm" data-i18n="dont_text">
+          I don't take advisory-only roles or impose heavyweight frameworks. I embed, move fast, and aim to make myself unnecessary.
+        </p>
+      </section>
+
+      <section class="animate">
+        <p class="text-sm">
+          <a href="/contact" class="text-black dark:text-white hover:opacity-60" data-i18n="services_cta">Let's talk</a>
+          <span class="mx-1">→</span>
+        </p>
+      </section>
+    </div>
+  </Container>
+</PageLayout>

@@ -18,10 +18,35 @@ const { title, description } = Astro.props;
     <Head title={`${title} | ${SITE.NAME}`} description={description} />
   </head>
   <body>
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
+
+    <script is:inline src="/scripts/i18n.js"></script>
+    <script is:inline>
+      // Animate elements on load (respects reduced motion via CSS)
+      document.addEventListener('DOMContentLoaded', () => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const delay = prefersReducedMotion ? 0 : 50;
+
+        document.querySelectorAll('.animate').forEach((el, i) => {
+          setTimeout(() => el.classList.add('show'), i * delay);
+        });
+      });
+
+      // Keyboard navigation: Escape to go back/home
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !e.target.closest('input, textarea')) {
+          if (window.location.pathname !== '/') {
+            window.location.href = '/';
+          }
+        }
+      });
+    </script>
   </body>
 </html>

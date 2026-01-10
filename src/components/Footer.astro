@@ -1,94 +1,109 @@
 ---
 import Container from "@components/Container.astro";
-import BackToTop from "@components/BackToTop.astro";
-import Link from "@components/Link.astro";
 ---
 
-<footer class="animate">
+<footer class="py-16">
   <Container>
-    <div class="relative">
-      <div class="absolute right-0 -top-20">
-        <BackToTop />
+    <div class="text-sm space-y-4">
+      <div class="opacity-40">
+        <button
+          id="theme-toggle"
+          class="hover:opacity-100 transition-opacity"
+          aria-label="Toggle dark mode"
+        >
+          <span id="theme-label">dark</span>
+        </button>
+        <span class="mx-2" aria-hidden="true">·</span>
+        <button
+          id="lang-toggle"
+          class="hover:opacity-100 transition-opacity"
+          aria-label="Toggle language"
+        >
+          <span id="lang-label">es</span>
+        </button>
       </div>
-    </div>
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-      <div class="text-xs opacity-75">
+      <div class="opacity-30 text-xs">
         &copy; {new Date().getFullYear()} Gauges Green
-        <span class="mx-2">·</span>
-        Built with <Link href="https://astro.build" external>Astro</Link>
-      </div>
-      <div class="flex flex-wrap gap-1 items-center">
-        <button
-          id="light-theme-button"
-          aria-label="Light theme"
-          class="group size-8 flex items-center justify-center rounded-full"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="group-hover:stroke-black group-hover:dark:stroke-white transition-colors duration-300 ease-in-out"
-          >
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </button>
-        <button
-          id="dark-theme-button"
-          aria-label="Dark theme"
-          class="group size-8 flex items-center justify-center rounded-full"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="group-hover:stroke-black group-hover:dark:stroke-white transition-colors duration-300 ease-in-out"
-          >
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <button
-          id="system-theme-button"
-          aria-label="System theme"
-          class="group size-8 flex items-center justify-center rounded-full"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="group-hover:stroke-black group-hover:dark:stroke-white transition-colors duration-300 ease-in-out"
-          >
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-            <line x1="8" y1="21" x2="16" y2="21"></line>
-            <line x1="12" y1="17" x2="12" y2="21"></line>
-          </svg>
-        </button>
       </div>
     </div>
   </Container>
 </footer>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeLabel = document.getElementById('theme-label');
+
+  function setTheme(dark: boolean) {
+    if (dark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      if (themeLabel) themeLabel.textContent = 'light';
+      themeToggle?.setAttribute('aria-pressed', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      if (themeLabel) themeLabel.textContent = 'dark';
+      themeToggle?.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(!isDark);
+  });
+
+  // Keyboard: Enter or Space to toggle
+  themeToggle?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      themeToggle.click();
+    }
+  });
+
+  // Initialize theme
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  setTheme(isDark);
+
+  // Language toggle
+  const langToggle = document.getElementById('lang-toggle');
+  const langLabel = document.getElementById('lang-label');
+
+  function setLang(lang: string) {
+    localStorage.setItem('lang', lang);
+    if (langLabel) langLabel.textContent = lang === 'en' ? 'es' : 'en';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key && (window as any).translations?.[lang]?.[key]) {
+        el.textContent = (window as any).translations[lang][key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key && (window as any).translations?.[lang]?.[key]) {
+        el.innerHTML = (window as any).translations[lang][key];
+      }
+    });
+  }
+
+  langToggle?.addEventListener('click', () => {
+    const current = localStorage.getItem('lang') || 'en';
+    setLang(current === 'en' ? 'es' : 'en');
+  });
+
+  // Keyboard: Enter or Space to toggle
+  langToggle?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      langToggle.click();
+    }
+  });
+
+  // Initialize language
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLang(savedLang);
+</script>
