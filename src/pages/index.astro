@@ -6,35 +6,46 @@ import { HOME } from "@consts";
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <div class="space-y-8">
+    <div class="space-y-16">
+      <!-- Tagline -->
       <section class="animate">
-        <p class="text-sm opacity-50" data-i18n="home_brand_line">Ryan Eberhard's product & growth practice</p>
-      </section>
-
-      <section class="animate">
-        <h1 class="text-xl font-medium text-black dark:text-white leading-snug" data-i18n="tagline">
+        <p class="text-sm text-neutral-400 dark:text-neutral-500 mb-4" data-i18n="home_brand_line">
+          Ryan Eberhard's product & growth practice
+        </p>
+        <h1 class="text-lg font-medium text-black dark:text-white leading-relaxed" data-i18n="tagline">
           Fractional Product & Growth Leadership for Scaling Startups
         </h1>
       </section>
 
+      <!-- Navigation cards -->
       <section class="animate">
-        <p class="text-sm">
-          <a href="/services" class="text-black dark:text-white hover:opacity-60">services</a>
-          <span class="mx-2 opacity-30">·</span>
-          <a href="/products" class="text-black dark:text-white hover:opacity-60">products</a>
-        </p>
+        <div class="space-y-3 text-sm">
+          <a href="/services" class="block text-black dark:text-white hover:opacity-60 transition-opacity">
+            <span data-i18n="home_services_title">Services</span>
+            <span class="ml-2 text-neutral-400 dark:text-neutral-500" aria-hidden="true">→</span>
+          </a>
+          <a href="/products" class="block text-black dark:text-white hover:opacity-60 transition-opacity">
+            <span data-i18n="home_products_title">Products</span>
+            <span class="ml-2 text-neutral-400 dark:text-neutral-500" aria-hidden="true">→</span>
+          </a>
+        </div>
       </section>
 
-      <section class="animate pt-8">
-        <div class="text-sm space-y-1">
-          <p class="text-black dark:text-white">Ryan Eberhard</p>
+      <!-- Contact -->
+      <section class="animate">
+        <div class="text-sm space-y-2">
+          <p class="font-medium text-black dark:text-white">Ryan Eberhard</p>
           <p>
-            <a href="mailto:eberhard@gaugesgreen.com" class="hover:text-black dark:hover:text-white">eberhard@gaugesgreen.com</a>
+            <a href="mailto:eberhard@gaugesgreen.com" class="hover:text-black dark:hover:text-white transition-colors">
+              eberhard@gaugesgreen.com
+            </a>
           </p>
           <p>
-            <a href="https://linkedin.com/in/eberhard" target="_blank" class="hover:text-black dark:hover:text-white">linkedin.com/in/eberhard</a>
+            <a href="https://linkedin.com/in/eberhard" target="_blank" class="hover:text-black dark:hover:text-white transition-colors">
+              LinkedIn
+            </a>
           </p>
-          <p data-i18n="location">Mexico City · Los Angeles</p>
+          <p class="text-neutral-400 dark:text-neutral-500" data-i18n="location">Mexico City · Los Angeles</p>
         </div>
       </section>
     </div>

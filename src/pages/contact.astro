@@ -5,17 +5,27 @@ import PageLayout from "@layouts/PageLayout.astro";
 
 <PageLayout title="Contact" description="Get in touch with Ryan Eberhard at Gauges Green">
   <Container>
-    <div class="space-y-12">
+    <div class="space-y-16">
+      <!-- Page title -->
       <section class="animate">
-        <h1 class="text-xl font-medium text-black dark:text-white" data-i18n="contact_title">Contact</h1>
+        <h1 class="text-lg font-medium text-black dark:text-white" data-i18n="contact_title">Contact</h1>
       </section>
 
+      <!-- Contact info -->
       <section class="animate">
-        <div class="text-sm space-y-1">
-          <p class="text-black dark:text-white">Ryan Eberhard</p>
-          <p><a href="mailto:eberhard@gaugesgreen.com" class="hover:text-black dark:hover:text-white">eberhard@gaugesgreen.com</a></p>
-          <p><a href="https://linkedin.com/in/eberhard" target="_blank" class="hover:text-black dark:hover:text-white">linkedin.com/in/eberhard</a></p>
-          <p data-i18n="location">Mexico City · Los Angeles</p>
+        <div class="text-sm space-y-2">
+          <p class="font-medium text-black dark:text-white">Ryan Eberhard</p>
+          <p>
+            <a href="mailto:eberhard@gaugesgreen.com" class="hover:text-black dark:hover:text-white transition-colors">
+              eberhard@gaugesgreen.com
+            </a>
+          </p>
+          <p>
+            <a href="https://linkedin.com/in/eberhard" target="_blank" class="hover:text-black dark:hover:text-white transition-colors">
+              LinkedIn
+            </a>
+          </p>
+          <p class="text-neutral-400 dark:text-neutral-500" data-i18n="location">Mexico City · Los Angeles</p>
         </div>
       </section>
     </div>

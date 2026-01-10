@@ -4,58 +4,67 @@ import Container from "@components/Container.astro";
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="pt-16 pb-8">
+<header class="pt-12 pb-16">
   <Container>
-    <nav class="text-sm" aria-label="Main navigation">
+    <div class="space-y-6">
+      <!-- Brand -->
       <a
         href="/"
-        class:list={[
-          "hover:text-black dark:hover:text-white transition-colors",
-          currentPath === "/" && "text-black dark:text-white"
-        ]}
+        class="block text-2xl font-medium tracking-tight text-black dark:text-white hover:opacity-60 transition-opacity"
       >
-        gauges green
+        Gauges Green
       </a>
-      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
-      <a
-        href="/services"
-        class:list={[
-          "hover:text-black dark:hover:text-white transition-colors",
-          currentPath === "/services" && "text-black dark:text-white"
-        ]}
-      >
-        services
-      </a>
-      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
-      <a
-        href="/products"
-        class:list={[
-          "hover:text-black dark:hover:text-white transition-colors",
-          currentPath === "/products" && "text-black dark:text-white"
-        ]}
-      >
-        products
-      </a>
-      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
-      <a
-        href="/about"
-        class:list={[
-          "hover:text-black dark:hover:text-white transition-colors",
-          currentPath === "/about" && "text-black dark:text-white"
-        ]}
-      >
-        about
-      </a>
-      <span class="mx-2 opacity-30" aria-hidden="true">·</span>
-      <a
-        href="/contact"
-        class:list={[
-          "hover:text-black dark:hover:text-white transition-colors",
-          currentPath === "/contact" && "text-black dark:text-white"
-        ]}
-      >
-        contact
-      </a>
-    </nav>
+
+      <!-- Navigation -->
+      <nav class="text-sm" aria-label="Main navigation">
+        <a
+          href="/services"
+          class:list={[
+            "transition-opacity",
+            currentPath === "/services"
+              ? "text-black dark:text-white"
+              : "text-neutral-400 dark:text-neutral-500 hover:text-black dark:hover:text-white"
+          ]}
+        >
+          services
+        </a>
+        <span class="mx-3 text-neutral-300 dark:text-neutral-700" aria-hidden="true">·</span>
+        <a
+          href="/products"
+          class:list={[
+            "transition-opacity",
+            currentPath === "/products"
+              ? "text-black dark:text-white"
+              : "text-neutral-400 dark:text-neutral-500 hover:text-black dark:hover:text-white"
+          ]}
+        >
+          products
+        </a>
+        <span class="mx-3 text-neutral-300 dark:text-neutral-700" aria-hidden="true">·</span>
+        <a
+          href="/about"
+          class:list={[
+            "transition-opacity",
+            currentPath === "/about"
+              ? "text-black dark:text-white"
+              : "text-neutral-400 dark:text-neutral-500 hover:text-black dark:hover:text-white"
+          ]}
+        >
+          about
+        </a>
+        <span class="mx-3 text-neutral-300 dark:text-neutral-700" aria-hidden="true">·</span>
+        <a
+          href="/contact"
+          class:list={[
+            "transition-opacity",
+            currentPath === "/contact"
+              ? "text-black dark:text-white"
+              : "text-neutral-400 dark:text-neutral-500 hover:text-black dark:hover:text-white"
+          ]}
+        >
+          contact
+        </a>
+      </nav>
+    </div>
   </Container>
 </header>
