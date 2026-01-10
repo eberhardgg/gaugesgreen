@@ -44,7 +44,7 @@ html.dark body {
 /* British Racing Green theme */
 html.green body {
   background-color: #004225;
-  color: #c4c4a0;
+  color: #d4d4c4;
 }
 
 main {
@@ -164,20 +164,22 @@ html.green .dark\:text-white {
 }
 
 html.green .text-neutral-400,
+html.green .dark\:text-neutral-400 {
+  color: #b8c4a8; /* Readable sage */
+}
+
 html.green .text-neutral-500,
-html.green .dark\:text-neutral-400,
 html.green .dark\:text-neutral-500 {
-  color: #8a9a7a; /* Muted sage */
+  color: #9aaa8a; /* Muted sage */
 }
 
 html.green .text-neutral-300,
 html.green .dark\:text-neutral-700 {
-  color: #3d5a3d; /* Dark sage for separators */
+  color: #5a7a5a; /* Sage for separators */
 }
 
-html.green .text-neutral-600,
-html.green .dark\:text-neutral-400 {
-  color: #a3b393; /* Body text */
+html.green .text-neutral-600 {
+  color: #c8d4b8; /* Body text */
 }
 
 /* ===========================================
