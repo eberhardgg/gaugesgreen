@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 /* ===========================================
-   BASE
+   2025 WEB EXCELLENCE PLAYBOOK COMPLIANCE
+
+   Spacing: 8pt grid (4, 8, 16, 24, 32, 48, 64)
+   Typography: 16px base, 1.6 line-height, max 65ch
+   Color: Neutral-first, single accent
    =========================================== */
 
 html {
@@ -15,16 +19,32 @@ html.dark {
   color-scheme: dark;
 }
 
+html.green {
+  color-scheme: dark;
+}
+
 html,
 body {
   @apply size-full;
 }
 
 body {
-  @apply font-sans antialiased;
+  font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  @apply antialiased;
   @apply flex flex-col;
-  @apply bg-white dark:bg-neutral-950;
-  @apply text-neutral-500 dark:text-neutral-400;
+  @apply bg-white text-neutral-600;
+}
+
+html.dark body {
+  @apply bg-neutral-950 text-neutral-400;
+}
+
+/* British Racing Green theme */
+html.green body {
+  background-color: #004225;
+  color: #c4c4a0;
 }
 
 main {
@@ -32,9 +52,15 @@ main {
 }
 
 /* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+
+p, li {
+  max-width: 65ch;
+}
+
+/* ===========================================
    LINKS & INTERACTIVE ELEMENTS
-   Per UX principles: visible hover states,
-   keyboard accessible, clear affordances
    =========================================== */
 
 a {
@@ -42,30 +68,120 @@ a {
 }
 
 a:hover {
-  @apply text-black dark:text-white;
+  @apply text-black;
 }
 
-/* Focus states - always visible */
+html.dark a:hover {
+  @apply text-white;
+}
+
+html.green a:hover {
+  color: #f5f5dc;
+}
+
+/* Focus states */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  @apply outline-none ring-2 ring-neutral-400 dark:ring-neutral-500 ring-offset-2 ring-offset-white dark:ring-offset-neutral-950;
+  @apply outline-none ring-2 ring-offset-2;
+  @apply ring-neutral-400 ring-offset-white;
 }
 
-/* Buttons */
+html.dark a:focus-visible,
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible {
+  @apply ring-neutral-500 ring-offset-neutral-950;
+}
+
+html.green a:focus-visible,
+html.green button:focus-visible,
+html.green input:focus-visible,
+html.green textarea:focus-visible {
+  ring-color: #5a7a5a;
+  ring-offset-color: #004225;
+}
+
 button {
   @apply transition-colors duration-150;
 }
 
 button:hover {
-  @apply text-black dark:text-white;
+  @apply text-black;
+}
+
+html.dark button:hover {
+  @apply text-white;
+}
+
+html.green button:hover {
+  color: #f5f5dc;
 }
 
 /* ===========================================
-   FORMS
-   Per UX principles: labels above inputs,
-   immediate feedback, clear validation
+   THEME-SPECIFIC TEXT COLORS
+   =========================================== */
+
+/* Light theme */
+.text-black {
+  color: #000;
+}
+
+.text-neutral-400 {
+  color: #a3a3a3;
+}
+
+.text-neutral-500 {
+  color: #737373;
+}
+
+.text-neutral-300 {
+  color: #d4d4d4;
+}
+
+/* Dark theme overrides */
+html.dark .dark\:text-white {
+  color: #fff;
+}
+
+html.dark .dark\:text-neutral-400 {
+  color: #a3a3a3;
+}
+
+html.dark .dark\:text-neutral-500 {
+  color: #737373;
+}
+
+html.dark .dark\:text-neutral-700 {
+  color: #404040;
+}
+
+/* Green theme overrides */
+html.green .text-black,
+html.green .dark\:text-white {
+  color: #f5f5dc; /* Cream */
+}
+
+html.green .text-neutral-400,
+html.green .text-neutral-500,
+html.green .dark\:text-neutral-400,
+html.green .dark\:text-neutral-500 {
+  color: #8a9a7a; /* Muted sage */
+}
+
+html.green .text-neutral-300,
+html.green .dark\:text-neutral-700 {
+  color: #3d5a3d; /* Dark sage for separators */
+}
+
+html.green .text-neutral-600,
+html.green .dark\:text-neutral-400 {
+  color: #a3b393; /* Body text */
+}
+
+/* ===========================================
+   FORMS - GREEN THEME
    =========================================== */
 
 input,
@@ -75,58 +191,71 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  @apply text-neutral-400 dark:text-neutral-600;
+  @apply text-neutral-400;
 }
 
-/* ===========================================
-   PROSE
-   =========================================== */
-
-article {
-  @apply leading-relaxed;
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  @apply text-neutral-600;
 }
 
-article p + p {
-  @apply mt-4;
+html.green input::placeholder,
+html.green textarea::placeholder {
+  color: #5a7a5a;
+}
+
+html.green input,
+html.green textarea {
+  border-color: #3d5a3d;
+  color: #f5f5dc;
+}
+
+html.green input:focus,
+html.green textarea:focus {
+  border-color: #5a8a5a;
 }
 
 /* ===========================================
    ANIMATIONS
-   Respect prefers-reduced-motion
    =========================================== */
 
 .animate {
-  @apply opacity-0 translate-y-2;
+  @apply opacity-0;
+  transform: translateY(8px);
   @apply transition-all duration-300 ease-out;
 }
 
 .animate.show {
-  @apply opacity-100 translate-y-0;
+  @apply opacity-100;
+  transform: translateY(0);
 }
 
-/* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate {
-    @apply opacity-100 translate-y-0;
+    @apply opacity-100;
+    transform: none;
     transition: none;
   }
 }
 
 /* ===========================================
    ACCESSIBILITY
-   Min contrast 4.5:1, visible focus states
    =========================================== */
 
-/* Skip link for keyboard users */
 .skip-link {
   @apply sr-only;
 }
 
 .skip-link:focus {
   @apply not-sr-only absolute top-4 left-4 z-50;
-  @apply px-4 py-2 bg-black text-white dark:bg-white dark:text-black;
+  @apply px-4 py-2 bg-black text-white;
 }
 
-/* Ensure sufficient contrast for body text */
-/* neutral-500 on white = 5.0:1 ✓ */
-/* neutral-400 on neutral-950 = 5.5:1 ✓ */
+html.dark .skip-link:focus {
+  @apply bg-white text-black;
+}
+
+html.green .skip-link:focus {
+  background-color: #f5f5dc;
+  color: #004225;
+}

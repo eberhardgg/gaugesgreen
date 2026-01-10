@@ -6,41 +6,41 @@ import { HOME } from "@consts";
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
-    <div class="space-y-16">
+    <div>
       <!-- Tagline -->
-      <section class="animate">
-        <p class="text-sm text-neutral-400 dark:text-neutral-500 mb-4" data-i18n="home_brand_line">
+      <section class="animate" style="margin-bottom: 64px;">
+        <p class="text-neutral-400 dark:text-neutral-500" style="margin-bottom: 16px;" data-i18n="home_brand_line">
           Ryan Eberhard's product & growth practice
         </p>
-        <h1 class="text-lg font-medium text-black dark:text-white leading-relaxed" data-i18n="tagline">
+        <h1 class="text-xl font-medium text-black dark:text-white" data-i18n="tagline">
           Fractional Product & Growth Leadership for Scaling Startups
         </h1>
       </section>
 
-      <!-- Navigation cards -->
-      <section class="animate">
-        <div class="space-y-3 text-sm">
-          <a href="/services" class="block text-black dark:text-white hover:opacity-60 transition-opacity">
+      <!-- Navigation links -->
+      <section class="animate" style="margin-bottom: 64px;">
+        <div>
+          <a href="/services" class="block text-black dark:text-white hover:opacity-60 transition-opacity" style="margin-bottom: 12px;">
             <span data-i18n="home_services_title">Services</span>
-            <span class="ml-2 text-neutral-400 dark:text-neutral-500" aria-hidden="true">→</span>
+            <span class="text-neutral-400 dark:text-neutral-500" style="margin-left: 8px;" aria-hidden="true">→</span>
           </a>
           <a href="/products" class="block text-black dark:text-white hover:opacity-60 transition-opacity">
             <span data-i18n="home_products_title">Products</span>
-            <span class="ml-2 text-neutral-400 dark:text-neutral-500" aria-hidden="true">→</span>
+            <span class="text-neutral-400 dark:text-neutral-500" style="margin-left: 8px;" aria-hidden="true">→</span>
           </a>
         </div>
       </section>
 
       <!-- Contact -->
       <section class="animate">
-        <div class="text-sm space-y-2">
-          <p class="font-medium text-black dark:text-white">Ryan Eberhard</p>
-          <p>
+        <div>
+          <p class="font-medium text-black dark:text-white" style="margin-bottom: 8px;">Ryan Eberhard</p>
+          <p style="margin-bottom: 8px;">
             <a href="mailto:eberhard@gaugesgreen.com" class="hover:text-black dark:hover:text-white transition-colors">
               eberhard@gaugesgreen.com
             </a>
           </p>
-          <p>
+          <p style="margin-bottom: 8px;">
             <a href="https://linkedin.com/in/eberhard" target="_blank" class="hover:text-black dark:hover:text-white transition-colors">
               LinkedIn
             </a>

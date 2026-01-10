@@ -2,27 +2,44 @@
 import Container from "@components/Container.astro";
 ---
 
-<footer class="py-16">
+<footer style="padding: 64px 0;">
   <Container>
-    <div class="text-sm space-y-4">
-      <div class="opacity-40">
+    <div>
+      <div class="text-neutral-400 dark:text-neutral-500" style="margin-bottom: 16px;">
+        <!-- Theme toggle: light / dark / green -->
         <button
-          id="theme-toggle"
-          class="hover:opacity-100 transition-opacity"
-          aria-label="Toggle dark mode"
+          id="theme-light"
+          class="hover:text-black dark:hover:text-white transition-colors"
+          aria-label="Light theme"
         >
-          <span id="theme-label">dark</span>
+          light
         </button>
-        <span class="mx-2" aria-hidden="true">·</span>
+        <span style="margin: 0 8px;" aria-hidden="true">·</span>
+        <button
+          id="theme-dark"
+          class="hover:text-black dark:hover:text-white transition-colors"
+          aria-label="Dark theme"
+        >
+          dark
+        </button>
+        <span style="margin: 0 8px;" aria-hidden="true">·</span>
+        <button
+          id="theme-green"
+          class="hover:text-black dark:hover:text-white transition-colors"
+          aria-label="Green theme"
+        >
+          green
+        </button>
+        <span style="margin: 0 16px;" aria-hidden="true">|</span>
         <button
           id="lang-toggle"
-          class="hover:opacity-100 transition-opacity"
+          class="hover:text-black dark:hover:text-white transition-colors"
           aria-label="Toggle language"
         >
           <span id="lang-label">es</span>
         </button>
       </div>
-      <div class="opacity-30 text-xs">
+      <div class="text-neutral-300 dark:text-neutral-700" style="font-size: 0.875rem;">
         &copy; {new Date().getFullYear()} Gauges Green
       </div>
     </div>
@@ -30,42 +47,60 @@ import Container from "@components/Container.astro";
 </footer>
 
 <script>
-  // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeLabel = document.getElementById('theme-label');
+  const themeButtons = {
+    light: document.getElementById('theme-light'),
+    dark: document.getElementById('theme-dark'),
+    green: document.getElementById('theme-green')
+  };
 
-  function setTheme(dark: boolean) {
-    if (dark) {
+  function setTheme(theme: 'light' | 'dark' | 'green') {
+    // Remove all theme classes
+    document.documentElement.classList.remove('dark', 'green');
+
+    // Add appropriate class
+    if (theme === 'dark') {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      if (themeLabel) themeLabel.textContent = 'light';
-      themeToggle?.setAttribute('aria-pressed', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      if (themeLabel) themeLabel.textContent = 'dark';
-      themeToggle?.setAttribute('aria-pressed', 'false');
+    } else if (theme === 'green') {
+      document.documentElement.classList.add('green');
     }
+
+    localStorage.setItem('theme', theme);
+
+    // Update button states (opacity)
+    Object.entries(themeButtons).forEach(([key, btn]) => {
+      if (btn) {
+        if (key === theme) {
+          btn.style.opacity = '1';
+        } else {
+          btn.style.opacity = '0.5';
+        }
+      }
+    });
   }
 
-  themeToggle?.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(!isDark);
-  });
+  // Add click listeners
+  themeButtons.light?.addEventListener('click', () => setTheme('light'));
+  themeButtons.dark?.addEventListener('click', () => setTheme('dark'));
+  themeButtons.green?.addEventListener('click', () => setTheme('green'));
 
-  // Keyboard: Enter or Space to toggle
-  themeToggle?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      themeToggle.click();
-    }
+  // Keyboard support
+  Object.values(themeButtons).forEach(btn => {
+    btn?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        (e.target as HTMLButtonElement).click();
+      }
+    });
   });
 
   // Initialize theme
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-  setTheme(isDark);
+  const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'green' | null;
+  if (savedTheme && ['light', 'dark', 'green'].includes(savedTheme)) {
+    setTheme(savedTheme);
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(prefersDark ? 'dark' : 'light');
+  }
 
   // Language toggle
   const langToggle = document.getElementById('lang-toggle');
@@ -95,7 +130,6 @@ import Container from "@components/Container.astro";
     setLang(current === 'en' ? 'es' : 'en');
   });
 
-  // Keyboard: Enter or Space to toggle
   langToggle?.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -103,7 +137,6 @@ import Container from "@components/Container.astro";
     }
   });
 
-  // Initialize language
   const savedLang = localStorage.getItem('lang') || 'en';
   setLang(savedLang);
 </script>
