@@ -39,7 +39,7 @@ window.translations = {
 
     // About
     about_page_title: "About",
-    about_text: "Former Chief Product Officer at ZipRecruiter, where I helped scale the company from under $100M to over $900M in revenue through IPO. Built the #1-rated mobile app for job seekers, led user acquisition at scale, and opened offices in Tel Aviv, Austin, and Palo Alto. As President of JobGet, grew revenue to over $100M/year while cutting burn from $2M/month, putting the company on the profitability path that enabled acquisitions of Snagajob and Seasoned. Most recently as CPTO at Swing Education, drove end-to-end AI transformation that cut OpEx and COGS by 50%+ YoY while maintaining growth and product velocity.",
+    about_text: "Former Chief Product Officer at ZipRecruiter, where I helped scale the company from under $100M to over $900M in revenue through IPO. Built the #1-rated mobile app for job seekers, drove product-led growth at scale, and opened offices in Tel Aviv, Austin, and Palo Alto. As President of JobGet, grew revenue to over $100M/year while cutting burn from $2M/month, putting the company on the profitability path that enabled acquisitions of Snagajob and Seasoned. Most recently as CPTO at Swing Education, drove end-to-end AI transformation that cut OpEx and COGS by 50%+ YoY while maintaining growth and product velocity.",
 
     // Contact
     contact_title: "Contact",
@@ -84,7 +84,7 @@ window.translations = {
 
     // About
     about_page_title: "Sobre mí",
-    about_text: "Ex Chief Product Officer en ZipRecruiter, donde ayudé a escalar la empresa de menos de $100M a más de $900M en ingresos hasta su salida a bolsa. Construí la app móvil #1 para buscadores de empleo, lideré adquisición de usuarios a escala y abrí oficinas en Tel Aviv, Austin y Palo Alto. Como Presidente de JobGet, crecí los ingresos a más de $100M/año mientras reducía el burn de $2M/mes, poniendo a la empresa en el camino a la rentabilidad que permitió las adquisiciones de Snagajob y Seasoned. Más recientemente como CPTO en Swing Education, lideré una transformación integral con IA que redujo OpEx y COGS en más de 50% año contra año, manteniendo el crecimiento y la velocidad del producto.",
+    about_text: "Ex Chief Product Officer en ZipRecruiter, donde ayudé a escalar la empresa de menos de $100M a más de $900M en ingresos hasta su salida a bolsa. Construí la app móvil #1 para buscadores de empleo, impulsé crecimiento product-led a escala y abrí oficinas en Tel Aviv, Austin y Palo Alto. Como Presidente de JobGet, crecí los ingresos a más de $100M/año mientras reducía el burn de $2M/mes, poniendo a la empresa en el camino a la rentabilidad que permitió las adquisiciones de Snagajob y Seasoned. Más recientemente como CPTO en Swing Education, lideré una transformación integral con IA que redujo OpEx y COGS en más de 50% año contra año, manteniendo el crecimiento y la velocidad del producto.",
 
     // Contact
     contact_title: "Contacto",
