@@ -1,0 +1,45 @@
+---
+import { SITE } from "../config";
+import { Linkedin, Calendar } from "lucide-astro";
+---
+
+<section
+  class="relative min-h-[50vh] flex flex-col justify-center items-start px-4 md:px-8 max-w-3xl mx-auto pt-16"
+>
+  <div class="animate-fade-in-up relative z-10 w-full">
+    <p class="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+      {SITE.author}
+    </p>
+
+    <h1
+      class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
+    >
+      {SITE.title}
+    </h1>
+
+    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+      {SITE.desc}
+    </p>
+
+    <div class="flex gap-3">
+      <a
+        href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200"
+      >
+        <Calendar class="w-5 h-5" />
+        <span class="text-sm font-medium" data-i18n="schedule">Schedule</span>
+      </a>
+      <a
+        href="https://linkedin.com/in/eberhard"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200"
+      >
+        <Linkedin class="w-5 h-5" />
+        <span class="text-sm font-medium">LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</section>

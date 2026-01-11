@@ -1,45 +1,31 @@
 ---
-import { SITE } from "@consts";
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Experience from "../components/Experience.astro";
+import Investors from "../components/Investors.astro";
+import Contact from "../components/Contact.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import LangToggle from "../components/LangToggle.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{SITE.NAME}</title>
-    <style>
-      body {
-        font-family: system-ui, -apple-system, sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        margin: 0;
-        background: #fff;
-        color: #333;
-      }
-      .container {
-        text-align: center;
-        padding: 2rem;
-      }
-      h1 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-      }
-      a {
-        color: #666;
-        text-decoration: none;
-      }
-      a:hover {
-        color: #000;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Gauges Green</h1>
-      <p><a href="mailto:eberhard@gaugesgreen.com">eberhard@gaugesgreen.com</a></p>
+<Layout>
+  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-3">
+      <LangToggle />
+      <ThemeToggle />
     </div>
-  </body>
-</html>
+
+    <div class="space-y-0 pb-16">
+      <Hero />
+      <Services />
+      <Experience />
+      <Investors />
+      <Contact />
+    </div>
+
+    <footer class="text-center py-8 text-gray-400 dark:text-gray-600 text-sm">
+      <p>&copy; {new Date().getFullYear()} Gauges Green</p>
+    </footer>
+  </main>
+</Layout>

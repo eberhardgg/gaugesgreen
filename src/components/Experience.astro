@@ -1,0 +1,30 @@
+---
+import { EXPERIENCE } from "../config";
+---
+
+<section class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white" data-i18n="background_title">Background</h2>
+
+  <div class="space-y-8">
+    {
+      EXPERIENCE.map((job) => (
+        <div class="group">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+              {job.role}
+            </h3>
+            <span class="text-sm text-gray-500 dark:text-gray-400">
+              {job.startDate}–{job.endDate}
+            </span>
+          </div>
+
+          <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">{job.company}</div>
+
+          <p class="text-gray-600 dark:text-gray-400">
+            {job.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

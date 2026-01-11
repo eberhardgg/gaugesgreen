@@ -1,0 +1,91 @@
+---
+---
+
+<div class="flex gap-2">
+  <button
+    id="lang-en"
+    class="w-6 h-6 rounded overflow-hidden opacity-100 hover:opacity-80 transition-opacity"
+    aria-label="English"
+    title="English"
+  >
+    <svg viewBox="0 0 60 30" class="w-full h-full">
+      <clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+      <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      <g clip-path="url(#s)">
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </svg>
+  </button>
+  <button
+    id="lang-es"
+    class="w-6 h-6 rounded overflow-hidden opacity-50 hover:opacity-80 transition-opacity"
+    aria-label="Español"
+    title="Español"
+  >
+    <svg viewBox="0 0 60 30" class="w-full h-full">
+      <rect width="60" height="7.5" y="0" fill="#006847"/>
+      <rect width="60" height="15" y="7.5" fill="#fff"/>
+      <rect width="60" height="7.5" y="22.5" fill="#CE1126"/>
+    </svg>
+  </button>
+</div>
+
+<script is:inline>
+  const translations = {
+    en: {
+      designed_for_title: "Designed For",
+      designed_for_1_title: "Series A+ companies where growth stalled post-raise",
+      designed_for_1_desc: "Retention gaps, product/market misalignment, or talent and tech blockers holding back the roadmap. The root cause usually traces to Product/Eng.",
+      designed_for_2_title: "Marketplaces, EdTech, and DTC",
+      designed_for_2_desc: "Domains where I spike. LatAm companies scaling into or within the US are a natural fit.",
+      designed_for_3_title: "Founders who want an embedded operator",
+      designed_for_3_desc: "Not a consultant. One quarter of intensive diagnosis, three quarters of hands-on transformation.",
+      background_title: "Background",
+      investors_title: "Investors I've Worked With",
+      contact_title: "Contact",
+      schedule: "Schedule",
+    },
+    es: {
+      designed_for_title: "Diseñado Para",
+      designed_for_1_title: "Empresas Serie A+ donde el crecimiento se estancó post-ronda",
+      designed_for_1_desc: "Brechas de retención, desalineación producto/mercado, o bloqueos de talento y tecnología frenando el roadmap. La causa raíz usualmente está en Producto/Ingeniería.",
+      designed_for_2_title: "Marketplaces, EdTech y DTC",
+      designed_for_2_desc: "Dominios donde destaco. Empresas LatAm escalando hacia o dentro de EE.UU. son un fit natural.",
+      designed_for_3_title: "Fundadores que quieren un operador integrado",
+      designed_for_3_desc: "No un consultor. Un trimestre de diagnóstico intensivo, tres trimestres de transformación hands-on.",
+      background_title: "Trayectoria",
+      investors_title: "Inversionistas con los que he Trabajado",
+      contact_title: "Contacto",
+      schedule: "Agendar",
+    }
+  };
+
+  function setLang(lang) {
+    localStorage.setItem("lang", lang);
+
+    // Update button opacity
+    document.getElementById("lang-en").classList.toggle("opacity-50", lang !== "en");
+    document.getElementById("lang-en").classList.toggle("opacity-100", lang === "en");
+    document.getElementById("lang-es").classList.toggle("opacity-50", lang !== "es");
+    document.getElementById("lang-es").classList.toggle("opacity-100", lang === "es");
+
+    // Update all translatable elements
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+  // Initialize
+  const savedLang = localStorage.getItem("lang") || "en";
+  setLang(savedLang);
+
+  document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
+  document.getElementById("lang-es").addEventListener("click", () => setLang("es"));
+</script>

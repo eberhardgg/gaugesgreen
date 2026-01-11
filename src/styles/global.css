@@ -2,262 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===========================================
-   2025 WEB EXCELLENCE PLAYBOOK COMPLIANCE
+@layer base {
+    :root {
+        --color-text-base: #2a2a2a;
+        --color-bg-body: #ffffff;
+        --color-bg-card: #f9fafb;
+        --color-border: #e5e7eb;
+        --color-primary: #3b82f6;
+        --color-secondary: #6366f1;
+    }
 
-   Spacing: 8pt grid (4, 8, 16, 24, 32, 48, 64)
-   Typography: 16px base, 1.6 line-height, max 65ch
-   Color: Neutral-first, single accent
-   =========================================== */
+    :root[class~="dark"] {
+        --color-text-base: #e5e7eb;
+        --color-bg-body: #0f172a;
+        --color-bg-card: #1e293b;
+        --color-border: #334155;
+        --color-primary: #60a5fa;
+        --color-secondary: #818cf8;
+    }
 
-html {
-  overflow-y: scroll;
-  color-scheme: light;
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-[var(--color-bg-body)] text-[var(--color-text-base)] font-sans antialiased transition-colors duration-300;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-mono font-bold tracking-tight;
+    }
 }
 
-html.dark {
-  color-scheme: dark;
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all;
+    }
+
+    .card {
+        @apply rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 shadow-sm transition-all hover:shadow-md;
+    }
 }
 
-html.green {
-  color-scheme: dark;
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
-html,
-body {
-  @apply size-full;
-}
-
-body {
-  font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  @apply antialiased;
-  @apply flex flex-col;
-  @apply bg-white text-neutral-600;
-}
-
-html.dark body {
-  @apply bg-neutral-950 text-neutral-400;
-}
-
-/* British Racing Green theme */
-html.green body {
-  background-color: #004225;
-  color: #d4d4c4;
-}
-
-main {
-  @apply flex-1;
-}
-
-/* ===========================================
-   TYPOGRAPHY
-   =========================================== */
-
-p, li {
-  max-width: 65ch;
-}
-
-/* ===========================================
-   LINKS & INTERACTIVE ELEMENTS
-   =========================================== */
-
-a {
-  @apply transition-colors duration-150;
-}
-
-a:hover {
-  @apply text-black;
-}
-
-html.dark a:hover {
-  @apply text-white;
-}
-
-html.green a:hover {
-  color: #f5f5dc;
-}
-
-/* Focus states */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  @apply outline-none ring-2 ring-offset-2;
-  @apply ring-neutral-400 ring-offset-white;
-}
-
-html.dark a:focus-visible,
-html.dark button:focus-visible,
-html.dark input:focus-visible,
-html.dark textarea:focus-visible {
-  @apply ring-neutral-500 ring-offset-neutral-950;
-}
-
-html.green a:focus-visible,
-html.green button:focus-visible,
-html.green input:focus-visible,
-html.green textarea:focus-visible {
-  ring-color: #5a7a5a;
-  ring-offset-color: #004225;
-}
-
-button {
-  @apply transition-colors duration-150;
-}
-
-button:hover {
-  @apply text-black;
-}
-
-html.dark button:hover {
-  @apply text-white;
-}
-
-html.green button:hover {
-  color: #f5f5dc;
-}
-
-/* ===========================================
-   THEME-SPECIFIC TEXT COLORS
-   =========================================== */
-
-/* Light theme */
-.text-black {
-  color: #000;
-}
-
-.text-neutral-400 {
-  color: #a3a3a3;
-}
-
-.text-neutral-500 {
-  color: #737373;
-}
-
-.text-neutral-300 {
-  color: #d4d4d4;
-}
-
-/* Dark theme overrides */
-html.dark .dark\:text-white {
-  color: #fff;
-}
-
-html.dark .dark\:text-neutral-400 {
-  color: #a3a3a3;
-}
-
-html.dark .dark\:text-neutral-500 {
-  color: #737373;
-}
-
-html.dark .dark\:text-neutral-700 {
-  color: #404040;
-}
-
-/* Green theme overrides */
-html.green .text-black,
-html.green .dark\:text-white {
-  color: #f5f5dc; /* Cream */
-}
-
-html.green .text-neutral-400,
-html.green .dark\:text-neutral-400 {
-  color: #b8c4a8; /* Readable sage */
-}
-
-html.green .text-neutral-500,
-html.green .dark\:text-neutral-500 {
-  color: #9aaa8a; /* Muted sage */
-}
-
-html.green .text-neutral-300,
-html.green .dark\:text-neutral-700 {
-  color: #5a7a5a; /* Sage for separators */
-}
-
-html.green .text-neutral-600 {
-  color: #c8d4b8; /* Body text */
-}
-
-/* ===========================================
-   FORMS - GREEN THEME
-   =========================================== */
-
-input,
-textarea {
-  @apply transition-colors duration-150;
-}
-
-input::placeholder,
-textarea::placeholder {
-  @apply text-neutral-400;
-}
-
-html.dark input::placeholder,
-html.dark textarea::placeholder {
-  @apply text-neutral-600;
-}
-
-html.green input::placeholder,
-html.green textarea::placeholder {
-  color: #5a7a5a;
-}
-
-html.green input,
-html.green textarea {
-  border-color: #3d5a3d;
-  color: #f5f5dc;
-}
-
-html.green input:focus,
-html.green textarea:focus {
-  border-color: #5a8a5a;
-}
-
-/* ===========================================
-   ANIMATIONS
-   =========================================== */
-
-.animate {
-  @apply opacity-0;
-  transform: translateY(8px);
-  @apply transition-all duration-300 ease-out;
-}
-
-.animate.show {
-  @apply opacity-100;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate {
-    @apply opacity-100;
-    transform: none;
-    transition: none;
-  }
-}
-
-/* ===========================================
-   ACCESSIBILITY
-   =========================================== */
-
-.skip-link {
-  @apply sr-only;
-}
-
-.skip-link:focus {
-  @apply not-sr-only absolute top-4 left-4 z-50;
-  @apply px-4 py-2 bg-black text-white;
-}
-
-html.dark .skip-link:focus {
-  @apply bg-white text-black;
-}
-
-html.green .skip-link:focus {
-  background-color: #f5f5dc;
-  color: #004225;
+.animate-blink {
+    animation: blink 1s infinite;
 }

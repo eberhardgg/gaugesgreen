@@ -1,0 +1,32 @@
+---
+import { Mail, Linkedin, MapPin } from "lucide-astro";
+---
+
+<section id="contact" class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white" data-i18n="contact_title">Contact</h2>
+
+  <div class="space-y-4">
+    <a
+      href="mailto:eberhard@gaugesgreen.com"
+      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+    >
+      <Mail class="w-5 h-5" />
+      <span>eberhard@gaugesgreen.com</span>
+    </a>
+
+    <a
+      href="https://linkedin.com/in/eberhard"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+    >
+      <Linkedin class="w-5 h-5" />
+      <span>LinkedIn</span>
+    </a>
+
+    <div class="flex items-center gap-3 text-gray-500 dark:text-gray-500">
+      <MapPin class="w-5 h-5" />
+      <span>Mexico City · Los Angeles</span>
+    </div>
+  </div>
+</section>

@@ -1,64 +1,68 @@
-![Astro Nano](_astro_nano.png)
+# Astro vCard Template
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+![Astro vCard Banner](public/og.png)
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+A premium, high-performance portfolio template built with **Astro 5.0** and **Tailwind CSS**. Designed for developers, designers, and freelancers who want a fast, professional, and easy-to-configure personal website.
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+## 🎯 Why Use This Template?
 
-## 🚀 Deploy your own
+In the competitive world of tech, your portfolio is your first impression. This template is engineered to be:
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano)
+1.  **Blazing Fast**: Built on Astro's "Zero JS by default" architecture, ensuring instant load times and a perfect 100/100 Lighthouse score.
+2.  **Developer-First**: No need to wrestle with complex HTML/CSS for content updates. Everything is managed via a single, type-safe configuration file (`src/config.ts`).
+3.  **Professional Design**: Clean typography, dark mode support, and subtle animations that scream "premium" without being distracting.
 
-## 📋 Features
+## 💡 Use Cases
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
+This template is perfect for:
 
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](_lighthouse.png)
+*   **Software Developers**: Showcase your GitHub repositories, tech stack, and work experience in a clean, readable format.
+*   **Freelancers**: A single-page "digital business card" to share with potential clients.
+*   **Designers**: A minimalist canvas to link to your Dribbble/Behance portfolios.
+*   **Content Creators**: Link to your social media, YouTube channel, and blog posts.
+*   **Students/Graduates**: A professional resume website to stand out in job applications.
 
-## 🕊️ Lightweight
-No frameworks or added bulk
+## 🚀 Key Features
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+- **⚡ Zero JS Bundle**: Minimal client-side JavaScript for maximum performance.
+- **🛠️ Config-Driven**: Manage all content (Profile, Experience, Projects) from `src/config.ts`.
+- **🌙 Dark Mode**: Fully supported with a smooth toggle and persistence.
+- **📱 Responsive Design**: Mobile-first approach using Tailwind CSS.
+- **🔍 SEO Optimized**: Meta tags, Open Graph, and semantic HTML included out of the box.
+- **🎨 Tailwind CSS**: Easy to customize styling and theme.
+- **✨ View Transitions**: Smooth navigation and scrolling.
 
-## 📄 Configuration
+## 📚 Documentation
 
-The blog posts on the demo serve as the documentation and configuration.
+**Full documentation is available in the `documentation/` folder.**
+Open `documentation/index.html` in your browser to read the detailed guide on installation, configuration, and customization.
 
-## 💻 Commands
+## ⚡ Quick Start
 
-All commands are run from the root of the project, from a terminal:
+1.  **Install dependencies:**
+    ```bash
+    pnpm install
+    # or
+    npm install
+    ```
 
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
+2.  **Start development server:**
+    ```bash
+    pnpm dev
+    ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
+3.  **Build for production:**
+    ```bash
+    pnpm build
+    ```
 
-## 🏛️ License
+## 🛠️ Tech Stack
 
-MIT
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## 📄 License
+
+This project is licensed under the MIT License.

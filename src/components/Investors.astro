@@ -1,0 +1,47 @@
+---
+const INVESTORS = [
+  { name: "Y Combinator" },
+  { name: "Google Ventures" },
+  { name: "Owl Ventures" },
+  { name: "Jazz Ventures" },
+  { name: "Reach Capital" },
+];
+
+// Duplicate for seamless loop
+const allInvestors = [...INVESTORS, ...INVESTORS, ...INVESTORS];
+---
+
+<section class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white" data-i18n="investors_title">Investors I've Worked With</h2>
+
+  <div class="overflow-hidden relative">
+    <div class="marquee flex gap-12 whitespace-nowrap">
+      {
+        allInvestors.map((investor) => (
+          <span class="text-lg font-medium text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-default">
+            {investor.name}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee {
+    animation: scroll 20s linear infinite;
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+</style>

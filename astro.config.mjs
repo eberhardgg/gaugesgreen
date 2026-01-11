@@ -1,9 +1,10 @@
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
+// @ts-check
+import { defineConfig } from 'astro/config';
+
 import tailwind from "@astrojs/tailwind";
 
+// https://astro.build/config
 export default defineConfig({
-  site: "https://gaugesgreen.com",
-  integrations: [mdx(), sitemap(), tailwind()],
+  site: 'https://astro-vcard.vercel.app',
+  integrations: [tailwind()],
 });
