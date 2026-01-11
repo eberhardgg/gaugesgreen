@@ -5,6 +5,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-vcard.vercel.app',
+  site: 'https://www.gaugesgreen.com',
   integrations: [tailwind()],
 });

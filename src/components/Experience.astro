@@ -10,17 +10,17 @@ import { EXPERIENCE } from "../config";
       EXPERIENCE.map((job) => (
         <div class="group">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
+            <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`exp_${job.id}_role`}>
               {job.role}
             </h3>
-            <span class="text-sm text-gray-500 dark:text-gray-400">
+            <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n={`exp_${job.id}_dates`}>
               {job.startDate}–{job.endDate}
             </span>
           </div>
 
           <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">{job.company}</div>
 
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-gray-600 dark:text-gray-400" data-i18n={`exp_${job.id}_desc`}>
             {job.description}
           </p>
         </div>

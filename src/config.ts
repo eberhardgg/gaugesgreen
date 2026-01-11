@@ -40,6 +40,7 @@ export const SOCIALS: SocialObjects = [
 
 export const EXPERIENCE = [
     {
+        id: "gauges_green",
         company: "Gauges Green",
         role: "Founder",
         startDate: "2026",
@@ -47,6 +48,7 @@ export const EXPERIENCE = [
         description: "Fractional product and growth leadership for scaling startups. Launched January 2026.",
     },
     {
+        id: "swing",
         company: "Swing Education",
         role: "Chief Product & Technology Officer",
         startDate: "2023",
@@ -54,6 +56,7 @@ export const EXPERIENCE = [
         description: "Drove end-to-end AI transformation that cut OpEx and COGS by 50%+ YoY while maintaining growth and product velocity.",
     },
     {
+        id: "jobget",
         company: "JobGet",
         role: "President",
         startDate: "2021",
@@ -61,11 +64,12 @@ export const EXPERIENCE = [
         description: "Grew revenue to over $100M/year while cutting burn from $2M/month, enabling acquisitions of Snagajob and Seasoned.",
     },
     {
+        id: "ziprecruiter",
         company: "ZipRecruiter",
         role: "Chief Product Officer",
         startDate: "2014",
         endDate: "2021",
-        description: "Series A to NYSE IPO, $100M to $900M in revenue. Led 92-person product org that built the #1-rated job seeker apps (iOS/Android), cut employer time-to-hire in half, and pioneered ML matching that improved relevance 50%. Product quality gains funded 2.5x ROAS improvement and expansion into UK, EU, and Canada.",
+        description: "Series A to NYSE IPO, $100M to $900M in revenue. Led 92-person product org that built the #1-rated job seeker apps for 8 years running, cut time-to-hire 59% (39→16 days), and pioneered ML matching where 80% of employers get a quality candidate within 24 hours.",
     },
 ];
 
