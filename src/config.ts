@@ -45,7 +45,7 @@ export const EXPERIENCE = [
         role: "Founder",
         startDate: "2026",
         endDate: "Present",
-        description: "Fractional product and growth leadership for scaling startups. Launched January 2026.",
+        description: "Helping Series A/B companies diagnose and fix stalled growth.",
     },
     {
         id: "swing",
@@ -53,7 +53,7 @@ export const EXPERIENCE = [
         role: "Chief Product & Technology Officer",
         startDate: "2023",
         endDate: "2024",
-        description: "Drove end-to-end AI transformation that cut OpEx and COGS by 50%+ YoY while maintaining growth and product velocity.",
+        description: "Shipped AI substitute-teacher matching that cut OpEx 50% in one year. Took company from burning cash to sustainable unit economics.",
     },
     {
         id: "jobget",
@@ -61,7 +61,7 @@ export const EXPERIENCE = [
         role: "President",
         startDate: "2021",
         endDate: "2023",
-        description: "Grew revenue to over $100M/year while cutting burn from $2M/month, enabling acquisitions of Snagajob and Seasoned.",
+        description: "Stepped in as President. Cut burn from $2M/month to sustainable, grew revenue past $100M, then led acquisitions of two competitors (Snagajob, Seasoned).",
     },
     {
         id: "ziprecruiter",
@@ -69,7 +69,15 @@ export const EXPERIENCE = [
         role: "Chief Product Officer",
         startDate: "2014",
         endDate: "2021",
-        description: "Series A to NYSE IPO, $100M to $900M in revenue. Led 92-person product org that built the #1-rated job seeker apps for 8 years running, cut time-to-hire 59% (39→16 days), and pioneered ML matching where 80% of employers get a quality candidate within 24 hours.",
+        description: "Series A to NYSE IPO, $100M → $900M revenue. Shipped the #1-rated job seeker app (held for 8 years), ML matching that cut time-to-hire from 39 to 16 days, and Invite to Apply—which 2.5x'd candidate flow per posting.",
+    },
+    {
+        id: "murad",
+        company: "Murad",
+        role: "GM, Direct-to-Consumer",
+        startDate: "2008",
+        endDate: "2014",
+        description: "Built Murad's ecommerce into their #1 revenue channel. 25% CAGR, positive ROAS every quarter, 25-person team. Laid the foundation for Unilever acquisition.",
     },
 ];
 
