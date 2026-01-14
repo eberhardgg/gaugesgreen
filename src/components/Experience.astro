@@ -5,12 +5,12 @@ import { EXPERIENCE } from "../config";
 <section class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
   <h2 class="text-xl font-medium mb-8 text-gray-900 dark:text-white" data-i18n="background_title">Background</h2>
 
-  <div class="space-y-8">
+  <div class="space-y-6">
     {
       EXPERIENCE.map((job) => (
-        <div class="group">
+        <div class="group p-4 -mx-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-            <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`exp_${job.id}_role`}>
+            <h3 class="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors" data-i18n={`exp_${job.id}_role`}>
               {job.role}
             </h3>
             <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n={`exp_${job.id}_dates`}>

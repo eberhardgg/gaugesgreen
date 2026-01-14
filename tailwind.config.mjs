@@ -5,7 +5,10 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: "var(--color-primary)",
+                primary: {
+                    DEFAULT: "var(--color-primary)",
+                    hover: "var(--color-primary-hover)",
+                },
                 secondary: "var(--color-secondary)",
             },
             fontFamily: {

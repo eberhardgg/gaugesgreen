@@ -8,7 +8,8 @@
         --color-bg-body: #ffffff;
         --color-bg-card: #f9fafb;
         --color-border: #e5e7eb;
-        --color-primary: #3b82f6;
+        --color-primary: #16a34a;
+        --color-primary-hover: #15803d;
         --color-secondary: #6366f1;
     }
 
@@ -17,7 +18,8 @@
         --color-bg-body: #0f172a;
         --color-bg-card: #1e293b;
         --color-border: #334155;
-        --color-primary: #60a5fa;
+        --color-primary: #22c55e;
+        --color-primary-hover: #16a34a;
         --color-secondary: #818cf8;
     }
 
