@@ -12,7 +12,8 @@ export default {
                 secondary: "var(--color-secondary)",
             },
             fontFamily: {
-                sans: ["Inter", "sans-serif"],
+                sans: ["Inter", "system-ui", "sans-serif"],
+                serif: ["Instrument Serif", "Georgia", "serif"],
                 mono: ["JetBrains Mono", "monospace"],
             },
             animation: {
