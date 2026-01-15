@@ -53,7 +53,7 @@ export const EXPERIENCE = [
         role: "Chief Product & Technology Officer",
         startDate: "2023",
         endDate: "2024",
-        description: "Shipped AI substitute-teacher matching that cut OpEx 50% in one year. Took company from burning cash to sustainable unit economics.",
+        description: "Shipped AI substitute-teacher matching that cut OpEx 50% in one year. Led company to sustainable unit economics.",
     },
     {
         id: "jobget",
@@ -61,7 +61,7 @@ export const EXPERIENCE = [
         role: "President",
         startDate: "2021",
         endDate: "2023",
-        description: "Stepped in as President. Cut burn from $2M/month to sustainable, grew revenue past $100M, then led acquisitions of two competitors (Snagajob, Seasoned).",
+        description: "Stepped in as President. Cut burn from $2M/month to sustainable, grew revenue past $100M, and laid the foundation for acquisitions of two competitors (Snagajob, Seasoned).",
     },
     {
         id: "ziprecruiter",
