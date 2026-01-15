@@ -10,7 +10,7 @@ import { EXPERIENCE } from "../config";
       EXPERIENCE.map((job) => (
         <div>
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-1">
-            <h3 class="font-medium text-gray-900 dark:text-white" data-i18n={`exp_${job.id}_role`}>
+            <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`exp_${job.id}_role`}>
               {job.role}
             </h3>
             <span class="text-sm text-gray-500 dark:text-gray-400" data-i18n={`exp_${job.id}_dates`}>
