@@ -9,8 +9,8 @@ import { Moon, Sun } from "lucide-astro";
     aria-label="auto"
     aria-live="polite"
 >
-    <Moon id="moon-svg" class="w-6 h-6" />
-    <Sun id="sun-svg" class="hidden w-6 h-6" />
+    <Moon id="moon-svg" class="hidden w-6 h-6" />
+    <Sun id="sun-svg" class="w-6 h-6" />
 </button>
 
 <script is:inline>
@@ -25,7 +25,7 @@ import { Moon, Sun } from "lucide-astro";
         ) {
             return localStorage.getItem("theme");
         }
-        return "light";
+        return "dark";
     })();
 
     if (theme === "light") {
