@@ -148,7 +148,7 @@ export const ENGAGEMENT_MODEL = {
 export const IDEAL_CLIENTS = [
     {
         id: "series_a_c",
-        title: "Series A-C Startups",
+        title: "Technology Startups",
         description: "Post-PMF but growth has stalled or plateaued. You're shipping features but the needle isn't moving.",
     },
     {

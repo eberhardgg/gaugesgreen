@@ -21,11 +21,11 @@ const MODEL = [
 <Layout title="Metrics | Gauges Green" description="Public KPI dashboard for Gauges Green's first year">
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero -->
-    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_title">
+    <section class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
+      <h1 class="text-2xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_title">
         Metrics Dashboard
       </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed" data-i18n="metrics_intro">
+      <p class="text-sm text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed" data-i18n="metrics_intro">
         How I'm tracking Gauges Green's first year. I work backward from revenue targets and make the assumptions explicit.
       </p>
     </section>
@@ -33,7 +33,7 @@ const MODEL = [
     <!-- Live Metrics -->
     <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white" data-i18n="metrics_current">
+        <h2 class="text-xl text-gray-900 dark:text-white" data-i18n="metrics_current">
           Current Progress
         </h2>
         <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-500">
@@ -44,7 +44,7 @@ const MODEL = [
 
       <div class="grid sm:grid-cols-2 gap-4" id="metrics-grid">
         {FALLBACK_METRICS.map((metric) => (
-          <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50" data-metric={metric.key}>
+          <div class="p-6 border border-gray-200 dark:border-gray-800" data-metric={metric.key}>
             <div class="flex items-center gap-2 text-gray-500 dark:text-gray-500 mb-2">
               {metric.icon === "users" && <Users class="w-4 h-4" />}
               {metric.icon === "trending" && <TrendingUp class="w-4 h-4" />}
@@ -62,11 +62,11 @@ const MODEL = [
     </section>
 
     <!-- The Model -->
-    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_model_title">
+    <section class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_model_title">
         The Model
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-8" data-i18n="metrics_model_desc">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="metrics_model_desc">
         Work backward from revenue. Make assumptions explicit so I know which ones to revisit when reality diverges.
       </p>
 
@@ -95,8 +95,8 @@ const MODEL = [
     </section>
 
     <!-- Why Public -->
-    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_why_title">
+    <section class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_why_title">
         Why Public?
       </h2>
       <ul class="space-y-3 text-gray-600 dark:text-gray-400">

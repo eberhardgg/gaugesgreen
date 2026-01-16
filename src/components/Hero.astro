@@ -3,46 +3,45 @@ import { Linkedin, Calendar } from "lucide-astro";
 ---
 
 <section
-  class="relative min-h-[50vh] flex flex-col justify-center items-start px-4 md:px-8 max-w-3xl mx-auto pt-8"
+  class="relative flex flex-col justify-center items-start px-4 md:px-8 max-w-3xl mx-auto py-10"
 >
-  <div class="animate-fade-in-up relative z-10 w-full">
+  <div class="relative z-10 w-full">
     <div class="flex items-center gap-5 mb-6">
       <img
         src="/perfil.jpg"
         alt="Ryan Eberhard"
-        class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover ring-2 ring-gray-200 dark:ring-gray-700"
+        class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover"
       />
-      <h1 class="text-5xl md:text-6xl text-gray-900 dark:text-white tracking-tight">
+      <h1 class="text-2xl text-gray-900 dark:text-white tracking-tight">
         Ryan Eberhard
       </h1>
     </div>
 
-    <p class="text-xl md:text-2xl text-gray-500 dark:text-gray-400 mb-4 max-w-2xl italic font-serif" data-i18n="hero_subtitle">
+    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4 max-w-2xl" data-i18n="hero_subtitle">
       I make the gauges green.
     </p>
 
-    <p class="text-base text-gray-600 dark:text-gray-400 mb-10 max-w-xl leading-relaxed" data-i18n="hero_proof">
-      Former CPO at ZipRecruiter (grew to 100K customers, $900M rev). Now offering transformative leadership sprints for Series A-C companies out of Mexico City.
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-xl leading-relaxed" data-i18n="hero_proof">
+      Former CPO at ZipRecruiter (grew to 100K customers, $900M rev). Now offering transformative leadership sprints for technology companies out of Mexico City.
     </p>
 
-    <div class="flex gap-3">
+    <div class="flex items-center gap-3">
       <a
         href="https://cal.com/ryan-eberhard-6jsjkn/30min"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary hover:bg-primary-hover transition-colors text-white"
+        class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+        data-i18n="schedule"
       >
-        <Calendar class="w-5 h-5" />
-        <span class="text-sm font-medium" data-i18n="schedule">Book a 30-min diagnostic</span>
+        Book a call
       </a>
       <a
         href="https://linkedin.com/in/eberhard"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-200"
+        class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
       >
-        <Linkedin class="w-5 h-5" />
-        <span class="text-sm font-medium">LinkedIn</span>
+        LinkedIn
       </a>
     </div>
   </div>

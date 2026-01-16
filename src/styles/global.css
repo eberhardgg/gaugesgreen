@@ -35,10 +35,7 @@
     }
 
     h1,
-    h2 {
-        @apply font-serif font-normal;
-    }
-
+    h2,
     h3,
     h4,
     h5,
@@ -53,11 +50,11 @@
 
 @layer components {
     .btn-primary {
-        @apply inline-flex items-center justify-center rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all;
+        @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-[var(--color-primary)] hover:underline focus:outline-none transition-colors;
     }
 
     .card {
-        @apply rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 shadow-sm transition-all hover:shadow-md;
+        @apply border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6;
     }
 }
 

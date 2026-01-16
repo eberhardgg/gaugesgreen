@@ -4,33 +4,33 @@ import { ENGAGEMENT_MODEL, IDEAL_CLIENTS, TRANSFORMATIONS } from "../config";
 import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
 ---
 
-<Layout title="Advisory | Gauges Green" description="Fractional Product & Growth Leadership for Series A-C companies">
+<Layout title="Advisory | Gauges Green" description="Fractional Product & Growth Leadership for technology companies">
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero -->
-    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-5xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_title">
+    <section class="py-10 px-4 md:px-8 max-w-3xl mx-auto">
+      <h1 class="text-2xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_title">
         How I Work
       </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl leading-relaxed" data-i18n="advisory_intro">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed" data-i18n="advisory_intro">
         I embed with your team for 4-12 week sprints. Not advice from the sidelines—hands-on execution alongside your engineers and PMs.
       </p>
       <a
         href="https://cal.com/ryan-eberhard-6jsjkn/30min"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary hover:bg-primary-hover transition-colors text-white"
+        class="text-sm text-primary hover:underline font-medium"
+        data-i18n="advisory_cta"
       >
-        <Calendar class="w-5 h-5" />
-        <span class="font-medium" data-i18n="advisory_cta">Book a diagnostic call</span>
+        Book a diagnostic call →
       </a>
     </section>
 
     <!-- Engagement Model -->
-    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_model_title">
+    <section class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_model_title">
         Engagement Model
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-8">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
         <span data-i18n="advisory_model_duration">{ENGAGEMENT_MODEL.duration}</span> · <span data-i18n="advisory_model_commitment">{ENGAGEMENT_MODEL.commitment}</span>
       </p>
 
@@ -49,7 +49,7 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
                   {phase.duration}
                 </span>
               </div>
-              <p class="text-gray-600 dark:text-gray-400" data-i18n={`advisory_phase_${phase.id}_desc`}>
+              <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n={`advisory_phase_${phase.id}_desc`}>
                 {phase.description}
               </p>
             </div>
@@ -59,18 +59,18 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
     </section>
 
     <!-- Who It's For -->
-    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-8" data-i18n="advisory_who_title">
+    <section class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_who_title">
         Who It's For
       </h2>
 
       <div class="grid gap-6">
         {IDEAL_CLIENTS.map((client) => (
-          <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50">
+          <div class="p-6 border border-gray-200 dark:border-gray-800">
             <h3 class="font-semibold text-gray-900 dark:text-white mb-2" data-i18n={`advisory_client_${client.id}_title`}>
               {client.title}
             </h3>
-            <p class="text-gray-600 dark:text-gray-400" data-i18n={`advisory_client_${client.id}_desc`}>
+            <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n={`advisory_client_${client.id}_desc`}>
               {client.description}
             </p>
           </div>
@@ -79,8 +79,8 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
     </section>
 
     <!-- Transformations -->
-    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-8" data-i18n="advisory_outcomes_title">
+    <section class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_outcomes_title">
         Transformation Outcomes
       </h2>
 
@@ -91,10 +91,10 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
               <ArrowRight class="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p class="text-gray-500 dark:text-gray-500 line-through mb-1" data-i18n={`advisory_transform_${t.id}_before`}>
+              <p class="text-sm text-gray-500 dark:text-gray-500 line-through mb-1" data-i18n={`advisory_transform_${t.id}_before`}>
                 {t.before}
               </p>
-              <p class="text-gray-900 dark:text-white font-medium" data-i18n={`advisory_transform_${t.id}_after`}>
+              <p class="text-sm text-gray-900 dark:text-white font-medium" data-i18n={`advisory_transform_${t.id}_after`}>
                 {t.after}
               </p>
             </div>
@@ -104,21 +104,21 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
     </section>
 
     <!-- CTA -->
-    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_cta_title">
+    <section class="py-10 px-4 md:px-8 max-w-3xl mx-auto text-center">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_cta_title">
         Ready to diagnose what's stalling growth?
       </h2>
-      <p class="text-gray-600 dark:text-gray-400 mb-8" data-i18n="advisory_cta_desc">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="advisory_cta_desc">
         Book a 30-minute call. No pitch—just diagnosis.
       </p>
       <a
         href="https://cal.com/ryan-eberhard-6jsjkn/30min"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-hover transition-colors text-white"
+        class="text-sm text-primary hover:underline font-medium"
+        data-i18n="advisory_cta"
       >
-        <Calendar class="w-5 h-5" />
-        <span class="font-medium" data-i18n="advisory_cta">Book a diagnostic call</span>
+        Book a diagnostic call →
       </a>
     </section>
   </main>
