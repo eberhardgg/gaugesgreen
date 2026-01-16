@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { ArrowRight } from "lucide-astro";
+
+const posts = (await getCollection("log"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<Layout title="Log | Gauges Green" description="Build diary and thoughts on product, growth, and the operator life">
+  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <!-- Hero -->
+    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl text-gray-900 dark:text-white mb-6" data-i18n="log_title">
+        Build Log
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed" data-i18n="log_intro">
+        Notes on building products, growing companies, and the operator life.
+      </p>
+    </section>
+
+    <!-- Posts -->
+    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
+      {posts.length === 0 ? (
+        <p class="text-gray-500 dark:text-gray-500" data-i18n="log_empty">
+          No posts yet. Check back soon.
+        </p>
+      ) : (
+        <div class="space-y-8">
+          {posts.map((post) => (
+            <article class="group">
+              <a href={`/log/${post.slug}`} class="block">
+                <time class="text-sm text-gray-500 dark:text-gray-500">
+                  {formatDate(post.data.date)}
+                </time>
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-1 mb-2">
+                  {post.data.title}
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 mb-3">
+                  {post.data.description}
+                </p>
+                <div class="flex items-center gap-2 text-sm font-medium text-primary">
+                  <span data-i18n="log_read_more">Read more</span>
+                  <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+              {post.data.tags.length > 0 && (
+                <div class="flex gap-2 mt-3">
+                  {post.data.tags.map((tag) => (
+                    <span class="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { ArrowLeft, Calendar } from "lucide-astro";
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection("portfolio");
+  return caseStudies.map((study) => ({
+    params: { slug: study.slug },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await study.render();
+---
+
+<Layout title={`${study.data.company} | Portfolio | Gauges Green`} description={study.data.challenge}>
+  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <!-- Back link -->
+    <div class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
+      <a
+        href="/portfolio"
+        class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+      >
+        <ArrowLeft class="w-4 h-4" />
+        <span data-i18n="portfolio_back">Back to Portfolio</span>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <h1 class="text-4xl md:text-5xl text-gray-900 dark:text-white">
+          {study.data.company}
+        </h1>
+      </div>
+      <div class="flex flex-wrap items-center gap-4 mb-6">
+        <span class="text-lg text-primary">{study.data.role}</span>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-500 dark:text-gray-400">{study.data.period}</span>
+      </div>
+
+      <!-- Hero Metric -->
+      <div class="p-6 rounded-xl bg-primary/10 border border-primary/20 mb-8">
+        <div class="text-4xl font-bold text-primary mb-1">
+          {study.data.heroMetric}
+        </div>
+        <div class="text-gray-600 dark:text-gray-400">
+          {study.data.heroMetricLabel}
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <article class="py-8 px-4 md:px-8 max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-serif prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-li:text-gray-600 dark:prose-li:text-gray-400 prose-strong:text-gray-900 dark:prose-strong:text-white">
+      <Content />
+    </article>
+
+    <!-- CTA -->
+    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto text-center border-t border-gray-200 dark:border-gray-800 mt-12">
+      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-4" data-i18n="portfolio_cta_title">
+        Facing similar challenges?
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8" data-i18n="portfolio_cta_desc">
+        Let's talk about how I can help.
+      </p>
+      <a
+        href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary-hover transition-colors text-white"
+      >
+        <Calendar class="w-5 h-5" />
+        <span class="font-medium" data-i18n="portfolio_cta_button">Book a call</span>
+      </a>
+    </section>
+  </main>
+</Layout>

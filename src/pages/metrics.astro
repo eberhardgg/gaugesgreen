@@ -1,0 +1,173 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { TrendingUp, Users, DollarSign, Target, RefreshCw } from "lucide-astro";
+
+// Fallback data - will be replaced by Google Sheets data client-side
+const FALLBACK_METRICS = [
+  { key: "touchpoints", label: "Touchpoints", value: "—", target: "120", icon: "users" },
+  { key: "conversations", label: "Conversations", value: "—", target: "12", icon: "trending" },
+  { key: "qualified", label: "Qualified", value: "—", target: "3", icon: "target" },
+  { key: "signed", label: "Signed", value: "—", target: "2", icon: "dollar" },
+];
+
+const MODEL = [
+  { stage: "Touchpoints", q1Target: "120", eoyTarget: "240", conversion: "10%" },
+  { stage: "Conversations", q1Target: "12", eoyTarget: "24", conversion: "25%" },
+  { stage: "Qualified", q1Target: "3", eoyTarget: "6", conversion: "33%" },
+  { stage: "Signed", q1Target: "2", eoyTarget: "4", conversion: "—" },
+];
+---
+
+<Layout title="Metrics | Gauges Green" description="Public KPI dashboard for Gauges Green's first year">
+  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <!-- Hero -->
+    <section class="py-16 px-4 md:px-8 max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_title">
+        Metrics Dashboard
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed" data-i18n="metrics_intro">
+        How I'm tracking Gauges Green's first year. I work backward from revenue targets and make the assumptions explicit.
+      </p>
+    </section>
+
+    <!-- Live Metrics -->
+    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white" data-i18n="metrics_current">
+          Current Progress
+        </h2>
+        <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-500">
+          <RefreshCw class="w-4 h-4" id="refresh-icon" />
+          <span id="last-updated" data-i18n="metrics_loading">Loading...</span>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4" id="metrics-grid">
+        {FALLBACK_METRICS.map((metric) => (
+          <div class="p-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50" data-metric={metric.key}>
+            <div class="flex items-center gap-2 text-gray-500 dark:text-gray-500 mb-2">
+              {metric.icon === "users" && <Users class="w-4 h-4" />}
+              {metric.icon === "trending" && <TrendingUp class="w-4 h-4" />}
+              {metric.icon === "target" && <Target class="w-4 h-4" />}
+              {metric.icon === "dollar" && <DollarSign class="w-4 h-4" />}
+              <span class="text-sm" data-i18n={`metrics_${metric.key}_label`}>{metric.label}</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-3xl font-bold text-gray-900 dark:text-white" data-value>{metric.value}</span>
+              <span class="text-sm text-gray-400">/ {metric.target}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- The Model -->
+    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_model_title">
+        The Model
+      </h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8" data-i18n="metrics_model_desc">
+        Work backward from revenue. Make assumptions explicit so I know which ones to revisit when reality diverges.
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-gray-200 dark:border-gray-700">
+              <th class="text-left py-3 pr-4 font-semibold text-gray-900 dark:text-white" data-i18n="metrics_stage">Stage</th>
+              <th class="text-right py-3 px-4 font-semibold text-gray-900 dark:text-white" data-i18n="metrics_q1">90-Day</th>
+              <th class="text-right py-3 px-4 font-semibold text-gray-900 dark:text-white" data-i18n="metrics_eoy">EOY</th>
+              <th class="text-right py-3 pl-4 font-semibold text-gray-900 dark:text-white" data-i18n="metrics_conversion">Conversion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MODEL.map((row) => (
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="py-3 pr-4 text-gray-700 dark:text-gray-300">{row.stage}</td>
+                <td class="py-3 px-4 text-right text-gray-600 dark:text-gray-400">{row.q1Target}</td>
+                <td class="py-3 px-4 text-right text-gray-600 dark:text-gray-400">{row.eoyTarget}</td>
+                <td class="py-3 pl-4 text-right text-gray-500 dark:text-gray-500">{row.conversion}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Why Public -->
+    <section class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl text-gray-900 dark:text-white mb-6" data-i18n="metrics_why_title">
+        Why Public?
+      </h2>
+      <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+        <li class="flex gap-3">
+          <span class="text-primary">•</span>
+          <span data-i18n="metrics_why_1">Shows I think in funnels and conversion math, not vibes</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary">•</span>
+          <span data-i18n="metrics_why_2">Demonstrates I set targets and track against them</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary">•</span>
+          <span data-i18n="metrics_why_3">Proves I build simple, pragmatic systems</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="text-primary">•</span>
+          <span data-i18n="metrics_why_4">This is what I'd build for you in week one</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<script is:inline>
+  // Google Sheets CSV URL - replace with your published sheet
+  // Format: https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv
+  const SHEET_URL = null; // Set this to your Google Sheets CSV export URL
+
+  async function fetchMetrics() {
+    if (!SHEET_URL) {
+      document.getElementById("last-updated").textContent = "Configure Google Sheet to enable live data";
+      return;
+    }
+
+    try {
+      const response = await fetch(SHEET_URL);
+      const csv = await response.text();
+      const metrics = parseCSV(csv);
+      updateMetrics(metrics);
+      document.getElementById("last-updated").textContent = "Updated just now";
+    } catch (error) {
+      console.error("Failed to fetch metrics:", error);
+      document.getElementById("last-updated").textContent = "Unable to load live data";
+    }
+  }
+
+  function parseCSV(csv) {
+    const lines = csv.split("\n");
+    const headers = lines[0].split(",").map(h => h.trim());
+    return lines.slice(1).filter(line => line.trim()).map(line => {
+      const values = line.split(",");
+      return headers.reduce((obj, header, i) => {
+        obj[header] = values[i]?.trim();
+        return obj;
+      }, {});
+    });
+  }
+
+  function updateMetrics(metrics) {
+    metrics.forEach(metric => {
+      const card = document.querySelector(`[data-metric="${metric.key}"]`);
+      if (card) {
+        const valueEl = card.querySelector("[data-value]");
+        if (valueEl && metric.value) {
+          valueEl.textContent = metric.value;
+        }
+      }
+    });
+  }
+
+  // Fetch on load
+  fetchMetrics();
+</script>
