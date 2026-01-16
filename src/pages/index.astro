@@ -5,17 +5,10 @@ import Services from "../components/Services.astro";
 import Experience from "../components/Experience.astro";
 import Investors from "../components/Investors.astro";
 import Contact from "../components/Contact.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
-import LangToggle from "../components/LangToggle.astro";
 ---
 
 <Layout>
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-    <div class="fixed top-4 right-4 z-50 flex items-center gap-3">
-      <LangToggle />
-      <ThemeToggle />
-    </div>
-
     <div class="space-y-0 pb-16">
       <Hero />
       <Services />
@@ -23,9 +16,5 @@ import LangToggle from "../components/LangToggle.astro";
       <Investors />
       <Contact />
     </div>
-
-    <footer class="text-center py-8 text-gray-400 dark:text-gray-600 text-sm">
-      <p>&copy; {new Date().getFullYear()} Gauges Green</p>
-    </footer>
   </main>
 </Layout>

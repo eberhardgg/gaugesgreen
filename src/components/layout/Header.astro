@@ -1,0 +1,123 @@
+---
+import { Menu, X } from "lucide-astro";
+import ThemeToggle from "../ThemeToggle.astro";
+import LangToggle from "../LangToggle.astro";
+
+const NAV_LINKS = [
+  { href: "/", key: "nav_home", label: "Home" },
+  { href: "/advisory", key: "nav_advisory", label: "Advisory" },
+  { href: "/portfolio", key: "nav_portfolio", label: "Portfolio" },
+  { href: "/log", key: "nav_log", label: "Log" },
+  { href: "/about", key: "nav_about", label: "About" },
+  { href: "/metrics", key: "nav_metrics", label: "Metrics" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-5xl mx-auto px-4 md:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="font-serif text-xl text-gray-900 dark:text-white hover:text-primary transition-colors">
+        Gauges Green
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition-colors",
+              currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+                ? "text-primary"
+                : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white",
+            ]}
+            data-i18n={link.key}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right side: toggles + mobile menu button -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-3">
+          <LangToggle />
+          <ThemeToggle />
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          aria-label="Toggle menu"
+        >
+          <Menu id="menu-icon" class="w-6 h-6 text-gray-700 dark:text-gray-300" />
+          <X id="close-icon" class="w-6 h-6 text-gray-700 dark:text-gray-300 hidden" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
+  >
+    <nav class="px-4 py-4 space-y-2">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "block py-2 px-3 rounded-lg text-base font-medium transition-colors",
+            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+              ? "text-primary bg-primary/10"
+              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800",
+          ]}
+          data-i18n={link.key}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-3 px-4 py-4 border-t border-gray-200 dark:border-gray-800">
+      <LangToggle />
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from being hidden under fixed header -->
+<div class="h-16"></div>
+
+<script is:inline>
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  mobileMenuBtn?.addEventListener("click", () => {
+    const isOpen = !mobileMenu?.classList.contains("hidden");
+
+    if (isOpen) {
+      mobileMenu?.classList.add("hidden");
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    } else {
+      mobileMenu?.classList.remove("hidden");
+      menuIcon?.classList.add("hidden");
+      closeIcon?.classList.remove("hidden");
+    }
+  });
+
+  // Close menu when clicking a link
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    });
+  });
+</script>

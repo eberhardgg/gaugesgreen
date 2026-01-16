@@ -1,0 +1,73 @@
+---
+import { Mail, Linkedin, MapPin, Calendar } from "lucide-astro";
+---
+
+<footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+  <div class="max-w-5xl mx-auto px-4 md:px-8 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <a href="/" class="font-serif text-xl text-gray-900 dark:text-white">
+          Gauges Green
+        </a>
+        <p class="mt-2 text-sm text-gray-600 dark:text-gray-400" data-i18n="footer_tagline">
+          Fractional Product & Growth Leadership
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3" data-i18n="footer_links">Quick Links</h4>
+        <nav class="space-y-2">
+          <a href="/advisory" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_advisory">Advisory</a>
+          <a href="/portfolio" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_portfolio">Portfolio</a>
+          <a href="/log" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_log">Log</a>
+          <a href="/about" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+        </nav>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3" data-i18n="footer_contact">Get in Touch</h4>
+        <div class="space-y-2">
+          <a
+            href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+          >
+            <Calendar class="w-4 h-4" />
+            <span data-i18n="footer_book">Book a call</span>
+          </a>
+          <a
+            href="mailto:eberhard@gaugesgreen.com"
+            class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+          >
+            <Mail class="w-4 h-4" />
+            <span>eberhard@gaugesgreen.com</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/eberhard"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+          >
+            <Linkedin class="w-4 h-4" />
+            <span>LinkedIn</span>
+          </a>
+          <div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-500">
+            <MapPin class="w-4 h-4" />
+            <span data-i18n="footer_location">Mexico City / Los Angeles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+      <p class="text-center text-sm text-gray-400 dark:text-gray-600">
+        &copy; {new Date().getFullYear()} Gauges Green. <span data-i18n="footer_rights">All rights reserved.</span>
+      </p>
+    </div>
+  </div>
+</footer>
