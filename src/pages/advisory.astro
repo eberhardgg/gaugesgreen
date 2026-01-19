@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { ENGAGEMENT_MODEL, IDEAL_CLIENTS, TRANSFORMATIONS } from "../config";
 import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
+import IntroButton from "../components/IntroButton.astro";
 ---
 
 <Layout title="Advisory | Gauges Green" description="Fractional Product & Growth Leadership for venture-backed companies">
@@ -111,15 +112,18 @@ import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="advisory_cta_desc">
         Book a 30-minute call. No pitch—just diagnosis.
       </p>
-      <a
-        href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm text-primary hover:underline font-medium"
-        data-i18n="advisory_cta"
-      >
-        Book a diagnostic call →
-      </a>
+      <div class="flex items-center justify-center gap-3">
+        <a
+          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+          data-i18n="advisory_cta"
+        >
+          Book a diagnostic call
+        </a>
+        <IntroButton />
+      </div>
     </section>
   </main>
 </Layout>

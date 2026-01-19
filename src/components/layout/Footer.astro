@@ -1,5 +1,6 @@
 ---
 import { Mail, Linkedin, MapPin, Calendar } from "lucide-astro";
+import IntroButton from "../IntroButton.astro";
 ---
 
 <footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
@@ -59,6 +60,9 @@ import { Mail, Linkedin, MapPin, Calendar } from "lucide-astro";
           <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
             <MapPin class="w-3.5 h-3.5" />
             <span data-i18n="footer_location">Mexico City / Los Angeles</span>
+          </div>
+          <div class="mt-3">
+            <IntroButton class="text-xs px-3 py-1.5" />
           </div>
         </div>
       </div>

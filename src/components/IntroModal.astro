@@ -1,0 +1,139 @@
+---
+import { X, Copy, Check } from "lucide-astro";
+---
+
+<!-- Modal Backdrop -->
+<div
+  id="intro-modal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm"
+>
+  <!-- Modal Content -->
+  <div class="relative w-full max-w-4xl mx-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-xl max-h-[90vh] overflow-y-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
+      <div>
+        <h2 class="text-base font-semibold text-gray-900 dark:text-white">Make an intro</h2>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Copy one of these into your email, edit as needed, and send.</p>
+      </div>
+      <button
+        id="intro-close"
+        class="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+        aria-label="Close"
+      >
+        <X class="w-5 h-5" />
+      </button>
+    </div>
+
+    <!-- Blurbs Grid -->
+    <div class="grid md:grid-cols-3 gap-4 p-4">
+      <!-- Blurb 1: General warm intro -->
+      <div class="group relative p-4 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors">
+        <button
+          class="copy-btn absolute top-3 right-3 p-1.5 text-gray-400 hover:text-primary transition-colors"
+          data-blurb="blurb-1"
+          aria-label="Copy to clipboard"
+        >
+          <Copy class="w-4 h-4 copy-icon" />
+          <Check class="w-4 h-4 check-icon hidden text-primary" />
+        </button>
+        <p id="blurb-1" class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pr-8">
+          I'd like to introduce you to Ryan Eberhard. He's a product and growth operator who's spent the last decade helping companies figure out why growth stalled and what to do about it. Based in Mexico City, works with founders directly. Worth a conversation if you're stuck on something.
+        </p>
+      </div>
+
+      <!-- Blurb 2: Contextual for growth challenges -->
+      <div class="group relative p-4 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors">
+        <button
+          class="copy-btn absolute top-3 right-3 p-1.5 text-gray-400 hover:text-primary transition-colors"
+          data-blurb="blurb-2"
+          aria-label="Copy to clipboard"
+        >
+          <Copy class="w-4 h-4 copy-icon" />
+          <Check class="w-4 h-4 check-icon hidden text-primary" />
+        </button>
+        <p id="blurb-2" class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pr-8">
+          Given what you mentioned about [growth / retention / GTM], I thought of Ryan Eberhard. He embeds with teams for a few months and helps diagnose what's actually going wrong. Not a consultant who hands you a deck—he ships alongside your engineers. Might be useful to talk.
+        </p>
+      </div>
+
+      <!-- Blurb 3: For product/ops context -->
+      <div class="group relative p-4 border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors">
+        <button
+          class="copy-btn absolute top-3 right-3 p-1.5 text-gray-400 hover:text-primary transition-colors"
+          data-blurb="blurb-3"
+          aria-label="Copy to clipboard"
+        >
+          <Copy class="w-4 h-4 copy-icon" />
+          <Check class="w-4 h-4 check-icon hidden text-primary" />
+        </button>
+        <p id="blurb-3" class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed pr-8">
+          Connecting you with Ryan Eberhard. He's helped a few companies I know work through post-PMF growing pains—usually the stuff that's hard to see from inside. Does short engagements, hands-on. Happy to vouch if helpful.
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer hint -->
+    <div class="px-4 pb-4">
+      <p class="text-xs text-gray-400 dark:text-gray-500 text-center">
+        Click the copy icon, paste into your email, and tweak as needed.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  const triggers = document.querySelectorAll(".intro-trigger");
+  const modal = document.getElementById("intro-modal");
+  const closeBtn = document.getElementById("intro-close");
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+
+  triggers.forEach((trigger) => trigger.addEventListener("click", openModal));
+  closeBtn?.addEventListener("click", closeModal);
+
+  // Close on backdrop click
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+
+  // Copy functionality
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const blurbId = btn.getAttribute("data-blurb");
+      const text = document.getElementById(blurbId)?.textContent?.trim();
+
+      if (text) {
+        await navigator.clipboard.writeText(text);
+
+        // Visual feedback
+        const copyIcon = btn.querySelector(".copy-icon");
+        const checkIcon = btn.querySelector(".check-icon");
+
+        copyIcon?.classList.add("hidden");
+        checkIcon?.classList.remove("hidden");
+
+        setTimeout(() => {
+          copyIcon?.classList.remove("hidden");
+          checkIcon?.classList.add("hidden");
+        }, 2000);
+      }
+    });
+  });
+</script>

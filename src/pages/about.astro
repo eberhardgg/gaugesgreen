@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { EXPERIENCE } from "../config";
 import { MapPin, Plane, Calendar } from "lucide-astro";
+import IntroButton from "../components/IntroButton.astro";
 ---
 
 <Layout title="About | Gauges Green" description="Ryan Eberhard - Product leader, operator, builder">
@@ -122,15 +123,18 @@ import { MapPin, Plane, Calendar } from "lucide-astro";
       <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="about_cta_desc">
         Whether you're facing a growth challenge or just want to connect, I'm always happy to chat.
       </p>
-      <a
-        href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-sm text-primary hover:underline font-medium"
-        data-i18n="about_cta_button"
-      >
-        Book a call →
-      </a>
+      <div class="flex items-center justify-center gap-3">
+        <a
+          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+          data-i18n="about_cta_button"
+        >
+          Book a call
+        </a>
+        <IntroButton />
+      </div>
     </section>
   </main>
 </Layout>
