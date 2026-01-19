@@ -1,36 +1,23 @@
 ---
 ---
 
-<div class="flex gap-1.5">
+<div class="flex gap-1 text-xs">
   <button
     id="lang-en"
-    class="w-4 h-4 rounded-sm overflow-hidden opacity-100 hover:opacity-80 transition-opacity"
+    class="px-1.5 py-0.5 text-gray-900 dark:text-white font-medium transition-opacity"
     aria-label="English"
     title="English"
   >
-    <img
-      src="https://flagcdn.com/w40/gb.png"
-      srcset="https://flagcdn.com/w80/gb.png 2x"
-      width="16"
-      height="12"
-      alt="English"
-      class="w-full h-full object-cover"
-    />
+    EN
   </button>
+  <span class="text-gray-400 dark:text-gray-600">/</span>
   <button
     id="lang-es"
-    class="w-4 h-4 rounded-sm overflow-hidden opacity-50 hover:opacity-80 transition-opacity"
+    class="px-1.5 py-0.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
     aria-label="Español"
     title="Español"
   >
-    <img
-      src="https://flagcdn.com/w40/mx.png"
-      srcset="https://flagcdn.com/w80/mx.png 2x"
-      width="16"
-      height="12"
-      alt="Español"
-      class="w-full h-full object-cover"
-    />
+    ES
   </button>
 </div>
 
@@ -76,11 +63,10 @@
 
       // Navigation
       nav_home: "Home",
-      nav_advisory: "Advisory",
-      nav_portfolio: "Portfolio",
-      nav_log: "Log",
+      nav_experience: "Experience",
+      nav_services: "Services",
+      nav_log: "Logbook",
       nav_about: "About",
-      nav_metrics: "Metrics",
 
       // Footer
       footer_tagline: "Fractional Product & Growth Leadership",
@@ -220,11 +206,10 @@
 
       // Navegación
       nav_home: "Inicio",
-      nav_advisory: "Asesoría",
-      nav_portfolio: "Portafolio",
+      nav_experience: "Experiencia",
+      nav_services: "Servicios",
       nav_log: "Bitácora",
       nav_about: "Acerca",
-      nav_metrics: "Métricas",
 
       // Pie de página
       footer_tagline: "Liderazgo Fraccional de Producto y Crecimiento",
@@ -329,11 +314,17 @@
   function setLang(lang) {
     localStorage.setItem("lang", lang);
 
-    // Update button opacity
-    document.getElementById("lang-en").classList.toggle("opacity-50", lang !== "en");
-    document.getElementById("lang-en").classList.toggle("opacity-100", lang === "en");
-    document.getElementById("lang-es").classList.toggle("opacity-50", lang !== "es");
-    document.getElementById("lang-es").classList.toggle("opacity-100", lang === "es");
+    // Update button styles
+    const enBtn = document.getElementById("lang-en");
+    const esBtn = document.getElementById("lang-es");
+
+    if (lang === "en") {
+      enBtn.className = "px-1.5 py-0.5 text-gray-900 dark:text-white font-medium transition-colors";
+      esBtn.className = "px-1.5 py-0.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors";
+    } else {
+      enBtn.className = "px-1.5 py-0.5 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors";
+      esBtn.className = "px-1.5 py-0.5 text-gray-900 dark:text-white font-medium transition-colors";
+    }
 
     // Update all translatable elements
     document.querySelectorAll("[data-i18n]").forEach(el => {
