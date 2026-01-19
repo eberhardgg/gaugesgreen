@@ -1,38 +1,78 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { ENGAGEMENT_MODEL, IDEAL_CLIENTS, TRANSFORMATIONS } from "../config";
-import { Calendar, ArrowRight, CheckCircle } from "lucide-astro";
+import { ArrowRight, Zap, Clock, Users, Package } from "lucide-astro";
 import IntroButton from "../components/IntroButton.astro";
 ---
 
-<Layout title="Advisory | Gauges Green" description="Fractional Product & Growth Leadership for venture-backed companies">
+<Layout title="Services | Gauges Green" description="Fractional Product & Growth Leadership for venture-backed companies">
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero -->
     <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 class="text-2xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_title">
-        How I Work
+      <h1 class="text-2xl text-gray-900 dark:text-white mb-4">
+        Services
       </h1>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed" data-i18n="advisory_intro">
-        I embed with your team for 4-12 week sprints. Not advice from the sidelines—hands-on execution alongside your engineers and PMs.
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed">
+        Operators who ship, not advisors who deck.
+      </p>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed">
+        I embed with your team for 4-12 week sprints. Hands-on execution alongside your engineers and PMs—not PowerPoints from the sidelines.
       </p>
       <a
         href="https://cal.com/ryan-eberhard-6jsjkn/30min"
         target="_blank"
         rel="noopener noreferrer"
         class="text-sm text-primary hover:underline font-medium"
-        data-i18n="advisory_cta"
       >
         Book a diagnostic call →
       </a>
     </section>
 
+    <!-- What You Get -->
+    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+        What You Get
+      </h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-5 border border-gray-200 dark:border-gray-800">
+          <Zap class="w-5 h-5 text-primary mb-3" />
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Shipping Infrastructure</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Early access tiers, AI-automated release checklists, 48-hour default-to-ship review gates. The systems that make velocity sustainable.
+          </p>
+        </div>
+        <div class="p-5 border border-gray-200 dark:border-gray-800">
+          <Clock class="w-5 h-5 text-primary mb-3" />
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Growth Diagnosis</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Root cause analysis of why features ship but metrics don't move. Usually diagnosed in the first two weeks.
+          </p>
+        </div>
+        <div class="p-5 border border-gray-200 dark:border-gray-800">
+          <Users class="w-5 h-5 text-primary mb-3" />
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Team Assessment</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Honest evaluation of who's in the right seat. Sometimes the answer is "stop hiring"—define the problem before the role.
+          </p>
+        </div>
+        <div class="p-5 border border-gray-200 dark:border-gray-800">
+          <Package class="w-5 h-5 text-primary mb-3" />
+          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Hands-On Execution</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            I ship code alongside your engineers. PRs, not presentations.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Engagement Model -->
     <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_model_title">
-        Engagement Model
+      <h2 class="text-xl text-gray-900 dark:text-white mb-4">
+        How It Works
       </h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
-        <span data-i18n="advisory_model_duration">{ENGAGEMENT_MODEL.duration}</span> · <span data-i18n="advisory_model_commitment">{ENGAGEMENT_MODEL.commitment}</span>
+      <p class="text-sm text-gray-500 dark:text-gray-500 mb-6">
+        {ENGAGEMENT_MODEL.duration} · {ENGAGEMENT_MODEL.commitment}
       </p>
 
       <div class="space-y-6">
@@ -43,14 +83,14 @@ import IntroButton from "../components/IntroButton.astro";
             </div>
             <div>
               <div class="flex items-baseline gap-2 mb-1">
-                <h3 class="font-semibold text-gray-900 dark:text-white" data-i18n={`advisory_phase_${phase.id}_title`}>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
                   {phase.phase}
                 </h3>
-                <span class="text-sm text-gray-500 dark:text-gray-500" data-i18n={`advisory_phase_${phase.id}_duration`}>
+                <span class="text-sm text-gray-500 dark:text-gray-500">
                   {phase.duration}
                 </span>
               </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n={`advisory_phase_${phase.id}_desc`}>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
                 {phase.description}
               </p>
             </div>
@@ -61,17 +101,17 @@ import IntroButton from "../components/IntroButton.astro";
 
     <!-- Who It's For -->
     <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_who_title">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
         Who It's For
       </h2>
 
-      <div class="grid gap-6">
+      <div class="space-y-4">
         {IDEAL_CLIENTS.map((client) => (
-          <div class="p-6 border border-gray-200 dark:border-gray-800">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-2" data-i18n={`advisory_client_${client.id}_title`}>
+          <div class="p-5 border border-gray-200 dark:border-gray-800">
+            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
               {client.title}
             </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n={`advisory_client_${client.id}_desc`}>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
               {client.description}
             </p>
           </div>
@@ -81,21 +121,21 @@ import IntroButton from "../components/IntroButton.astro";
 
     <!-- Transformations -->
     <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-6" data-i18n="advisory_outcomes_title">
-        Transformation Outcomes
+      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+        Outcomes
       </h2>
 
-      <div class="space-y-6">
+      <div class="space-y-4">
         {TRANSFORMATIONS.map((t) => (
           <div class="flex items-start gap-4">
             <div class="flex-shrink-0 mt-1">
               <ArrowRight class="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p class="text-sm text-gray-500 dark:text-gray-500 line-through mb-1" data-i18n={`advisory_transform_${t.id}_before`}>
+              <p class="text-sm text-gray-400 dark:text-gray-500 line-through mb-1">
                 {t.before}
               </p>
-              <p class="text-sm text-gray-900 dark:text-white font-medium" data-i18n={`advisory_transform_${t.id}_after`}>
+              <p class="text-sm text-gray-900 dark:text-white font-medium">
                 {t.after}
               </p>
             </div>
@@ -104,12 +144,32 @@ import IntroButton from "../components/IntroButton.astro";
       </div>
     </section>
 
+    <!-- CDMX Office Hours -->
+    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
+      <div class="p-6 border border-primary/30 bg-primary/5 dark:bg-primary/10">
+        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          CDMX Office Hours
+        </h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+          Monthly open session for LatAm founders. Free. No pitch, just conversation about product, growth, and entering the US market.
+        </p>
+        <a
+          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-primary hover:underline font-medium"
+        >
+          Request a spot →
+        </a>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto text-center">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-4" data-i18n="advisory_cta_title">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-4">
         Ready to diagnose what's stalling growth?
       </h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="advisory_cta_desc">
+      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
         Book a 30-minute call. No pitch—just diagnosis.
       </p>
       <div class="flex items-center justify-center gap-3">
@@ -118,7 +178,6 @@ import IntroButton from "../components/IntroButton.astro";
           target="_blank"
           rel="noopener noreferrer"
           class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
-          data-i18n="advisory_cta"
         >
           Book a diagnostic call
         </a>
