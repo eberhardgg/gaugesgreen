@@ -1,7 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import LayoutMinimal from "../../layouts/LayoutMinimal.astro";
 import { getCollection } from "astro:content";
-import { ArrowLeft } from "lucide-astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("log");
@@ -23,52 +22,53 @@ function formatDate(date: Date) {
 }
 ---
 
-<Layout title={`${post.data.title} | Log | Gauges Green`} description={post.data.description}>
-  <main class="min-h-screen bg-white dark:bg-[#0a0a0a]">
-    <!-- Back link -->
-    <div class="pt-8 px-6 md:px-8 max-w-2xl mx-auto">
-      <a
-        href="/log"
-        class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-      >
-        <ArrowLeft class="w-4 h-4" />
-        Back to Log
-      </a>
+<LayoutMinimal title={`${post.data.title} | Ryan Eberhard`} description={post.data.description}>
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
     </div>
+    <nav class="header__nav">
+      <a href="/">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/advisory">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log" class="active">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
 
-    <!-- Header -->
-    <section class="pt-6 pb-8 px-6 md:px-8 max-w-2xl mx-auto">
-      <span class="text-sm text-gray-500 dark:text-gray-500">
-        {formatDate(post.data.date)}
-      </span>
-      <h1 class="text-3xl font-semibold text-gray-900 dark:text-white mt-2 mb-4">
-        {post.data.title}
-      </h1>
-    </section>
+  <a href="/log" class="back-link">← Back to writing</a>
 
-    <!-- Content -->
-    <article class="pb-12 px-6 md:px-8 max-w-2xl mx-auto prose prose-gray dark:prose-invert prose-headings:font-semibold prose-p:text-base prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-li:text-gray-600 dark:prose-li:text-gray-400">
-      <Content />
-    </article>
+  <p class="note">{formatDate(post.data.date)}</p>
+  <h1>{post.data.title}</h1>
 
-    <!-- CTA -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto border-t border-gray-200 dark:border-gray-800">
-      <div class="p-6 border border-gray-200 dark:border-gray-800">
-        <p class="font-semibold text-gray-900 dark:text-white mb-2">
-          Want to discuss?
-        </p>
-        <p class="text-base text-gray-600 dark:text-gray-400 mb-4">
-          I'm always happy to chat about product, growth, or what I'm building.
-        </p>
-        <a
-          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-primary hover:underline"
-        >
-          Book a call →
-        </a>
-      </div>
-    </section>
-  </main>
-</Layout>
+  <hr />
+
+  <div class="prose">
+    <Content />
+  </div>
+
+  <hr />
+
+  <h2>Want to discuss?</h2>
+  <p class="intro">
+    I'm always happy to chat about product, growth, or what I'm building.
+  </p>
+  <p>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">Book a call →</a>
+  </p>
+
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+  </footer>
+</LayoutMinimal>

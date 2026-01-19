@@ -1,116 +1,49 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { EXPERIENCE } from "../config";
-import IntroButton from "../components/IntroButton.astro";
+import LayoutMinimal from "../layouts/LayoutMinimal.astro";
 ---
 
-<Layout>
-  <main class="min-h-screen bg-white dark:bg-[#0a0a0a]">
-    <!-- Hero -->
-    <section class="pt-12 md:pt-16 pb-16 px-6 md:px-8 max-w-2xl mx-auto">
-      <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
-        <img
-          src="/perfil.jpg"
-          alt="Ryan Eberhard"
-          class="w-20 h-20 rounded-full object-cover"
-        />
-        <div>
-          <h1 class="text-3xl font-semibold text-gray-900 dark:text-white tracking-tight">
-            Ryan Eberhard
-          </h1>
-          <p class="mt-1 text-base text-gray-500 dark:text-gray-400">
-            I make the gauges green.
-          </p>
-        </div>
-      </div>
+<LayoutMinimal title="Ryan Eberhard" description="Fractional product & growth leadership for venture-backed startups">
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
+    </div>
+    <nav class="header__nav">
+      <a href="/" class="active">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/advisory">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
 
-      <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-        Former CPO at ZipRecruiter (grew to 100K customers, $900M rev). Now offering fractional product & growth leadership for venture-backed companies out of Mexico City.
-      </p>
+  <div class="home-intro">
+    <img src="/perfil.jpg" alt="Ryan Eberhard" class="headshot" />
+    <p>
+      I help founders figure out why growth stalled. You shipped the product. Users showed up. Then the line went flat. I find out why.
+    </p>
+    <p>
+      I was CPO at <a href="https://ziprecruiter.com" target="_blank" rel="noopener noreferrer">ZipRecruiter</a> for seven years, took it from Series A to NYSE. $100M to $900M in revenue. After that I ran turnarounds at <a href="https://jobget.com" target="_blank" rel="noopener noreferrer">JobGet</a> and <a href="https://swingeducation.com" target="_blank" rel="noopener noreferrer">Swing Education</a>, both times stepping in when the numbers stopped making sense.
+    </p>
+    <p>
+      I work in 4-12 week sprints. I ship code with your engineers, not decks to your board. Usually I can tell you what's broken within two weeks.
+    </p>
+    <p>
+      I'm in Mexico City. If your company is doing the work but the metrics aren't moving, <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">let's talk</a>.
+    </p>
+  </div>
 
-      <div class="flex flex-wrap items-center gap-4">
-        <a
-          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
-        >
-          Book a call
-        </a>
-        <IntroButton />
-      </div>
-    </section>
-
-    <!-- Where I Work -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-        Where I Work
-      </h2>
-
-      <div class="space-y-4 mb-8">
-        <div class="p-6 border border-gray-200 dark:border-gray-800">
-          <p class="font-semibold text-gray-900 dark:text-white">Mexico City</p>
-          <p class="text-sm text-gray-500 dark:text-gray-500">Primary base</p>
-        </div>
-        <div class="p-6 border border-gray-200 dark:border-gray-800">
-          <p class="font-semibold text-gray-900 dark:text-white">Los Angeles</p>
-          <p class="text-sm text-gray-500 dark:text-gray-500">US operations</p>
-        </div>
-      </div>
-
-      <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-        I moved to Mexico City because I believe LatAm is the next great tech frontier. A billion people online, most still doing business through WhatsApp and filing cabinets. The potential energy here is enormous.
-      </p>
-    </section>
-
-    <!-- Career -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-8">
-        Career
-      </h2>
-
-      <div class="space-y-4">
-        {EXPERIENCE.map((job) => (
-          <div class="p-6 border border-gray-200 dark:border-gray-800">
-            <div class="flex items-start justify-between gap-4">
-              <div class="flex-1">
-                <div class="flex items-center gap-3 mb-1">
-                  <p class="font-semibold text-gray-900 dark:text-white">
-                    {job.role}
-                  </p>
-                  <span class="text-sm text-gray-500 dark:text-gray-500">
-                    {job.startDate}–{job.endDate}
-                  </span>
-                </div>
-                <p class="text-sm text-primary mb-2">{job.company}</p>
-                <p class="text-base text-gray-600 dark:text-gray-400">
-                  {job.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
-      <div class="p-6 border border-gray-200 dark:border-gray-800">
-        <p class="font-semibold text-gray-900 dark:text-white mb-2">
-          Let's talk
-        </p>
-        <p class="text-base text-gray-600 dark:text-gray-400 mb-4">
-          Whether you're facing a growth challenge or just want to connect, I'm always happy to chat.
-        </p>
-        <a
-          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-primary hover:underline"
-        >
-          Book a call →
-        </a>
-      </div>
-    </section>
-  </main>
-</Layout>
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+  </footer>
+</LayoutMinimal>

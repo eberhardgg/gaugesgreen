@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import LayoutMinimal from "../layouts/LayoutMinimal.astro";
 
-const FALLBACK_METRICS = [
+const METRICS = [
   { key: "touchpoints", label: "Touchpoints", value: "—", target: "120" },
   { key: "conversations", label: "Conversations", value: "—", target: "12" },
   { key: "qualified", label: "Qualified", value: "—", target: "3" },
@@ -9,83 +9,86 @@ const FALLBACK_METRICS = [
 ];
 
 const MODEL = [
-  { stage: "Touchpoints", q1Target: "120", eoyTarget: "240", conversion: "10%" },
-  { stage: "Conversations", q1Target: "12", eoyTarget: "24", conversion: "25%" },
-  { stage: "Qualified", q1Target: "3", eoyTarget: "6", conversion: "33%" },
-  { stage: "Signed", q1Target: "2", eoyTarget: "4", conversion: "—" },
+  { stage: "Touchpoints", q1: "120", eoy: "240", conv: "10%" },
+  { stage: "Conversations", q1: "12", eoy: "24", conv: "25%" },
+  { stage: "Qualified", q1: "3", eoy: "6", conv: "33%" },
+  { stage: "Signed", q1: "2", eoy: "4", conv: "—" },
 ];
 ---
 
-<Layout title="Metrics | Gauges Green" description="Public KPI dashboard for Gauges Green's first year">
-  <main class="min-h-screen bg-white dark:bg-[#0a0a0a]">
-    <!-- Hero -->
-    <section class="pt-12 pb-16 px-6 md:px-8 max-w-2xl mx-auto">
-      <h1 class="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
-        Metrics
-      </h1>
-      <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-        How I'm tracking Gauges Green's first year. I work backward from revenue targets and make the assumptions explicit.
-      </p>
-      <p class="mt-4 text-sm text-gray-500 dark:text-gray-500 italic">
-        Live data tracking begins Feb 1, 2026
-      </p>
-    </section>
+<LayoutMinimal title="Metrics | Ryan Eberhard" description="Public KPI dashboard for Gauges Green's first year">
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
+    </div>
+    <nav class="header__nav">
+      <a href="/">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/advisory">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
 
-    <!-- Current Progress -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-        Current Progress
-      </h2>
+  <h1>Metrics</h1>
+  <p class="intro">
+    How I'm tracking Gauges Green's first year. I work backward from revenue targets and make the assumptions explicit.
+  </p>
+  <p class="note">Live data tracking begins Feb 1, 2026</p>
 
-      <div class="space-y-4" id="metrics-grid">
-        {FALLBACK_METRICS.map((metric) => (
-          <div class="p-6 border border-gray-200 dark:border-gray-800" data-metric={metric.key}>
-            <div class="flex items-center justify-between">
-              <p class="font-semibold text-gray-900 dark:text-white">{metric.label}</p>
-              <div class="text-right">
-                <span class="text-xl font-semibold text-gray-900 dark:text-white" data-value>{metric.value}</span>
-                <span class="text-sm text-gray-500 dark:text-gray-500"> / {metric.target}</span>
-              </div>
-            </div>
-          </div>
-        ))}
+  <hr />
+
+  <h2>Current Progress</h2>
+
+  <div id="metrics-grid">
+    {METRICS.map((metric) => (
+      <div class="data-row" data-metric={metric.key}>
+        <span class="data-cell--label">{metric.label}</span>
+        <span class="data-cell">
+          <strong data-value>{metric.value}</strong>
+          <span class="data-cell--dim"> / {metric.target}</span>
+        </span>
       </div>
-    </section>
+    ))}
+  </div>
 
-    <!-- The Model -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-        The Model
-      </h2>
-      <p class="text-base text-gray-600 dark:text-gray-400 mb-6">
-        Work backward from revenue. Make assumptions explicit so I know which ones to revisit when reality diverges.
-      </p>
+  <hr />
 
-      <div class="border border-gray-200 dark:border-gray-800">
-        <table class="w-full">
-          <thead>
-            <tr class="border-b border-gray-200 dark:border-gray-800">
-              <th class="text-left p-4 font-semibold text-gray-900 dark:text-white">Stage</th>
-              <th class="text-right p-4 font-semibold text-gray-900 dark:text-white">90-Day</th>
-              <th class="text-right p-4 font-semibold text-gray-900 dark:text-white">EOY</th>
-              <th class="text-right p-4 font-semibold text-gray-900 dark:text-white">Conv.</th>
-            </tr>
-          </thead>
-          <tbody>
-            {MODEL.map((row, i) => (
-              <tr class={i < MODEL.length - 1 ? "border-b border-gray-200 dark:border-gray-800" : ""}>
-                <td class="p-4 text-gray-900 dark:text-white">{row.stage}</td>
-                <td class="p-4 text-right text-gray-600 dark:text-gray-400">{row.q1Target}</td>
-                <td class="p-4 text-right text-gray-600 dark:text-gray-400">{row.eoyTarget}</td>
-                <td class="p-4 text-right text-sm text-gray-500 dark:text-gray-500">{row.conversion}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-</Layout>
+  <h2>The Model</h2>
+  <p class="intro">
+    Work backward from revenue. Make assumptions explicit so I know which ones to revisit when reality diverges.
+  </p>
+
+  <div class="data-row data-row--header">
+    <span class="data-cell--label">Stage</span>
+    <span class="data-cell">90-Day</span>
+    <span class="data-cell">EOY</span>
+    <span class="data-cell">Conv.</span>
+  </div>
+  {MODEL.map((row) => (
+    <div class="data-row">
+      <span class="data-cell--label">{row.stage}</span>
+      <span class="data-cell">{row.q1}</span>
+      <span class="data-cell">{row.eoy}</span>
+      <span class="data-cell data-cell--dim">{row.conv}</span>
+    </div>
+  ))}
+
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+  </footer>
+</LayoutMinimal>
 
 <script is:inline>
   const SHEET_URL = null;
@@ -105,9 +108,9 @@ const MODEL = [
         }, {});
       });
       metrics.forEach(metric => {
-        const card = document.querySelector(`[data-metric="${metric.key}"]`);
-        if (card) {
-          const valueEl = card.querySelector("[data-value]");
+        const row = document.querySelector(`[data-metric="${metric.key}"]`);
+        if (row) {
+          const valueEl = row.querySelector("[data-value]");
           if (valueEl && metric.value) valueEl.textContent = metric.value;
         }
       });
