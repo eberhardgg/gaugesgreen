@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import { ArrowLeft, Calendar } from "lucide-astro";
+import { ArrowLeft } from "lucide-astro";
 
 export async function getStaticPaths() {
   const caseStudies = await getCollection("portfolio");
@@ -24,56 +24,56 @@ const { Content } = await study.render();
         class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
       >
         <ArrowLeft class="w-4 h-4" />
-        <span data-i18n="portfolio_back">Back to Experience</span>
+        Back to Experience
       </a>
     </div>
 
     <!-- Header -->
     <section class="pt-6 pb-8 px-6 md:px-8 max-w-2xl mx-auto">
-      <div class="flex items-center gap-3 mb-4">
-        <h1 class="text-3xl md:text-4xl text-gray-900 dark:text-white">
+      <div class="flex items-center gap-3 mb-2">
+        <h1 class="text-3xl font-semibold text-gray-900 dark:text-white">
           {study.data.company}
         </h1>
+        <span class="text-sm text-gray-500 dark:text-gray-500">
+          {study.data.period}
+        </span>
       </div>
-      <div class="flex flex-wrap items-center gap-4 mb-6">
-        <span class="text-lg text-primary">{study.data.role}</span>
-        <span class="text-gray-400">•</span>
-        <span class="text-gray-500 dark:text-gray-400">{study.data.period}</span>
-      </div>
+      <p class="text-sm text-primary mb-4">{study.data.role}</p>
 
       <!-- Hero Metric -->
-      <div class="p-6 border border-gray-200 dark:border-gray-800 mb-6">
-        <div class="text-4xl font-bold text-primary mb-1">
+      <div class="p-6 border border-gray-200 dark:border-gray-800">
+        <p class="text-xl font-semibold text-gray-900 dark:text-white">
           {study.data.heroMetric}
-        </div>
-        <div class="text-sm text-gray-600 dark:text-gray-400">
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500">
           {study.data.heroMetricLabel}
-        </div>
+        </p>
       </div>
     </section>
 
     <!-- Content -->
-    <article class="py-12 px-6 md:px-8 max-w-2xl mx-auto prose prose-sm dark:prose-invert prose-h2:text-xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-li:text-gray-600 dark:prose-li:text-gray-400 prose-strong:text-gray-900 dark:prose-strong:text-white">
+    <article class="pb-12 px-6 md:px-8 max-w-2xl mx-auto prose prose-gray dark:prose-invert prose-headings:font-semibold prose-p:text-base prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-li:text-gray-600 dark:prose-li:text-gray-400">
       <Content />
     </article>
 
     <!-- CTA -->
-    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto text-center border-t border-gray-200 dark:border-gray-800 mt-12">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-4" data-i18n="portfolio_cta_title">
-        Facing similar challenges?
-      </h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6" data-i18n="portfolio_cta_desc">
-        Let's talk about how I can help.
-      </p>
-      <a
-        href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block text-sm px-5 py-2 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
-        data-i18n="portfolio_cta_button"
-      >
-        Book a call
-      </a>
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto border-t border-gray-200 dark:border-gray-800">
+      <div class="p-6 border border-gray-200 dark:border-gray-800">
+        <p class="font-semibold text-gray-900 dark:text-white mb-2">
+          Facing similar challenges?
+        </p>
+        <p class="text-base text-gray-600 dark:text-gray-400 mb-4">
+          Let's talk about how I can help.
+        </p>
+        <a
+          href="https://cal.com/ryan-eberhard-6jsjkn/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-primary hover:underline"
+        >
+          Book a call →
+        </a>
+      </div>
     </section>
   </main>
 </Layout>
