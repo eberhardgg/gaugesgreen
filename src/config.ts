@@ -79,6 +79,14 @@ export const EXPERIENCE = [
         endDate: "2014",
         description: "Built Murad's ecommerce into their #1 revenue channel. 25% CAGR, positive ROAS every quarter, 25-person team. Laid the foundation for Unilever acquisition.",
     },
+    {
+        id: "cmu",
+        company: "Carnegie Mellon University",
+        role: "B.S. Logic & Computation, MBA",
+        startDate: "1994",
+        endDate: "2002",
+        description: "",
+    },
 ];
 
 export const SERVICES = [
