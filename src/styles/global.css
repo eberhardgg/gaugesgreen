@@ -4,47 +4,61 @@
 
 @layer base {
     :root {
-        --color-text-base: #2a2a2a;
+        --color-text-base: #1a1a1a;
+        --color-text-muted: #525252;
         --color-bg-body: #ffffff;
-        --color-bg-card: #f9fafb;
-        --color-border: #e5e7eb;
+        --color-bg-card: #fafafa;
+        --color-border: #e5e5e5;
         --color-primary: #16a34a;
         --color-primary-hover: #15803d;
-        --color-secondary: #6366f1;
     }
 
     :root[class~="dark"] {
-        --color-text-base: #e5e7eb;
-        --color-bg-body: #0f172a;
-        --color-bg-card: #1e293b;
-        --color-border: #334155;
+        --color-text-base: #f5f5f5;
+        --color-text-muted: #a3a3a3;
+        --color-bg-body: #0a0a0a;
+        --color-bg-card: #171717;
+        --color-border: #262626;
         --color-primary: #22c55e;
         --color-primary-hover: #16a34a;
-        --color-secondary: #818cf8;
     }
 
     html {
         scroll-behavior: smooth;
+        font-size: 16px;
     }
 
     body {
-        @apply bg-[var(--color-bg-body)] text-[var(--color-text-base)] font-sans antialiased transition-colors duration-300;
+        @apply bg-[var(--color-bg-body)] text-[var(--color-text-base)] font-sans antialiased;
         font-feature-settings: "cv11", "ss01";
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-sans font-semibold tracking-tight;
+    /* Refined heading styles */
+    h1 {
+        @apply font-serif font-semibold tracking-tight;
+        letter-spacing: -0.025em;
     }
 
+    h2 {
+        @apply font-sans font-semibold;
+        letter-spacing: -0.02em;
+    }
+
+    h3, h4, h5, h6 {
+        @apply font-sans font-semibold;
+        letter-spacing: -0.01em;
+    }
+
+    /* Body text with generous line height */
     p {
-        @apply leading-relaxed;
+        @apply leading-7;
+    }
+
+    /* Refined link styles */
+    a {
+        @apply transition-colors duration-150;
     }
 }
 
@@ -54,22 +68,17 @@
     }
 
     .card {
-        @apply border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6;
+        @apply border border-[var(--color-border)] bg-[var(--color-bg-card)] p-8;
+    }
+
+    /* Prose-like container for optimal reading */
+    .container-prose {
+        @apply max-w-prose mx-auto px-6 md:px-8;
     }
 }
 
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
+@layer utilities {
+    .text-muted {
+        color: var(--color-text-muted);
     }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-.animate-blink {
-    animation: blink 1s infinite;
 }

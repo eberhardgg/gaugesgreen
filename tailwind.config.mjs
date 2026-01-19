@@ -13,8 +13,15 @@ export default {
             },
             fontFamily: {
                 sans: ["Inter", "system-ui", "sans-serif"],
-                serif: ["Instrument Serif", "Georgia", "serif"],
+                serif: ["Source Serif Pro", "Georgia", "serif"],
                 mono: ["JetBrains Mono", "monospace"],
+            },
+            maxWidth: {
+                prose: "38rem", // ~608px, optimal reading width
+            },
+            spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
             },
             animation: {
                 "fade-in-up": "fadeInUp 0.5s ease-out forwards",

@@ -1,0 +1,72 @@
+---
+title: "Building Ambiente: Voice-Controlled Language Learning with Siri"
+titleEs: "Construyendo Ambiente: Aprendizaje de Idiomas Controlado por Voz con Siri"
+description: "How I built a voice-controlled Spanish flashcard app in a weekend with Claude Code—and what it taught me about AI-augmented shipping."
+descriptionEs: "Cómo construí una app de tarjetas de vocabulario controlada por voz en un fin de semana con Claude Code—y lo que me enseñó sobre desarrollo aumentado con IA."
+date: 2026-01-18
+tags: ["shipping", "ai", "ios", "claude-code", "tools"]
+draft: true
+---
+
+{/* OUTLINE - Expand into full post */}
+
+## Hook
+- Learning Spanish in CDMX, frustrated with existing flashcard apps
+- Wanted something I could use while walking, cooking, driving
+- Built Ambiente in a weekend—then added Siri control in an afternoon
+
+## The Problem with Flashcard Apps
+- Most require you to stare at a screen
+- Can't use them during "dead time" (commuting, chores, exercise)
+- Voice assistants exist, but no good flashcard integration
+- The gap: hands-free, voice-controlled spaced repetition
+
+## What I Built
+- **Ambiente**: A Spanish flashcard app with full voice control
+- Features that matter:
+  - Siri integration: "Hey Siri, start my Spanish flashcards"
+  - Lock screen controls for play/pause/skip
+  - ElevenLabs AI voices for natural pronunciation
+  - Swipe gestures to mark cards mastered
+  - Memory hooks for harder vocabulary
+
+## The Technical Innovation: App Intents + PlaybackController
+- How iOS App Intents work (brief, accessible)
+- The architecture: Siri → App Intents → PlaybackController → ViewModel
+- Six voice commands: start, pause, resume, next, previous, "I know this card"
+- Key insight: Background control without opening the app
+
+## The AI Shipping Story
+- Built the core app in a weekend with Claude Code
+- Added Siri voice control in an afternoon
+- The 3-person unicorn thesis in action: one person + AI = full iOS app
+- Specific examples of what Claude Code handled:
+  - Swift/SwiftUI architecture
+  - App Intents implementation
+  - State synchronization between Siri and UI
+
+## What This Proves
+- **Frontier operators ship differently.** The gap between "I want this" and "I have this" has collapsed.
+- **AI changes the skill requirements.** You don't need to be an iOS expert. You need to know what to build and how to direct AI.
+- **Small tools solve real problems.** I built Ambiente for myself. Turns out, a lot of language learners want the same thing.
+
+## The Bet
+- I'm releasing Ambiente publicly
+- Part of the Gauges Green studio: tools for operators who think like me
+- More tools coming: same philosophy, different problems
+
+## CTA
+- Try Ambiente (link)
+- If you're building with AI and want to ship faster, let's talk
+- Book a call (cal.com link)
+
+---
+
+{/* NOTES FOR EXPANSION */}
+{/*
+- Include code snippets showing the PlaybackController pattern
+- Screenshot of Shortcuts app showing all 6 Ambiente shortcuts
+- Before/after: learning Spanish the old way vs. with Ambiente
+- Metrics if available: cards reviewed per day, time spent, etc.
+- Link to "Why I Moved to Mexico City" post for context
+*/}

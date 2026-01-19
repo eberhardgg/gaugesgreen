@@ -17,19 +17,19 @@ function formatDate(date: Date) {
 ---
 
 <Layout title="Log | Gauges Green" description="Build diary and thoughts on product, growth, and the operator life">
-  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+  <main class="min-h-screen bg-white dark:bg-[#0a0a0a]">
     <!-- Hero -->
-    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 class="text-2xl text-gray-900 dark:text-white mb-6" data-i18n="log_title">
+    <section class="pt-12 pb-16 px-6 md:px-8 max-w-2xl mx-auto">
+      <h1 class="text-3xl md:text-4xl text-gray-900 dark:text-white mb-4" data-i18n="log_title">
         Build Log
       </h1>
-      <p class="text-sm text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed" data-i18n="log_intro">
+      <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="log_intro">
         Notes on building products, growing companies, and the operator life.
       </p>
     </section>
 
     <!-- Posts -->
-    <section class="py-5 px-4 md:px-8 max-w-3xl mx-auto">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
       {posts.length === 0 ? (
         <p class="text-gray-500 dark:text-gray-500" data-i18n="log_empty">
           No posts yet. Check back soon.

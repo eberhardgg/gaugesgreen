@@ -1,73 +1,52 @@
 ---
-import { Mail, Linkedin, MapPin, Calendar } from "lucide-astro";
+import { Mail, Linkedin } from "lucide-astro";
 ---
 
-<footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
-  <div class="max-w-5xl mx-auto px-4 md:px-8 py-10">
-    <div class="grid md:grid-cols-3 gap-8">
+<footer class="border-t border-gray-100 dark:border-gray-900">
+  <div class="max-w-2xl mx-auto px-6 md:px-8 py-12">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
       <!-- Brand -->
       <div>
-        <a href="/" class="font-semibold text-base text-gray-900 dark:text-white">
+        <a href="/" class="text-sm font-medium text-gray-900 dark:text-white">
           Gauges Green
         </a>
-        <p class="mt-2 text-xs text-gray-600 dark:text-gray-400" data-i18n="footer_tagline">
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-500">
           Fractional Product & Growth Leadership
         </p>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h4 class="font-semibold text-xs text-gray-900 dark:text-white mb-3" data-i18n="footer_links">Quick Links</h4>
-        <nav class="space-y-1.5">
-          <a href="/experience" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_experience">Experience</a>
-          <a href="/advisory" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_services">Services</a>
-          <a href="/log" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_log">Logbook</a>
-          <a href="/metrics" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_metrics">Metrics</a>
-        </nav>
-      </div>
-
-      <!-- Contact -->
-      <div>
-        <h4 class="font-semibold text-xs text-gray-900 dark:text-white mb-3" data-i18n="footer_contact">Get in Touch</h4>
-        <div class="space-y-1.5">
-          <a
-            href="https://cal.com/ryan-eberhard-6jsjkn/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-          >
-            <Calendar class="w-3.5 h-3.5" />
-            <span data-i18n="footer_book">Book a call</span>
-          </a>
-          <a
-            href="mailto:eberhard@gaugesgreen.com"
-            class="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-          >
-            <Mail class="w-3.5 h-3.5" />
-            <span>eberhard@gaugesgreen.com</span>
-          </a>
-          <a
-            href="https://linkedin.com/in/eberhard"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-          >
-            <Linkedin class="w-3.5 h-3.5" />
-            <span>LinkedIn</span>
-          </a>
-          <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
-            <MapPin class="w-3.5 h-3.5" />
-            <span data-i18n="footer_location">Mexico City / Los Angeles</span>
-          </div>
-        </div>
-      </div>
+      <!-- Links -->
+      <nav class="flex items-center gap-6 text-xs text-gray-500 dark:text-gray-500">
+        <a href="/experience" class="hover:text-gray-900 dark:hover:text-white transition-colors">Experience</a>
+        <a href="/advisory" class="hover:text-gray-900 dark:hover:text-white transition-colors">Services</a>
+        <a href="/log" class="hover:text-gray-900 dark:hover:text-white transition-colors">Logbook</a>
+        <a href="/metrics" class="hover:text-gray-900 dark:hover:text-white transition-colors">Metrics</a>
+      </nav>
     </div>
 
-    <!-- Copyright -->
-    <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-800">
-      <p class="text-center text-xs text-gray-400 dark:text-gray-600">
-        &copy; {new Date().getFullYear()} Gauges Green. <span data-i18n="footer_rights">All rights reserved.</span>
+    <!-- Bottom row -->
+    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-900 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <p class="text-xs text-gray-400 dark:text-gray-600">
+        &copy; {new Date().getFullYear()} Gauges Green
       </p>
+      <div class="flex items-center gap-4">
+        <a
+          href="mailto:eberhard@gaugesgreen.com"
+          class="text-gray-400 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+          aria-label="Email"
+        >
+          <Mail class="w-4 h-4" />
+        </a>
+        <a
+          href="https://linkedin.com/in/eberhard"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 dark:text-gray-600 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+          aria-label="LinkedIn"
+        >
+          <Linkedin class="w-4 h-4" />
+        </a>
+      </div>
     </div>
   </div>
 </footer>

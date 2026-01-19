@@ -6,60 +6,60 @@ import IntroButton from "../components/IntroButton.astro";
 ---
 
 <Layout title="Services | Gauges Green" description="Fractional Product & Growth Leadership for venture-backed companies">
-  <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+  <main class="min-h-screen bg-white dark:bg-[#0a0a0a]">
     <!-- Hero -->
-    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto">
-      <h1 class="text-2xl text-gray-900 dark:text-white mb-4">
+    <section class="pt-12 pb-16 px-6 md:px-8 max-w-2xl mx-auto">
+      <h1 class="text-3xl md:text-4xl text-gray-900 dark:text-white mb-4">
         Services
       </h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed">
+      <p class="text-lg text-gray-500 dark:text-gray-400 mb-5">
         Operators who ship, not advisors who deck.
       </p>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6 max-w-2xl leading-relaxed">
+      <p class="text-base text-gray-600 dark:text-gray-400 mb-8 leading-7">
         I embed with your team for 4-12 week sprints. Hands-on execution alongside your engineers and PMs—not PowerPoints from the sidelines.
       </p>
       <a
         href="https://cal.com/ryan-eberhard-6jsjkn/30min"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-sm text-primary hover:underline font-medium"
+        class="text-sm text-gray-900 dark:text-white underline underline-offset-4 hover:text-primary transition-colors"
       >
         Book a diagnostic call →
       </a>
     </section>
 
     <!-- What You Get -->
-    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-8">
         What You Get
       </h2>
 
-      <div class="grid sm:grid-cols-2 gap-4">
-        <div class="p-5 border border-gray-200 dark:border-gray-800">
-          <Zap class="w-5 h-5 text-primary mb-3" />
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Shipping Infrastructure</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="p-6 border border-gray-200 dark:border-gray-800">
+          <Zap class="w-5 h-5 text-gray-400 dark:text-gray-500 mb-4" />
+          <h3 class="font-medium text-gray-900 dark:text-white mb-2">Shipping Infrastructure</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Early access tiers, AI-automated release checklists, 48-hour default-to-ship review gates. The systems that make velocity sustainable.
           </p>
         </div>
-        <div class="p-5 border border-gray-200 dark:border-gray-800">
-          <Clock class="w-5 h-5 text-primary mb-3" />
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Growth Diagnosis</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+        <div class="p-6 border border-gray-200 dark:border-gray-800">
+          <Clock class="w-5 h-5 text-gray-400 dark:text-gray-500 mb-4" />
+          <h3 class="font-medium text-gray-900 dark:text-white mb-2">Growth Diagnosis</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Root cause analysis of why features ship but metrics don't move. Usually diagnosed in the first two weeks.
           </p>
         </div>
-        <div class="p-5 border border-gray-200 dark:border-gray-800">
-          <Users class="w-5 h-5 text-primary mb-3" />
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Team Assessment</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+        <div class="p-6 border border-gray-200 dark:border-gray-800">
+          <Users class="w-5 h-5 text-gray-400 dark:text-gray-500 mb-4" />
+          <h3 class="font-medium text-gray-900 dark:text-white mb-2">Team Assessment</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             Honest evaluation of who's in the right seat. Sometimes the answer is "stop hiring"—define the problem before the role.
           </p>
         </div>
-        <div class="p-5 border border-gray-200 dark:border-gray-800">
-          <Package class="w-5 h-5 text-primary mb-3" />
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Hands-On Execution</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
+        <div class="p-6 border border-gray-200 dark:border-gray-800">
+          <Package class="w-5 h-5 text-gray-400 dark:text-gray-500 mb-4" />
+          <h3 class="font-medium text-gray-900 dark:text-white mb-2">Hands-On Execution</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             I ship code alongside your engineers. PRs, not presentations.
           </p>
         </div>
@@ -67,30 +67,30 @@ import IntroButton from "../components/IntroButton.astro";
     </section>
 
     <!-- Engagement Model -->
-    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
       <h2 class="text-xl text-gray-900 dark:text-white mb-4">
         How It Works
       </h2>
-      <p class="text-sm text-gray-500 dark:text-gray-500 mb-6">
+      <p class="text-sm text-gray-500 dark:text-gray-500 mb-8">
         {ENGAGEMENT_MODEL.duration} · {ENGAGEMENT_MODEL.commitment}
       </p>
 
-      <div class="space-y-6">
+      <div class="space-y-8">
         {ENGAGEMENT_MODEL.phases.map((phase, index) => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold text-sm">
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-7 h-7 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 flex items-center justify-center text-sm">
               {index + 1}
             </div>
             <div>
-              <div class="flex items-baseline gap-2 mb-1">
-                <h3 class="font-semibold text-gray-900 dark:text-white">
+              <div class="flex items-baseline gap-3 mb-1">
+                <h3 class="font-medium text-gray-900 dark:text-white">
                   {phase.phase}
                 </h3>
-                <span class="text-sm text-gray-500 dark:text-gray-500">
+                <span class="text-sm text-gray-400 dark:text-gray-500">
                   {phase.duration}
                 </span>
               </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                 {phase.description}
               </p>
             </div>
@@ -100,18 +100,18 @@ import IntroButton from "../components/IntroButton.astro";
     </section>
 
     <!-- Who It's For -->
-    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-8">
         Who It's For
       </h2>
 
-      <div class="space-y-4">
+      <div class="space-y-5">
         {IDEAL_CLIENTS.map((client) => (
-          <div class="p-5 border border-gray-200 dark:border-gray-800">
-            <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+          <div class="p-6 border border-gray-200 dark:border-gray-800">
+            <h3 class="font-medium text-gray-900 dark:text-white mb-2">
               {client.title}
             </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400">
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               {client.description}
             </p>
           </div>
@@ -120,17 +120,15 @@ import IntroButton from "../components/IntroButton.astro";
     </section>
 
     <!-- Transformations -->
-    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
+      <h2 class="text-xl text-gray-900 dark:text-white mb-8">
         Outcomes
       </h2>
 
-      <div class="space-y-4">
+      <div class="space-y-6">
         {TRANSFORMATIONS.map((t) => (
           <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 mt-1">
-              <ArrowRight class="w-5 h-5 text-primary" />
-            </div>
+            <ArrowRight class="w-4 h-4 text-gray-400 dark:text-gray-500 mt-0.5 flex-shrink-0" />
             <div>
               <p class="text-sm text-gray-400 dark:text-gray-500 line-through mb-1">
                 {t.before}
@@ -145,19 +143,19 @@ import IntroButton from "../components/IntroButton.astro";
     </section>
 
     <!-- CDMX Office Hours -->
-    <section class="py-4 px-4 md:px-8 max-w-3xl mx-auto">
-      <div class="p-6 border border-primary/30 bg-primary/5 dark:bg-primary/10">
-        <h3 class="font-semibold text-gray-900 dark:text-white mb-2">
+    <section class="py-12 px-6 md:px-8 max-w-2xl mx-auto">
+      <div class="p-6 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+        <h3 class="font-medium text-gray-900 dark:text-white mb-2">
           CDMX Office Hours
         </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
           Monthly open session for LatAm founders. Free. No pitch, just conversation about product, growth, and entering the US market.
         </p>
         <a
           href="https://cal.com/ryan-eberhard-6jsjkn/30min"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm text-primary hover:underline font-medium"
+          class="text-sm text-gray-900 dark:text-white underline underline-offset-4 hover:text-primary transition-colors"
         >
           Request a spot →
         </a>
@@ -165,19 +163,19 @@ import IntroButton from "../components/IntroButton.astro";
     </section>
 
     <!-- CTA -->
-    <section class="py-8 px-4 md:px-8 max-w-3xl mx-auto text-center">
+    <section class="py-16 px-6 md:px-8 max-w-2xl mx-auto text-center">
       <h2 class="text-xl text-gray-900 dark:text-white mb-4">
         Ready to diagnose what's stalling growth?
       </h2>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+      <p class="text-base text-gray-600 dark:text-gray-400 mb-8">
         Book a 30-minute call. No pitch—just diagnosis.
       </p>
-      <div class="flex items-center justify-center gap-3">
+      <div class="flex items-center justify-center gap-4">
         <a
           href="https://cal.com/ryan-eberhard-6jsjkn/30min"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-sm px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+          class="text-sm px-5 py-2.5 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
         >
           Book a diagnostic call
         </a>
