@@ -85,7 +85,7 @@ export const EXPERIENCE = [
         role: "B.S. Logic & Computation, MBA",
         startDate: "1994",
         endDate: "2002",
-        description: "",
+        description: "Worked as a research systems programmer, later director, paying tuition as I went.",
     },
 ];
 
@@ -192,7 +192,7 @@ export const TRANSFORMATIONS = [
 export const NAV_LINKS = [
     { href: "/", key: "nav_home", label: "Home" },
     { href: "/advisory", key: "nav_advisory", label: "Advisory" },
-    { href: "/portfolio", key: "nav_portfolio", label: "Portfolio" },
+    { href: "/experience", key: "nav_experience", label: "Experience" },
     { href: "/log", key: "nav_log", label: "Log" },
     { href: "/about", key: "nav_about", label: "About" },
     { href: "/metrics", key: "nav_metrics", label: "Metrics" },

@@ -15,16 +15,16 @@ const { study } = Astro.props;
 const { Content } = await study.render();
 ---
 
-<Layout title={`${study.data.company} | Portfolio | Gauges Green`} description={study.data.challenge}>
+<Layout title={`${study.data.company} | Experience | Gauges Green`} description={study.data.challenge}>
   <main class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Back link -->
     <div class="py-6 px-4 md:px-8 max-w-3xl mx-auto">
       <a
-        href="/portfolio"
+        href="/experience"
         class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
       >
         <ArrowLeft class="w-4 h-4" />
-        <span data-i18n="portfolio_back">Back to Portfolio</span>
+        <span data-i18n="portfolio_back">Back to Experience</span>
       </a>
     </div>
 

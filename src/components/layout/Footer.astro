@@ -1,6 +1,5 @@
 ---
 import { Mail, Linkedin, MapPin, Calendar } from "lucide-astro";
-import IntroButton from "../IntroButton.astro";
 ---
 
 <footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
@@ -14,19 +13,15 @@ import IntroButton from "../IntroButton.astro";
         <p class="mt-2 text-xs text-gray-600 dark:text-gray-400" data-i18n="footer_tagline">
           Fractional Product & Growth Leadership
         </p>
-        <p class="mt-1 text-xs text-gray-400 dark:text-gray-600 italic">
-          Somehow graduated from Carnegie Mellon
-        </p>
       </div>
 
       <!-- Quick Links -->
       <div>
         <h4 class="font-semibold text-xs text-gray-900 dark:text-white mb-3" data-i18n="footer_links">Quick Links</h4>
         <nav class="space-y-1.5">
-          <a href="/portfolio" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_experience">Experience</a>
+          <a href="/experience" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_experience">Experience</a>
           <a href="/advisory" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_services">Services</a>
           <a href="/log" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_log">Logbook</a>
-          <a href="/about" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_about">About</a>
           <a href="/metrics" class="block text-xs text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" data-i18n="nav_metrics">Metrics</a>
         </nav>
       </div>
@@ -63,9 +58,6 @@ import IntroButton from "../IntroButton.astro";
           <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-500">
             <MapPin class="w-3.5 h-3.5" />
             <span data-i18n="footer_location">Mexico City / Los Angeles</span>
-          </div>
-          <div class="mt-3">
-            <IntroButton class="text-xs px-3 py-1.5" />
           </div>
         </div>
       </div>

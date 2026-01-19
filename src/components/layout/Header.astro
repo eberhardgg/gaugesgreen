@@ -5,9 +5,9 @@ import LangToggle from "../LangToggle.astro";
 
 const NAV_LINKS = [
   { href: "/", key: "nav_home", label: "Home" },
+  { href: "/experience", key: "nav_experience", label: "Experience" },
   { href: "/advisory", key: "nav_services", label: "Services" },
-  { href: "/portfolio", key: "nav_experience", label: "Experience" },
-  { href: "/about", key: "nav_about", label: "About" },
+  { href: "/log", key: "nav_log", label: "Logbook" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -17,7 +17,8 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-5xl mx-auto px-4 md:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="font-semibold text-xl text-gray-900 dark:text-white hover:text-primary transition-colors">
+      <a href="/" class="flex items-center gap-2 font-semibold text-xl text-gray-900 dark:text-white hover:text-primary transition-colors">
+        <img src="/logos/gauges-green-mark.svg" alt="" class="h-5 w-auto" />
         Gauges Green
       </a>
 
