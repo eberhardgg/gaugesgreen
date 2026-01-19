@@ -70,7 +70,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={link.href}
           class:list={[
-            "block py-2.5 text-[15px] transition-colors",
+            "block py-3 text-[15px] transition-colors",
             currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
               ? "text-gray-900 dark:text-white"
               : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white",

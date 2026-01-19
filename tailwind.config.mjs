@@ -9,7 +9,6 @@ export default {
                     DEFAULT: "var(--color-primary)",
                     hover: "var(--color-primary-hover)",
                 },
-                secondary: "var(--color-secondary)",
             },
             fontFamily: {
                 sans: ["Inter", "system-ui", "sans-serif"],
