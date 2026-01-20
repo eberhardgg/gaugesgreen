@@ -32,29 +32,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={new URL('/og.png', Astro.site).href} />
     <meta name="twitter:card" content="summary_large_image" />
-    <script is:inline>
-      (function() {
-        const stored = localStorage.getItem('theme');
-        const theme = stored || 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
     <style is:global>
       :root {
-        --bg: #faf9f7;
-        --text: #1a1918;
-        --text-secondary: #3d3a38;
-        --dim: #6b6560;
-        --accent: #8b3a3a;
-        --accent-hover: #6d2d2d;
-        --border: #e5e2df;
-        --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        --font-size-base: .875rem;
-        --font-size-small: .8125rem;
-        --max-width: 640px;
-      }
-
-      [data-theme="dark"] {
         --bg: #141413;
         --text: #e8e6e1;
         --text-secondary: #c5c3be;
@@ -62,6 +41,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         --accent: #d4a59a;
         --accent-hover: #e8c4bb;
         --border: #2e2d2b;
+        --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-size-base: .875rem;
+        --font-size-small: .8125rem;
+        --max-width: 640px;
       }
 
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -128,24 +111,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       }
 
       .header__logo:hover { color: var(--accent); }
-
-      .dark-toggle {
-        background: none;
-        border: none;
-        color: var(--dim);
-        cursor: pointer;
-        font-size: var(--font-size-small);
-        font-family: var(--font-body);
-        padding: 0;
-      }
-
-      .dark-toggle:hover { color: var(--text); }
-
-      #theme-label {
-        display: inline-block;
-        min-width: 2.5em;
-        text-align: center;
-      }
 
       .header__nav { font-size: var(--font-size-small); }
 
@@ -283,25 +248,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
     <main class="main-content">
       <slot />
     </main>
-    <script is:inline>
-      function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        const label = document.getElementById('theme-label');
-        if (label) label.textContent = theme === 'dark' ? 'light' : 'dark';
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.getElementById('theme-toggle');
-        const label = document.getElementById('theme-label');
-        const current = document.documentElement.getAttribute('data-theme') || 'light';
-        if (label) label.textContent = current === 'dark' ? 'light' : 'dark';
-
-        toggle?.addEventListener('click', () => {
-          const current = document.documentElement.getAttribute('data-theme');
-          setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-      });
-    </script>
   </body>
 </html>
