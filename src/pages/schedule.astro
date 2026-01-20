@@ -3,27 +3,32 @@ import LayoutMinimal from "../layouts/LayoutMinimal.astro";
 
 const meetings = [
   {
-    title: "15 Min Meeting",
+    id: "15",
+    title: "15 minutes",
     description: "Quick intro or follow-up",
-    duration: "15m",
+    minutes: 15,
     url: "https://cal.com/ryan-eberhard-6jsjkn/15min",
   },
   {
-    title: "30 Min Meeting",
+    id: "30",
+    title: "30 minutes",
     description: "Discovery call or focused discussion",
-    duration: "30m",
+    minutes: 30,
     url: "https://cal.com/ryan-eberhard-6jsjkn/30min",
+    default: true,
   },
   {
-    title: "45 Min Meeting",
+    id: "45",
+    title: "45 minutes",
     description: "Deep dive on a specific topic",
-    duration: "45m",
+    minutes: 45,
     url: "https://cal.com/ryan-eberhard-6jsjkn/45-min-meeting",
   },
   {
-    title: "60 Min Meeting",
-    description: "Comprehensive working session",
-    duration: "60m",
+    id: "60",
+    title: "60 minutes",
+    description: "Working session",
+    minutes: 60,
     url: "https://cal.com/ryan-eberhard-6jsjkn/60-min-meeting",
   },
 ];
@@ -50,23 +55,36 @@ const meetings = [
     </nav>
   </header>
 
-  <section class="section">
-    <h2 class="section__title">Schedule</h2>
-    <p class="section__intro">
-      Pick a time that works. All times shown in your local timezone.
-    </p>
+  <section class="schedule">
+    <h2 class="schedule__title">Book a call</h2>
+    <p class="schedule__intro">Select a duration</p>
 
-    {meetings.map((meeting) => (
-      <article class="item">
-        <h3 class="item__title">
-          <a href={meeting.url} target="_blank" rel="noopener noreferrer">
-            {meeting.title}
-          </a>
-        </h3>
-        <p class="item__meta">{meeting.duration}</p>
-        <p class="item__body">{meeting.description}</p>
-      </article>
-    ))}
+    <div class="options" role="radiogroup" aria-label="Meeting duration">
+      {meetings.map((meeting) => (
+        <button
+          type="button"
+          class={`option ${meeting.default ? 'option--default' : ''}`}
+          data-id={meeting.id}
+          data-url={meeting.url}
+          data-title={meeting.title}
+          data-minutes={meeting.minutes}
+          role="radio"
+          aria-checked={meeting.default ? "true" : "false"}
+        >
+          <div class="option__content">
+            <span class="option__title">{meeting.title}</span>
+            <span class="option__desc">{meeting.description}</span>
+          </div>
+          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 100}%`}></div>
+        </button>
+      ))}
+    </div>
+
+    <div class="action" id="action-area">
+      <a href="#" id="book-btn" class="book-btn" target="_blank" rel="noopener noreferrer">
+        Book <span id="selected-duration">30 minutes</span> →
+      </a>
+    </div>
   </section>
 
   <footer class="footer">
@@ -77,53 +95,181 @@ const meetings = [
 </LayoutMinimal>
 
 <style>
-  .section__title {
-    font-size: 1.125rem;
+  .schedule__title {
+    font-size: 1.5rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin: 0 0 1em 0;
-  }
-
-  .section__intro {
-    color: var(--text-secondary);
-    margin-bottom: 2em;
-  }
-
-  .item {
-    margin-bottom: 2em;
-  }
-
-  .item:last-child {
-    margin-bottom: 0;
-  }
-
-  .item__title {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
     margin: 0 0 0.25em 0;
   }
 
-  .item__title a {
-    color: var(--text);
-    text-decoration: none;
+  .schedule__intro {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    margin: 0 0 1.5em 0;
   }
 
-  .item__title a:hover {
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.15s ease;
+    position: relative;
+  }
+
+  .option:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .option:hover {
+    background: rgba(212, 165, 154, 0.04);
+  }
+
+  .option:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  .option[aria-checked="true"] {
+    background: rgba(212, 165, 154, 0.08);
+  }
+
+  .option[aria-checked="true"] .option__title {
     color: var(--accent);
   }
 
-  .item__meta {
-    font-size: var(--font-size-small);
-    color: var(--dim);
-    font-style: italic;
-    margin: 0 0 0.5em 0;
+  .option[aria-checked="true"] .option__bar {
+    background: var(--accent);
   }
 
-  .item__body {
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.7;
+  .option__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+  }
+
+  .option__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text);
+    transition: color 0.15s ease;
+  }
+
+  .option__desc {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+  }
+
+  .option__bar {
+    width: 48px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.15s ease;
+  }
+
+  .option__bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--bar-width);
+    background: var(--dim);
+    border-radius: 2px;
+    transition: background 0.15s ease;
+  }
+
+  .option[aria-checked="true"] .option__bar::after {
+    background: var(--accent);
+  }
+
+  .action {
+    margin-top: 2em;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .action.hidden {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+  }
+
+  .book-btn {
+    display: inline-block;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.75em 0;
+    transition: color 0.15s ease;
+  }
+
+  .book-btn:hover {
+    color: var(--accent-hover);
+  }
+
+  @media (max-width: 600px) {
+    .option {
+      padding: 1.25em 0;
+    }
+
+    .option__bar {
+      width: 36px;
+    }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const options = document.querySelectorAll('.option');
+    const bookBtn = document.getElementById('book-btn');
+    const selectedDuration = document.getElementById('selected-duration');
+    const actionArea = document.getElementById('action-area');
+
+    // Initialize with default selection
+    const defaultOption = document.querySelector('.option--default');
+    if (defaultOption) {
+      selectOption(defaultOption);
+    }
+
+    options.forEach(option => {
+      option.addEventListener('click', () => {
+        selectOption(option);
+      });
+    });
+
+    function selectOption(option) {
+      // Update aria states
+      options.forEach(o => o.setAttribute('aria-checked', 'false'));
+      option.setAttribute('aria-checked', 'true');
+
+      // Update button
+      const url = option.dataset.url;
+      const title = option.dataset.title;
+
+      bookBtn.href = url;
+      selectedDuration.textContent = title;
+
+      // Show action area
+      actionArea.classList.remove('hidden');
+    }
+  });
+</script>
