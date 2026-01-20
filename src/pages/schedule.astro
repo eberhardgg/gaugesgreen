@@ -50,23 +50,23 @@ const meetings = [
     </nav>
   </header>
 
-  <section class="schedule">
-    <h1 class="schedule__title">Book a Call</h1>
-    <p class="schedule__intro">
+  <section class="section">
+    <h2 class="section__title">Schedule</h2>
+    <p class="section__intro">
       Pick a time that works. All times shown in your local timezone.
     </p>
 
-    <div class="meetings">
-      {meetings.map((meeting) => (
-        <a href={meeting.url} target="_blank" rel="noopener noreferrer" class="meeting">
-          <div class="meeting__info">
-            <h2 class="meeting__title">{meeting.title}</h2>
-            <p class="meeting__desc">{meeting.description}</p>
-          </div>
-          <span class="meeting__duration">{meeting.duration}</span>
-        </a>
-      ))}
-    </div>
+    {meetings.map((meeting) => (
+      <article class="item">
+        <h3 class="item__title">
+          <a href={meeting.url} target="_blank" rel="noopener noreferrer">
+            {meeting.title}
+          </a>
+        </h3>
+        <p class="item__meta">{meeting.duration}</p>
+        <p class="item__body">{meeting.description}</p>
+      </article>
+    ))}
   </section>
 
   <footer class="footer">
@@ -77,66 +77,53 @@ const meetings = [
 </LayoutMinimal>
 
 <style>
-  .schedule__title {
-    font-size: 1.5rem;
+  .section__title {
+    font-size: 1.125rem;
     font-weight: 600;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.5em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 1em 0;
   }
 
-  .schedule__intro {
+  .section__intro {
     color: var(--text-secondary);
     margin-bottom: 2em;
   }
 
-  .meetings {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+  .item {
+    margin-bottom: 2em;
   }
 
-  .meeting {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25em 1.5em;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: border-color 0.15s, background 0.15s;
+  .item:last-child {
+    margin-bottom: 0;
   }
 
-  .meeting:hover {
-    border-color: var(--accent);
-    background: var(--border);
-  }
-
-  .meeting__info {
-    flex: 1;
-  }
-
-  .meeting__title {
+  .item__title {
     font-size: var(--font-size-base);
     font-weight: 600;
     letter-spacing: -0.01em;
-    color: var(--text);
     margin: 0 0 0.25em 0;
-    text-transform: none;
   }
 
-  .meeting__desc {
+  .item__title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .item__title a:hover {
+    color: var(--accent);
+  }
+
+  .item__meta {
     font-size: var(--font-size-small);
     color: var(--dim);
-    margin: 0;
+    font-style: italic;
+    margin: 0 0 0.5em 0;
   }
 
-  .meeting__duration {
-    font-size: var(--font-size-small);
-    font-weight: 600;
-    color: var(--accent);
-    padding: 0.35em 0.75em;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-left: 1em;
+  .item__body {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.7;
   }
 </style>
