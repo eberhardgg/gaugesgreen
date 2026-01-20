@@ -11,25 +11,22 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Inter", "system-ui", "sans-serif"],
-                serif: ["Source Serif Pro", "Georgia", "serif"],
-                mono: ["JetBrains Mono", "monospace"],
+                sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+            },
+            fontSize: {
+                // Fluid typography scale
+                'display': ['clamp(2.5rem, 2rem + 2vw, 3.5rem)', { lineHeight: '1.1', fontWeight: '600' }],
+                'headline': ['clamp(1.5rem, 1.25rem + 1vw, 2rem)', { lineHeight: '1.2', fontWeight: '600' }],
+                'body': ['1.125rem', { lineHeight: '1.6' }],
+                'small': ['0.875rem', { lineHeight: '1.5' }],
             },
             maxWidth: {
-                prose: "38rem", // ~608px, optimal reading width
+                prose: "38rem", // 608px, optimal reading width
             },
             spacing: {
                 '18': '4.5rem',
                 '22': '5.5rem',
-            },
-            animation: {
-                "fade-in-up": "fadeInUp 0.5s ease-out forwards",
-            },
-            keyframes: {
-                fadeInUp: {
-                    "0%": { opacity: "0", transform: "translateY(20px)" },
-                    "100%": { opacity: "1", transform: "translateY(0)" },
-                },
+                '24': '6rem',
             },
         },
     },

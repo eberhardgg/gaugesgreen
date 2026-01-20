@@ -1,0 +1,264 @@
+---
+import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+import { ENGAGEMENT_MODEL } from "../config";
+---
+
+<LayoutMinimal title="Services | Ryan Eberhard" description="Fractional Product & Growth Leadership for venture-backed companies">
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
+    </div>
+    <nav class="header__nav">
+      <a href="/">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/services" class="active">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
+
+  <!-- What You Get -->
+  <section class="section">
+    <h2 class="section__title">What You Get</h2>
+
+    <article class="item">
+      <h3 class="item__title">Growth Diagnosis</h3>
+      <p class="item__body">
+        Features ship but revenue doesn't respond. You'll know why within two weeks.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">Team Assessment</h3>
+      <p class="item__body">
+        Clear evaluation of who's in the right seat and who isn't. Sometimes the answer is "stop hiring"—define the problem before the role.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">Shipping Infrastructure</h3>
+      <p class="item__body">
+        Early access tiers, AI-automated release checklists, 48-hour default-to-ship review gates. Velocity that sustains.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">Hands-On Execution</h3>
+      <p class="item__body">
+        I ship code alongside your engineers. PRs, not presentations.
+      </p>
+    </article>
+  </section>
+
+  <hr />
+
+  <!-- How It Works -->
+  <section class="section">
+    <h2 class="section__title">How It Works</h2>
+    <p class="section__meta">{ENGAGEMENT_MODEL.duration} · {ENGAGEMENT_MODEL.commitment}</p>
+
+    <div class="timeline">
+      <article class="timeline__phase">
+        <div class="timeline__marker">1</div>
+        <div class="timeline__content">
+          <h3 class="item__title">Discovery</h3>
+          <p class="timeline__duration">Week 1</p>
+          <p class="item__body">Deep dive into metrics, team, and blockers. I talk to your team, review your data, and map the landscape.</p>
+        </div>
+      </article>
+
+      <article class="timeline__phase">
+        <div class="timeline__marker">2</div>
+        <div class="timeline__content">
+          <h3 class="item__title">Diagnosis</h3>
+          <p class="timeline__duration">Week 2</p>
+          <p class="item__body">Root cause analysis and opportunity mapping. You'll get a clear picture of what's broken and what to fix first.</p>
+        </div>
+      </article>
+
+      <article class="timeline__phase">
+        <div class="timeline__marker">3</div>
+        <div class="timeline__content">
+          <h3 class="item__title">Execution</h3>
+          <p class="timeline__duration">Weeks 3–12</p>
+          <p class="item__body">Hands-on implementation with your team. I ship alongside your engineers, not from a deck.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- Who It's For -->
+  <section class="section">
+    <h2 class="section__title">Who It's For</h2>
+
+    <article class="item">
+      <h3 class="item__title">Series A-C Startups</h3>
+      <p class="item__body">
+        $2-10M ARR. Post-PMF but 2-3 quarters into the raise and the board is asking why growth isn't responding.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">LatAm Founders Entering US</h3>
+      <p class="item__body">
+        Expanding to the US market and need GTM guidance from someone who operates in both.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">Marketplaces & EdTech</h3>
+      <p class="item__body">
+        Two-sided platforms with supply/demand imbalance. These are the models I know cold.
+      </p>
+    </article>
+  </section>
+
+  <hr />
+
+  <!-- CTA -->
+  <section class="section">
+    <h2 class="section__title">Let's Talk</h2>
+    <p class="item__body">
+      30 minutes. Whether you want a diagnostic or just want to explore fit, I'd like to hear what you're working on.
+    </p>
+    <p class="cta">
+      <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">Schedule a call</a>
+    </p>
+  </section>
+
+  <hr />
+
+  <!-- Office Hours -->
+  <section class="section">
+    <h2 class="section__title">CDMX Office Hours</h2>
+    <p class="item__body">
+      Monthly open session for LatAm founders. No pitch, just conversation about product, growth, and entering the US market.
+    </p>
+    <p class="item__note">Dates announced on LinkedIn</p>
+  </section>
+
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+  </footer>
+</LayoutMinimal>
+
+<style>
+  /* Sections with generous spacing */
+  .section {
+    margin: 0;
+  }
+
+  .section__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 1em 0;
+  }
+
+  .section__meta {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    font-style: italic;
+    margin: -0.5em 0 1.5em 0;
+  }
+
+  /* Items within sections */
+  .item {
+    margin-bottom: 2em;
+  }
+
+  .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .item__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5em 0;
+  }
+
+  .item__body {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .item__note {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    font-style: italic;
+    margin: 1em 0 0 0;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  .timeline__phase {
+    display: flex;
+    gap: 1.5em;
+  }
+
+  .timeline__marker {
+    flex-shrink: 0;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+  }
+
+  .timeline__content {
+    flex: 1;
+  }
+
+  .timeline__content .item__title {
+    margin: 0 0 0.25em 0;
+  }
+
+  .timeline__duration {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    font-style: italic;
+    margin: 0 0 0.75em 0;
+  }
+
+  /* CTA */
+  .cta {
+    margin: 1.5em 0 0 0;
+  }
+
+  .cta a {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* Whitespace between sections */
+  hr {
+    margin: 2.5em 0;
+  }
+</style>

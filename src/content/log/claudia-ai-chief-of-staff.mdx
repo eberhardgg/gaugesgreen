@@ -1,0 +1,192 @@
+---
+title: "Claudia: Building an AI Chief of Staff That Knows When to Shut Up"
+titleEs: "Claudia: Construyendo un Jefe de Personal IA Que Sabe Cuándo Callarse"
+description: "What if your todo app actually knew when to bother you—and when to stay quiet? How I built an intelligent productivity system with proactive AI check-ins, CLI, Siri, and native iOS."
+descriptionEs: "¿Y si tu app de tareas supiera cuándo molestarte—y cuándo quedarse callada? Cómo construí un sistema de productividad inteligente con check-ins proactivos de IA, CLI, Siri e iOS nativo."
+date: 2026-01-20
+tags: ["shipping", "ai", "ios", "claude-code", "productivity", "tools"]
+draft: true
+---
+
+{/* OUTLINE - Expand into full post */}
+
+## Hook
+
+What if your todo app actually knew when to bother you—and when to stay quiet?
+
+Most productivity apps treat you like a machine: rigid reminders, dumb notifications, endless pings. Claudia is different. She's an AI Chief of Staff who understands context, respects your time, and only reaches out when it genuinely matters.
+
+---
+
+## The Problem with Traditional Task Management
+
+- Rule-based notifications are annoying (8 AM reminder whether you need it or not)
+- Todo apps don't understand *why* a task matters
+- No concept of "right time" to nudge
+- Context switching kills productivity
+- Most apps help you track more things, not do more things
+
+---
+
+## What Makes Claudia Different
+
+### 1. Intelligent Chief of Staff Check-ins
+
+Unlike rule-based systems, Claudia uses Claude to decide IF and WHAT to say:
+
+- Evaluates your full context: goals, schedule, recent completions, missed blocks
+- Asks itself: "Would a thoughtful human chief of staff text about this right now?"
+- Knows when to stay quiet (this is the hard part)
+- Messages feel like texts from a friend, not robotic notifications
+
+**Good reasons to reach out:**
+- Important task sitting unscheduled for days
+- Time block just missed, could be rescheduled
+- No ONE THING set for an active goal in the morning
+- Celebrating a meaningful completion
+
+**Bad reasons (stays quiet):**
+- Just to "check in" with nothing specific
+- User is clearly in a flow state
+- Already messaged about the same thing
+
+### 2. The ONE THING Philosophy
+
+Inspired by Gary Keller's book. For each goal, identify the single most important task—your ONE THING—and protect it.
+
+- Morning briefing helps identify your ONE THING
+- Visual hierarchy: ONE THING > Next > Later
+- AI helps you stay honest about what really matters
+
+### 3. Goals & Roles Framework
+
+Two dimensions of organization:
+- **Goals**: What you're building toward (launch the product, learn Spanish)
+- **Roles**: Who you need to be (founder, parent, friend)
+
+Tasks belong to goals OR roles, never floating in limbo.
+
+### 4. Time Blocking That Actually Works
+
+- Named time blocks (Deep Work, Admin, Creative)
+- Drag tasks onto your calendar
+- Pre-block reminders, starting notifications, follow-ups
+- Missed block detection with gentle rescheduling prompts
+
+---
+
+## Multi-Surface Experience
+
+### iOS App (SwiftUI + SwiftData)
+
+Native iOS app with:
+- Full offline support via SwiftData
+- Real-time sync with Supabase
+- Push notifications via APNs
+- Beautiful native UI
+
+### Web App (Next.js)
+
+Full-featured web interface:
+- Drag-and-drop task management
+- Day planner view
+- Goal and role management
+- Claudia chat interface
+
+### CLI Interface
+
+For terminal lovers:
+
+```bash
+claudia list              # List all tasks
+claudia list one-thing    # Show your ONE THINGs
+claudia add "Write blog post" -p one-thing -g launch
+claudia complete abc123
+claudia goals             # List goals
+claudia onething          # Show/set ONE THING
+```
+
+Partial IDs work (first 8 chars). Direct Supabase access, no intermediate server.
+
+### Siri Integration
+
+Voice-first task capture:
+- "Add a task to Claudia"
+- "Create a task in Claudia"
+
+Quick capture without breaking flow.
+
+---
+
+## Technical Architecture
+
+### Stack
+- **iOS**: SwiftUI + SwiftData + APNs
+- **Web**: Next.js 15 + React 19 + Tailwind
+- **Backend**: Supabase (Postgres + Auth + Realtime + Edge Functions)
+- **AI**: Claude API (Anthropic)
+
+### The Agent-Think Pattern
+
+Every 30 minutes, a Supabase Edge Function:
+1. Builds rich context for each user (goals, tasks, schedule, recent activity)
+2. Sends context to Claude with Chief of Staff system prompt
+3. Claude decides whether to reach out and what to say
+4. If yes, queues a push notification
+
+This is the key insight: **AI decides the "if", not just the "what"**.
+
+### Notification Queue Architecture
+
+Three cron jobs working together:
+- `agent-think` (every 30 min): AI decides proactive nudges
+- `time-block-reminders` (every min): Pre-block, starting, missed notifications
+- `send-push` (every min): Processes notification queue via APNs
+
+---
+
+## Lessons Learned
+
+### 1. The hardest part is knowing when NOT to notify
+
+Easy to build a system that pings you constantly. Hard to build one that respects your attention.
+
+### 2. Context is everything
+
+A notification about a missed time block at 9 AM is helpful. The same notification at 11 PM is annoying. Claudia knows the difference.
+
+### 3. Native apps still matter
+
+For something you check 20+ times a day, web apps feel sluggish. SwiftUI + SwiftData delivers the snappy experience productivity apps need.
+
+### 4. CLI is underrated
+
+Terminal users are power users. A good CLI removes friction for your most engaged users.
+
+---
+
+## What's Next
+
+- Daily review feature (end-of-day reflection)
+- Pattern recognition (you always miss morning blocks on Mondays)
+- Calendar integration (Google Calendar sync)
+- Apple Watch complications
+
+---
+
+## Try It
+
+{/* Add links when ready */}
+- TestFlight: [link]
+- Web: claudia.gaugesgreen.com
+
+---
+
+{/* NOTES FOR EXPANSION */}
+{/*
+- Include screenshots of iOS app, web app, CLI output
+- Code snippets showing the agent-think pattern
+- Before/after: typical todo app notifications vs Claudia's intelligent nudges
+- Metrics: how many notifications avoided by AI deciding to stay quiet
+- Link to Ambiente post for cross-reference on Siri integration
+*/}

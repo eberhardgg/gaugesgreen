@@ -1,63 +1,146 @@
 # Gauges Green Design System
 
+Inspired by McKenzie (clarity), Zhuo (editorial), van Schneider (polish).
+
+## Core Principles
+
+1. **No decorative elements** — No cards, no borders, no shadows, no icons
+2. **Typography is the design** — Hierarchy through size and weight alone
+3. **Generous whitespace** — Let content breathe
+4. **High contrast** — Dark on light, light on dark, nothing in between
+
 ## Typography Scale
 
-**Principle: Minimal type sizes. Use weight and color for hierarchy, not size.**
+Using fluid typography with clamp() for responsive scaling without breakpoints.
 
-| Level | Class | Usage |
-|-------|-------|-------|
-| **Page title** | `text-3xl font-semibold` | One per page. The main heading. |
-| **Section heading** | `text-xl font-semibold` | Section titles like "How It Works" |
-| **Body / Card titles** | `text-base` (default) | All body copy. Use `font-semibold` for card titles. |
-| **Meta / Small** | `text-sm` | Dates, captions, secondary info, links |
+| Level | Class | Size Range | Usage |
+|-------|-------|------------|-------|
+| **Display** | `text-display` | 2.5rem → 3.5rem | Name/hero only |
+| **Headline** | `text-headline` | 1.5rem → 2rem | Section titles |
+| **Body** | `text-body` | 1.125rem | All body copy |
+| **Small** | `text-sm` | 0.875rem | Meta, dates, captions |
 
-### Rules
+### Font Stack
+- **Body**: Inter, system-ui, sans-serif
+- **Fallback**: System fonts for fast load
 
-1. **Never use arbitrary sizes** - no `text-lg`, `text-2xl`, `text-4xl`, `text-[15px]`
-2. **Card titles are body size** - differentiate with `font-semibold`, not larger text
-3. **Use color for hierarchy** - `text-gray-900` for primary, `text-gray-600` for body, `text-gray-500` for meta
-4. **Responsive sizes are forbidden** - no `md:text-xl` patterns. Size is constant.
+### Line Height
+- Display/Headlines: 1.1
+- Body: 1.6
+- Small: 1.5
 
 ## Colors
 
+Minimal palette. High contrast only.
+
 ```
-Primary text:    text-gray-900 dark:text-white
-Body text:       text-gray-600 dark:text-gray-400
-Meta text:       text-gray-500 dark:text-gray-500
-Accent:          text-primary (green)
+Light mode:
+  Background:  white
+  Text:        #111 (near black)
+  Muted:       #666 (secondary text)
+  Accent:      #16a34a (green-600, used sparingly)
+  Divider:     #e5e5e5
+
+Dark mode:
+  Background:  #0a0a0a
+  Text:        #fafafa
+  Muted:       #a1a1a1
+  Accent:      #22c55e (green-500)
+  Divider:     #262626
 ```
 
 ## Spacing
 
-- Container: `max-w-2xl mx-auto px-6 md:px-8`
-- Section padding: `py-12`
-- Card padding: `p-6`
-- Card stack gap: `space-y-4`
+Vertical rhythm based on 1.5rem (24px) baseline.
 
-## Cards
+| Element | Spacing |
+|---------|---------|
+| Section gap | 6rem (96px) |
+| Paragraph gap | 1.5rem (24px) |
+| List item gap | 0.75rem (12px) |
+| Page top padding | 4rem (64px) |
+| Page bottom padding | 6rem (96px) |
 
-All content cards use the same structure:
+## Layout
 
+- **Max width**: 38rem (608px) for optimal reading
+- **Page padding**: 1.5rem on mobile, 2rem on desktop
+- **No grid** — Single column, always
+
+## Containers
+
+**None.** No cards, no boxes, no borders around content.
+
+Use horizontal rules (`<hr>`) sparingly to separate major sections:
 ```html
-<div class="p-6 border border-gray-200 dark:border-gray-800">
-  <p class="font-semibold text-gray-900 dark:text-white mb-2">Title</p>
-  <p class="text-base text-gray-600 dark:text-gray-400">Description</p>
-</div>
+<hr class="my-24 border-t border-gray-200 dark:border-gray-800" />
 ```
 
 ## Buttons
 
-Primary button:
+One style only. Minimal.
+
 ```html
-<a class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900">
+<a class="inline-block text-body font-medium text-green-600 dark:text-green-500 hover:underline">
+  Book a call →
+</a>
 ```
 
-Secondary/outline button:
+For primary CTA (rare):
 ```html
-<a class="inline-flex items-center justify-center px-5 py-2 text-sm font-medium border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
+<a class="inline-block px-6 py-3 text-sm font-medium bg-gray-900 dark:bg-white text-white dark:text-gray-900">
+  Book a call
+</a>
 ```
 
-Text link:
+## Links
+
 ```html
-<a class="text-sm text-primary hover:underline">Link →</a>
+<a class="text-green-600 dark:text-green-500 hover:underline">Link text</a>
+```
+
+## Lists
+
+Simple, no bullets for navigation/feature lists:
+```html
+<ul class="space-y-3">
+  <li>Item one</li>
+  <li>Item two</li>
+</ul>
+```
+
+## What NOT to Use
+
+- Card borders
+- Background colors on containers
+- Icons (except navigation)
+- Shadows
+- Rounded corners
+- Decorative dividers
+- Multiple columns on content
+- Images (except profile photo)
+
+## Page Structure
+
+```
+[Nav - minimal, right-aligned links]
+
+[Hero]
+  Display: Name
+  Body: One-line tagline
+  Body: One paragraph proof
+  Link: CTA
+
+<hr>
+
+[Section]
+  Headline: Title
+  Body: Content as prose or simple list
+
+<hr>
+
+[Section]
+  ...
+
+[Footer - minimal]
 ```

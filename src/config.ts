@@ -191,7 +191,7 @@ export const TRANSFORMATIONS = [
 
 export const NAV_LINKS = [
     { href: "/", key: "nav_home", label: "Home" },
-    { href: "/advisory", key: "nav_advisory", label: "Advisory" },
+    { href: "/services", key: "nav_services", label: "Services" },
     { href: "/experience", key: "nav_experience", label: "Experience" },
     { href: "/log", key: "nav_log", label: "Log" },
     { href: "/about", key: "nav_about", label: "About" },

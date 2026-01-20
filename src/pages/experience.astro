@@ -19,7 +19,7 @@ const caseStudies = (await getCollection("portfolio"))
       <span class="header__nav-sep">·</span>
       <a href="/experience" class="active">experience</a>
       <span class="header__nav-sep">·</span>
-      <a href="/advisory">services</a>
+      <a href="/services">services</a>
       <span class="header__nav-sep">·</span>
       <a href="/log">writing</a>
       <span class="header__nav-sep">·</span>
@@ -27,26 +27,23 @@ const caseStudies = (await getCollection("portfolio"))
     </nav>
   </header>
 
-  <h1>Experience</h1>
-  <p class="intro">
-    A track record of building products that scale and fixing ones that stalled.
-  </p>
 
-  <hr />
-
-  {caseStudies.map((study) => (
-    <div class="entry">
-      <p>
-        <strong>{study.data.company}</strong><br />
-        {study.data.role}, {study.data.period}
-      </p>
-      <p class="intro">
-        {study.data.challenge}
-      </p>
-      <p>
-        <strong>{study.data.heroMetric}</strong> {study.data.heroMetricLabel.toLowerCase()}
-      </p>
-    </div>
+  {caseStudies.map((study, index) => (
+    <>
+      <article class="role">
+        <header class="role__header">
+          <h2 class="role__company">{study.data.company}</h2>
+          <p class="role__meta">{study.data.role} · {study.data.period}</p>
+        </header>
+        <p class="role__situation">{study.data.challenge}</p>
+        <p class="role__outcome">{study.data.outcome}</p>
+        <p class="role__metric">
+          <span class="metric__value">{study.data.heroMetric}</span>
+          <span class="metric__label">{study.data.heroMetricLabel.toLowerCase()}</span>
+        </p>
+      </article>
+      {index < caseStudies.length - 1 && <hr />}
+    </>
   ))}
 
   <footer class="footer">
@@ -57,3 +54,72 @@ const caseStudies = (await getCollection("portfolio"))
     <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
   </footer>
 </LayoutMinimal>
+
+<style>
+  /* Entry blocks with generous breathing room */
+  .role {
+    margin: 0;
+  }
+
+  /* Company name anchors each entry */
+  .role__header {
+    margin-bottom: 1.75em;
+  }
+
+  .role__company {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 0.5em 0;
+  }
+
+  /* Role and dates - meta text style */
+  .role__meta {
+    font-size: var(--font-size-small);
+    margin: 0;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--dim);
+  }
+
+  /* Situation: the "before" state */
+  .role__situation {
+    font-size: var(--font-size-small);
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  /* Outcome: the transformation - full visual weight */
+  .role__outcome {
+    margin-bottom: 2em;
+    line-height: 1.7;
+  }
+
+  /* Metric: the proof point - demands attention */
+  .role__metric {
+    margin: 0;
+    padding-top: 0.5em;
+  }
+
+  .metric__value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    line-height: 1.1;
+    color: var(--accent);
+  }
+
+  .metric__label {
+    display: block;
+    font-size: var(--font-size-small);
+    margin-top: 0.25em;
+    font-style: italic;
+    color: var(--dim);
+  }
+
+  /* Generous whitespace between entries */
+  hr {
+    margin: 4em 0;
+  }
+</style>
