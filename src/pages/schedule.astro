@@ -75,7 +75,7 @@ const meetings = [
             <span class="option__title">{meeting.title}</span>
             <span class="option__desc">{meeting.description}</span>
           </div>
-          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 100}%`}></div>
+          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
         </button>
       ))}
     </div>
@@ -126,7 +126,7 @@ const meetings = [
     cursor: pointer;
     text-align: left;
     font-family: inherit;
-    transition: background 0.15s ease;
+    transition: background 0.15s ease, transform 0.15s ease;
     position: relative;
   }
 
@@ -135,7 +135,18 @@ const meetings = [
   }
 
   .option:hover {
-    background: rgba(212, 165, 154, 0.04);
+    background: rgba(212, 165, 154, 0.12);
+    transform: translateX(4px);
+  }
+
+  .option:hover .option__title {
+    color: var(--accent);
+  }
+
+  .option:hover .option__bar {
+    background: var(--accent);
+    transform: scaleX(1.1);
+    transform-origin: right;
   }
 
   .option:focus-visible {
@@ -174,28 +185,14 @@ const meetings = [
   }
 
   .option__bar {
-    width: 48px;
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.15s ease;
-  }
-
-  .option__bar::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
     width: var(--bar-width);
+    height: 4px;
     background: var(--dim);
     border-radius: 2px;
-    transition: background 0.15s ease;
+    transition: background 0.15s ease, transform 0.15s ease;
   }
 
-  .option[aria-checked="true"] .option__bar::after {
+  .option[aria-checked="true"] .option__bar {
     background: var(--accent);
   }
 
@@ -229,10 +226,6 @@ const meetings = [
   @media (max-width: 600px) {
     .option {
       padding: 1.25em 0;
-    }
-
-    .option__bar {
-      width: 36px;
     }
   }
 </style>
