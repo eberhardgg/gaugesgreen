@@ -35,7 +35,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
     <script is:inline>
       (function() {
         const stored = localStorage.getItem('theme');
-        const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const theme = stored || 'dark';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>

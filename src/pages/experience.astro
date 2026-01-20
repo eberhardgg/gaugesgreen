@@ -36,16 +36,16 @@ const caseStudies = (await getCollection("portfolio"))
 
   {caseStudies.map((study) => (
     <div class="entry">
-      <div class="entry__header">
-        <span class="entry__title">{study.data.company}</span>
-        <span class="entry__meta">{study.data.period}</span>
-      </div>
-      <div class="entry__subtitle">{study.data.role}</div>
-      <p class="entry__body">{study.data.challenge}</p>
-      <div class="entry__stat">
-        <span class="entry__stat-value">{study.data.heroMetric}</span>
-        <span class="entry__stat-label">{study.data.heroMetricLabel}</span>
-      </div>
+      <p>
+        <strong>{study.data.company}</strong><br />
+        {study.data.role}, {study.data.period}
+      </p>
+      <p class="intro">
+        {study.data.challenge}
+      </p>
+      <p>
+        <strong>{study.data.heroMetric}</strong> {study.data.heroMetricLabel.toLowerCase()}
+      </p>
     </div>
   ))}
 
