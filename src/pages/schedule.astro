@@ -1,0 +1,142 @@
+---
+import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+
+const meetings = [
+  {
+    title: "15 Min Meeting",
+    description: "Quick intro or follow-up",
+    duration: "15m",
+    url: "https://cal.com/ryan-eberhard-6jsjkn/15min",
+  },
+  {
+    title: "30 Min Meeting",
+    description: "Discovery call or focused discussion",
+    duration: "30m",
+    url: "https://cal.com/ryan-eberhard-6jsjkn/30min",
+  },
+  {
+    title: "45 Min Meeting",
+    description: "Deep dive on a specific topic",
+    duration: "45m",
+    url: "https://cal.com/ryan-eberhard-6jsjkn/45-min-meeting",
+  },
+  {
+    title: "60 Min Meeting",
+    description: "Comprehensive working session",
+    duration: "60m",
+    url: "https://cal.com/ryan-eberhard-6jsjkn/60-min-meeting",
+  },
+];
+---
+
+<LayoutMinimal title="Schedule | Ryan Eberhard" description="Book time with Ryan Eberhard">
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
+    </div>
+    <nav class="header__nav">
+      <a href="/">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/services">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
+
+  <section class="schedule">
+    <h1 class="schedule__title">Book a Call</h1>
+    <p class="schedule__intro">
+      Pick a time that works. All times shown in your local timezone.
+    </p>
+
+    <div class="meetings">
+      {meetings.map((meeting) => (
+        <a href={meeting.url} target="_blank" rel="noopener noreferrer" class="meeting">
+          <div class="meeting__info">
+            <h2 class="meeting__title">{meeting.title}</h2>
+            <p class="meeting__desc">{meeting.description}</p>
+          </div>
+          <span class="meeting__duration">{meeting.duration}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+  </footer>
+</LayoutMinimal>
+
+<style>
+  .schedule__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5em;
+  }
+
+  .schedule__intro {
+    color: var(--text-secondary);
+    margin-bottom: 2em;
+  }
+
+  .meetings {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .meeting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25em 1.5em;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .meeting:hover {
+    border-color: var(--accent);
+    background: var(--border);
+  }
+
+  .meeting__info {
+    flex: 1;
+  }
+
+  .meeting__title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0 0 0.25em 0;
+    text-transform: none;
+  }
+
+  .meeting__desc {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    margin: 0;
+  }
+
+  .meeting__duration {
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    color: var(--accent);
+    padding: 0.35em 0.75em;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-left: 1em;
+  }
+</style>
