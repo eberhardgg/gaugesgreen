@@ -67,11 +67,11 @@ const meetings = [
           rel="noopener noreferrer"
           class="option"
         >
-          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
           <div class="option__content">
             <span class="option__title">{meeting.title} →</span>
             <span class="option__desc">{meeting.description}</span>
           </div>
+          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
         </a>
       ))}
     </div>
@@ -107,7 +107,7 @@ const meetings = [
   .option {
     display: flex;
     align-items: center;
-    gap: 1em;
+    justify-content: space-between;
     width: 100%;
     padding: 1em 0;
     background: transparent;
@@ -132,7 +132,7 @@ const meetings = [
   .option:hover .option__bar {
     background: var(--accent);
     transform: scaleX(1.15);
-    transform-origin: left;
+    transform-origin: right;
   }
 
   .option:focus-visible {
