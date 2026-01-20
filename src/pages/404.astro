@@ -1,0 +1,85 @@
+---
+import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+---
+
+<LayoutMinimal title="404 | Gauges Green" description="Page not found">
+  <header class="header">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Ryan Eberhard</a>
+      <button class="dark-toggle" id="theme-toggle">
+        [<span id="theme-label">dark</span>]
+      </button>
+    </div>
+    <nav class="header__nav">
+      <a href="/">home</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/experience">experience</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/services">services</a>
+      <span class="header__nav-sep">·</span>
+      <a href="/log">writing</a>
+      <span class="header__nav-sep">·</span>
+      <a href="mailto:eberhard@gaugesgreen.com">contact</a>
+    </nav>
+  </header>
+
+  <section class="error">
+    <h1 class="error__title">Mayday, mayday, mayday</h1>
+    <p class="error__body">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <p class="error__code">404</p>
+    <p class="error__nav">
+      <a href="/">Return to base</a>
+    </p>
+  </section>
+
+  <footer class="footer">
+    <a href="mailto:eberhard@gaugesgreen.com">email</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+  </footer>
+</LayoutMinimal>
+
+<style>
+  .error {
+    text-align: center;
+    padding: 4em 0;
+  }
+
+  .error__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75em;
+  }
+
+  .error__body {
+    color: var(--text-secondary);
+    margin-bottom: 2em;
+  }
+
+  .error__code {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.075em;
+    color: var(--accent);
+    margin-bottom: 1.5em;
+  }
+
+  .error__nav {
+    margin: 0;
+  }
+
+  .error__nav a {
+    font-size: var(--font-size-small);
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  .error__nav a:hover {
+    color: var(--text);
+  }
+</style>
