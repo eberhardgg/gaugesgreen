@@ -19,7 +19,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-g-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-g-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,6 +105,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       }
 
       .header__logo {
+        display: flex;
+        align-items: baseline;
+        gap: 0.4em;
         font-size: 1.5rem;
         font-weight: 600;
         letter-spacing: -0.03em;
@@ -111,6 +116,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       }
 
       .header__logo:hover { color: var(--accent); }
+      .header__logo:hover .header__mark { opacity: 0.8; }
+
+      .header__mark {
+        width: 0.9em;
+        height: 0.9em;
+        flex-shrink: 0;
+        position: relative;
+        top: 0.05em;
+      }
 
       .header__nav { font-size: var(--font-size-small); }
 
@@ -236,7 +250,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         .main-content { padding: 2rem 1.5rem; }
         .header { margin-bottom: 1.5rem; padding-bottom: 1.5rem; }
         .header__inner { margin-bottom: 1rem; }
-        .header__logo { font-size: 1.25rem; }
+        .header__logo { font-size: 1.25rem; gap: 0.35em; }
+        .header__mark { width: 0.85em; height: 0.85em; }
         .header__nav { font-size: var(--font-size-small); line-height: 1.8; }
         .header__nav-sep { margin: 0 4px; }
         .headshot { width: 120px; height: 120px; margin: 0 0 1em 0; }
