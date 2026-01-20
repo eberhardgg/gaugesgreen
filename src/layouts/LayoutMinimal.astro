@@ -164,15 +164,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       }
 
       /* Home */
-      .home-intro { overflow: hidden; }
+      .home-intro { }
 
       .headshot {
-        float: left;
-        width: 120px;
-        height: 120px;
+        display: block;
+        width: 160px;
+        height: 160px;
         object-fit: cover;
-        margin: 0 28px 16px 0;
-        border-radius: 8px;
+        margin: 0 0 1.5em 0;
       }
 
       /* Footer */
@@ -275,7 +274,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         .header__logo { font-size: 1rem; }
         .header__nav { font-size: var(--font-size-small); line-height: 1.8; }
         .header__nav-sep { margin: 0 4px; }
-        .headshot { width: 80px; height: 80px; margin: 0 20px 12px 0; }
+        .headshot { width: 120px; height: 120px; margin: 0 0 1em 0; }
         .footer { margin-top: 2.5rem; padding-top: 1.5rem; }
       }
     </style>
