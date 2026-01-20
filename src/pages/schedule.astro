@@ -59,31 +59,21 @@ const meetings = [
     <h2 class="schedule__title">Book a call</h2>
     <p class="schedule__intro">Select a duration</p>
 
-    <div class="options" role="radiogroup" aria-label="Meeting duration">
+    <div class="options">
       {meetings.map((meeting) => (
-        <button
-          type="button"
-          class={`option ${meeting.default ? 'option--default' : ''}`}
-          data-id={meeting.id}
-          data-url={meeting.url}
-          data-title={meeting.title}
-          data-minutes={meeting.minutes}
-          role="radio"
-          aria-checked={meeting.default ? "true" : "false"}
+        <a
+          href={meeting.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="option"
         >
+          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
           <div class="option__content">
-            <span class="option__title">{meeting.title}</span>
+            <span class="option__title">{meeting.title} →</span>
             <span class="option__desc">{meeting.description}</span>
           </div>
-          <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
-        </button>
+        </a>
       ))}
-    </div>
-
-    <div class="action" id="action-area">
-      <a href="#" id="book-btn" class="book-btn" target="_blank" rel="noopener noreferrer">
-        Book <span id="selected-duration">30 minutes</span> →
-      </a>
     </div>
   </section>
 
@@ -117,17 +107,13 @@ const meetings = [
   .option {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1em;
     width: 100%;
     padding: 1em 0;
     background: transparent;
-    border: none;
     border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
+    text-decoration: none;
     transition: background 0.15s ease, transform 0.15s ease;
-    position: relative;
   }
 
   .option:first-child {
@@ -145,8 +131,8 @@ const meetings = [
 
   .option:hover .option__bar {
     background: var(--accent);
-    transform: scaleX(1.1);
-    transform-origin: right;
+    transform: scaleX(1.15);
+    transform-origin: left;
   }
 
   .option:focus-visible {
@@ -154,16 +140,13 @@ const meetings = [
     outline-offset: -2px;
   }
 
-  .option[aria-checked="true"] {
-    background: rgba(212, 165, 154, 0.08);
-  }
-
-  .option[aria-checked="true"] .option__title {
-    color: var(--accent);
-  }
-
-  .option[aria-checked="true"] .option__bar {
-    background: var(--accent);
+  .option__bar {
+    flex-shrink: 0;
+    width: var(--bar-width);
+    height: 4px;
+    background: var(--dim);
+    border-radius: 2px;
+    transition: background 0.15s ease, transform 0.15s ease;
   }
 
   .option__content {
@@ -184,85 +167,9 @@ const meetings = [
     color: var(--dim);
   }
 
-  .option__bar {
-    width: var(--bar-width);
-    height: 4px;
-    background: var(--dim);
-    border-radius: 2px;
-    transition: background 0.15s ease, transform 0.15s ease;
-  }
-
-  .option[aria-checked="true"] .option__bar {
-    background: var(--accent);
-  }
-
-  .action {
-    margin-top: 2em;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .action.hidden {
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-  }
-
-  .book-btn {
-    display: inline-block;
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--accent);
-    text-decoration: none;
-    padding: 0.75em 0;
-    transition: color 0.15s ease;
-  }
-
-  .book-btn:hover {
-    color: var(--accent-hover);
-  }
-
   @media (max-width: 600px) {
     .option {
       padding: 1.25em 0;
     }
   }
 </style>
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const options = document.querySelectorAll('.option');
-    const bookBtn = document.getElementById('book-btn');
-    const selectedDuration = document.getElementById('selected-duration');
-    const actionArea = document.getElementById('action-area');
-
-    // Initialize with default selection
-    const defaultOption = document.querySelector('.option--default');
-    if (defaultOption) {
-      selectOption(defaultOption);
-    }
-
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        selectOption(option);
-      });
-    });
-
-    function selectOption(option) {
-      // Update aria states
-      options.forEach(o => o.setAttribute('aria-checked', 'false'));
-      option.setAttribute('aria-checked', 'true');
-
-      // Update button
-      const url = option.dataset.url;
-      const title = option.dataset.title;
-
-      bookBtn.href = url;
-      selectedDuration.textContent = title;
-
-      // Show action area
-      actionArea.classList.remove('hidden');
-    }
-  });
-</script>
