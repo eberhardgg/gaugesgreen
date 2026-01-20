@@ -1,5 +1,6 @@
 ---
 import LayoutMinimal from "../../layouts/LayoutMinimal.astro";
+import IntroModal from "../../components/IntroModal.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -61,7 +62,7 @@ function formatDate(date: Date) {
     I'm always happy to chat about product, growth, or what I'm building.
   </p>
   <p>
-    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">Book a call →</a>
+    <a href="/schedule">Book a call →</a>
   </p>
 
   <footer class="footer">
@@ -69,6 +70,25 @@ function formatDate(date: Date) {
     <span class="header__nav-sep">·</span>
     <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
     <span class="header__nav-sep">·</span>
-    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+    <a href="/schedule">book a call</a>
+    <span class="header__nav-sep">·</span>
+    <button class="intro-trigger footer-btn">make intro</button>
   </footer>
+
+  <IntroModal />
 </LayoutMinimal>
+
+<style>
+  .footer-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0;
+  }
+  .footer-btn:hover {
+    color: var(--text);
+  }
+</style>

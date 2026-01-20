@@ -1,5 +1,6 @@
 ---
 import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+import IntroModal from "../components/IntroModal.astro";
 import { ENGAGEMENT_MODEL } from "../config";
 ---
 
@@ -131,7 +132,7 @@ import { ENGAGEMENT_MODEL } from "../config";
       30 minutes. Whether you want a diagnostic or just want to explore fit, I'd like to hear what you're working on.
     </p>
     <p class="cta">
-      <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">Schedule a call</a>
+      <a href="/schedule">Schedule a call</a>
     </p>
   </section>
 
@@ -151,8 +152,12 @@ import { ENGAGEMENT_MODEL } from "../config";
     <span class="header__nav-sep">·</span>
     <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
     <span class="header__nav-sep">·</span>
-    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+    <a href="/schedule">book a call</a>
+    <span class="header__nav-sep">·</span>
+    <button class="intro-trigger footer-btn">make intro</button>
   </footer>
+
+  <IntroModal />
 </LayoutMinimal>
 
 <style>
@@ -260,5 +265,18 @@ import { ENGAGEMENT_MODEL } from "../config";
   /* Whitespace between sections */
   hr {
     margin: 2.5em 0;
+  }
+
+  .footer-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0;
+  }
+  .footer-btn:hover {
+    color: var(--text);
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+import IntroModal from "../components/IntroModal.astro";
 
 const meetings = [
   {
@@ -76,7 +77,11 @@ const meetings = [
     <a href="mailto:eberhard@gaugesgreen.com">email</a>
     <span class="header__nav-sep">·</span>
     <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <span class="header__nav-sep">·</span>
+    <button class="intro-trigger footer-btn">make intro</button>
   </footer>
+
+  <IntroModal />
 </LayoutMinimal>
 
 <style>
@@ -170,5 +175,18 @@ const meetings = [
     .option {
       padding: 1.25em 0;
     }
+  }
+
+  .footer-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0;
+  }
+  .footer-btn:hover {
+    color: var(--text);
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import LayoutMinimal from "../layouts/LayoutMinimal.astro";
+import IntroModal from "../components/IntroModal.astro";
 ---
 
 <LayoutMinimal title="Ryan Eberhard" description="Fractional product & growth leadership for venture-backed startups">
@@ -35,7 +36,7 @@ import LayoutMinimal from "../layouts/LayoutMinimal.astro";
       I work in 4-12 week sprints. I ship code with your engineers, not decks to your board. Usually I can tell you what's broken within two weeks.
     </p>
     <p>
-      I'm in Mexico City. If your company is doing the work but the metrics aren't moving, <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">let's talk</a>.
+      I'm in Mexico City. If your company is doing the work but the metrics aren't moving, <a href="/schedule">let's talk</a>.
     </p>
   </div>
 
@@ -44,6 +45,25 @@ import LayoutMinimal from "../layouts/LayoutMinimal.astro";
     <span class="header__nav-sep">·</span>
     <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
     <span class="header__nav-sep">·</span>
-    <a href="https://cal.com/ryan-eberhard-6jsjkn/30min" target="_blank" rel="noopener noreferrer">book a call</a>
+    <a href="/schedule">book a call</a>
+    <span class="header__nav-sep">·</span>
+    <button class="intro-trigger footer-btn">make intro</button>
   </footer>
+
+  <IntroModal />
 </LayoutMinimal>
+
+<style>
+  .footer-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--dim);
+    cursor: pointer;
+    padding: 0;
+  }
+  .footer-btn:hover {
+    color: var(--text);
+  }
+</style>
