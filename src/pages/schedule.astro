@@ -80,6 +80,11 @@ const meetings = [
 </LayoutMinimal>
 
 <style>
+  .schedule {
+    --brg: #004225;
+    --brg-light: #1a6b42;
+  }
+
   .schedule__title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -125,7 +130,7 @@ const meetings = [
   }
 
   .option:hover .option__bar {
-    background: var(--accent);
+    background: var(--brg-light);
     transform: scaleX(1.15);
     transform-origin: right;
   }
@@ -139,7 +144,7 @@ const meetings = [
     flex-shrink: 0;
     width: var(--bar-width);
     height: 4px;
-    background: var(--dim);
+    background: var(--brg);
     border-radius: 2px;
     transition: background 0.15s ease, transform 0.15s ease;
   }
