@@ -4,30 +4,25 @@ import LayoutMinimal from "../layouts/LayoutMinimal.astro";
 const meetings = [
   {
     id: "15",
-    title: "15 minutes",
-    description: "Quick intro or follow-up",
+    title: "Quick question",
     minutes: 15,
     url: "https://cal.com/ryan-eberhard-6jsjkn/15min",
   },
   {
     id: "30",
-    title: "30 minutes",
-    description: "Discovery call or focused discussion",
+    title: "Introduction or catch-up",
     minutes: 30,
     url: "https://cal.com/ryan-eberhard-6jsjkn/30min",
-    default: true,
   },
   {
     id: "45",
-    title: "45 minutes",
-    description: "Deep dive on a specific topic",
+    title: "Focused discussion",
     minutes: 45,
     url: "https://cal.com/ryan-eberhard-6jsjkn/45-min-meeting",
   },
   {
     id: "60",
-    title: "60 minutes",
-    description: "Working session",
+    title: "IRL or working session",
     minutes: 60,
     url: "https://cal.com/ryan-eberhard-6jsjkn/60-min-meeting",
   },
@@ -69,7 +64,7 @@ const meetings = [
         >
           <div class="option__content">
             <span class="option__title">{meeting.title} →</span>
-            <span class="option__desc">{meeting.description}</span>
+            <span class="option__desc">{meeting.minutes} min</span>
           </div>
           <div class="option__bar" style={`--bar-width: ${(meeting.minutes / 60) * 96}px`}></div>
         </a>
