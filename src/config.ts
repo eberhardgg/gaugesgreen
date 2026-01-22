@@ -69,7 +69,7 @@ export const EXPERIENCE = [
         role: "Chief Product Officer",
         startDate: "2014",
         endDate: "2021",
-        description: "Series A to NYSE IPO, $100M → $900M revenue. Shipped the #1-rated job seeker app (held for 8 years), ML matching that cut time-to-hire from 39 to 16 days, and Invite to Apply—which 2.5x'd candidate flow per posting.",
+        description: "Series A to NYSE IPO, $100M → $900M revenue. Built the marketplace that served 110M job seekers and 2.8M employers. Shipped AI matching that delivered quality candidates to 80% of employers within 24 hours. Invite to Apply drove 2.5x candidate flow; recipients were 3x more likely to get hired.",
     },
     {
         id: "murad",

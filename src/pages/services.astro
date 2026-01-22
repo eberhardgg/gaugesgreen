@@ -1,7 +1,5 @@
 ---
 import LayoutMinimal from "../layouts/LayoutMinimal.astro";
-import IntroModal from "../components/IntroModal.astro";
-import { ENGAGEMENT_MODEL } from "../config";
 ---
 
 <LayoutMinimal title="Services | Ryan Eberhard" description="Fractional Product & Growth Leadership for venture-backed companies">
@@ -22,6 +20,15 @@ import { ENGAGEMENT_MODEL } from "../config";
     </nav>
   </header>
 
+  <!-- Intro -->
+  <section class="section intro">
+    <p class="item__body">
+      I work with venture-backed startups when growth has stalled and the board is asking why. I start with a short diagnostic to find what's broken, then embed with your team to fix it.
+    </p>
+  </section>
+
+  <hr />
+
   <!-- What You Get -->
   <section class="section">
     <h2 class="section__title">What You Get</h2>
@@ -34,23 +41,26 @@ import { ENGAGEMENT_MODEL } from "../config";
     </article>
 
     <article class="item">
+      <h3 class="item__title">Near-Term Impact</h3>
+      <p class="item__body">
+        A 30/60/90 plan with specific bets, owners, and success criteria. Not a strategy deck—a shipping manifest.
+      </p>
+    </article>
+
+    <article class="item">
+      <h3 class="item__title">Hands-On Shipping</h3>
+      <p class="item__body">
+        I ship code alongside your engineers. PRs, not presentations.
+      </p>
+      <p class="item__note">
+        At ZipRecruiter, I led the team that built AI matching—80% of employers got quality candidates within 24 hours, processing billions of signals across 110M job seekers.
+      </p>
+    </article>
+
+    <article class="item">
       <h3 class="item__title">Team Assessment</h3>
       <p class="item__body">
         Clear evaluation of who's in the right seat and who isn't. Sometimes the answer is "stop hiring"—define the problem before the role.
-      </p>
-    </article>
-
-    <article class="item">
-      <h3 class="item__title">Shipping Infrastructure</h3>
-      <p class="item__body">
-        Early access tiers, AI-automated release checklists, 48-hour default-to-ship review gates. Velocity that sustains.
-      </p>
-    </article>
-
-    <article class="item">
-      <h3 class="item__title">Hands-On Execution</h3>
-      <p class="item__body">
-        I ship code alongside your engineers. PRs, not presentations.
       </p>
     </article>
   </section>
@@ -60,33 +70,23 @@ import { ENGAGEMENT_MODEL } from "../config";
   <!-- How It Works -->
   <section class="section">
     <h2 class="section__title">How It Works</h2>
-    <p class="section__meta">{ENGAGEMENT_MODEL.duration} · {ENGAGEMENT_MODEL.commitment}</p>
 
     <div class="timeline">
       <article class="timeline__phase">
         <div class="timeline__marker">1</div>
         <div class="timeline__content">
-          <h3 class="item__title">Discovery</h3>
-          <p class="timeline__duration">Week 1</p>
-          <p class="item__body">Deep dive into metrics, team, and blockers. I talk to your team, review your data, and map the landscape.</p>
+          <h3 class="item__title">Diagnostic</h3>
+          <p class="timeline__duration">2–4 weeks</p>
+          <p class="item__body">Deep dive into metrics, team, and blockers. You'll get a clear picture of what's broken, what's fixable, and what to do first.</p>
         </div>
       </article>
 
       <article class="timeline__phase">
         <div class="timeline__marker">2</div>
         <div class="timeline__content">
-          <h3 class="item__title">Diagnosis</h3>
-          <p class="timeline__duration">Week 2</p>
-          <p class="item__body">Root cause analysis and opportunity mapping. You'll get a clear picture of what's broken and what to fix first.</p>
-        </div>
-      </article>
-
-      <article class="timeline__phase">
-        <div class="timeline__marker">3</div>
-        <div class="timeline__content">
-          <h3 class="item__title">Execution</h3>
-          <p class="timeline__duration">Weeks 3–12</p>
-          <p class="item__body">Hands-on implementation with your team. I ship alongside your engineers, not from a deck.</p>
+          <h3 class="item__title">Transformational Engagement</h3>
+          <p class="timeline__duration">1–12 months</p>
+          <p class="item__body">If there's a fit, I embed for a quarter and ship what actually moves the needle. Hands-on with your team, not advising from afar.</p>
         </div>
       </article>
     </div>
@@ -106,6 +106,13 @@ import { ENGAGEMENT_MODEL } from "../config";
     </article>
 
     <article class="item">
+      <h3 class="item__title">Teams That Aren't Shipping</h3>
+      <p class="item__body">
+        Engineers are busy, sprints are full, but nothing moves the metrics. I help you find out why and fix it.
+      </p>
+    </article>
+
+    <article class="item">
       <h3 class="item__title">LatAm Founders Entering US</h3>
       <p class="item__body">
         Expanding to the US market and need GTM guidance from someone who operates in both.
@@ -113,9 +120,9 @@ import { ENGAGEMENT_MODEL } from "../config";
     </article>
 
     <article class="item">
-      <h3 class="item__title">Marketplaces & EdTech</h3>
+      <h3 class="item__title">Marketplace Businesses</h3>
       <p class="item__body">
-        Two-sided platforms with supply/demand imbalance. These are the models I know cold.
+        Two-sided platforms with supply/demand imbalance. I scaled ZipRecruiter's marketplace to 110M job seekers and 2.8M employers—these are the models I know cold.
       </p>
     </article>
   </section>
@@ -133,28 +140,13 @@ import { ENGAGEMENT_MODEL } from "../config";
     </p>
   </section>
 
-  <hr />
-
-  <!-- Office Hours -->
-  <section class="section">
-    <h2 class="section__title">CDMX Office Hours</h2>
-    <p class="item__body">
-      Monthly open session for LatAm founders. No pitch, just conversation about product, growth, and entering the US market.
-    </p>
-    <p class="item__note">Dates announced on LinkedIn</p>
-  </section>
-
   <footer class="footer">
     <a href="mailto:eberhard@gaugesgreen.com">email</a>
     <span class="header__nav-sep">·</span>
     <a href="https://linkedin.com/in/eberhard" target="_blank" rel="noopener noreferrer">linkedin</a>
     <span class="header__nav-sep">·</span>
     <a href="/schedule">book a call</a>
-    <span class="header__nav-sep">·</span>
-    <button class="intro-trigger footer-btn">make intro</button>
   </footer>
-
-  <IntroModal />
 </LayoutMinimal>
 
 <style>
@@ -169,13 +161,6 @@ import { ENGAGEMENT_MODEL } from "../config";
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin: 0 0 1em 0;
-  }
-
-  .section__meta {
-    font-size: var(--font-size-small);
-    color: var(--dim);
-    font-style: italic;
-    margin: -0.5em 0 1.5em 0;
   }
 
   /* Items within sections */
@@ -262,18 +247,5 @@ import { ENGAGEMENT_MODEL } from "../config";
   /* Whitespace between sections */
   hr {
     margin: 2.5em 0;
-  }
-
-  .footer-btn {
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: inherit;
-    color: var(--dim);
-    cursor: pointer;
-    padding: 0;
-  }
-  .footer-btn:hover {
-    color: var(--text);
   }
 </style>
